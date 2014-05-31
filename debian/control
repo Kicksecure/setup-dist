@@ -1,0 +1,29 @@
+## This file is part of Whonix.
+## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+Source: whonixsetup
+Section: misc
+Priority: optional
+Maintainer: Patrick Schleizer <adrelanos@riseup.net>
+Build-Depends: debhelper (>= 8), faketime, git
+Homepage: https://github.com/Whonix/whonixsetup
+Vcs-Browser: https://github.com/Whonix/whonixsetup
+Vcs-Git: https://github.com/Whonix/whonixsetup.git
+Standards-Version: 3.9.4
+
+Package: whonixsetup
+Architecture: all
+Depends: anon-gw-base-files | anon-ws-base-files, anon-shared-helper-scripts,
+ msgcollector, ${misc:Depends}
+Recommends: whonix-repository, anon-icon-pack
+Description: First Time Connection Setup
+ When Whonix starts for the first time, it won't automatically connect to the
+ public Tor network. This is useful for users who want to hide Tor from their
+ ISP. whonixsetup is automatically started, which educates about different
+ methods to connect (public Tor network, bridges, etc.).
+ .
+ Also automatically starts the Whonix Repository Tool (if installed), so the
+ user can decide whether to use Whonix's Repository and if yes, choose which
+ one.
+
