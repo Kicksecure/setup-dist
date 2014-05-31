@@ -26,4 +26,3 @@ Description: First Time Connection Setup
  Also automatically starts the Whonix Repository Tool (if installed), so the
  user can decide whether to use Whonix's Repository and if yes, choose which
  one.
-
