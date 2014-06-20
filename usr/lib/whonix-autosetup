@@ -39,7 +39,7 @@ if [ -f "/usr/share/anon-ws-base-files/workstation" ]; then
    fi
 fi
 
-source /usr/lib/whonixcheck/17_check_tor_enabled
+source /usr/lib/anon-shared-helper-scripts/tor_enabled_check
 
 ## Check if Tor is enabled.
 ## sets: TOR_ENABLED
