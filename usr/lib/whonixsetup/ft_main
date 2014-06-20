@@ -26,10 +26,7 @@ trap "error_handler" ERR
 ## Provides process_killer_helper function.
 source /usr/lib/whonixcheck/process_killer_helper
 
-source /usr/lib/whonixcheck/10_preparation
-get_local_whonix_version
-
-MENU_TITLE="whonixsetup - Connection Wizard ($whonix_deb_package_version)"
+MENU_TITLE="whonixsetup - Connection Wizard"
 
 MENU_TEXT="Before we let Tor connect, we need to know about your Internet connection.
 
