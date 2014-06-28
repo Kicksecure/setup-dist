@@ -4,11 +4,14 @@
 ## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
-## Using this script and not directly using /etc/profile.d/40_setup.sh
-## because /etc/profile.d/30_setup.sh gets sourced, so return would have to
-## be used and exit would not be available (without stopping /etc/profile to
-## source the /etc/profile.d/. Using this script has also the advantage, that
-## /bin/bash's features can be used.
+## Gets started by /etc/profile.d/30_setup.sh.
+
+## Using this script and not directly using /etc/profile.d/30_setup.sh,
+## because /etc/profile.d/30_setup.sh gets sourced, not executed, by
+## /etc/profile. We would have to use "return". "exit" would not be
+## available (without stopping /etc/profile to source the rest of the
+## /etc/profile.d folder). Using this script has also the advantage,
+## that /bin/bash's features can be used.
 
 #set -x
 set -o pipefail
