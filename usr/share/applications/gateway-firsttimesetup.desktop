@@ -5,7 +5,7 @@
 [Desktop Entry]
 Type=Application
 Terminal=true
-Exec=/usr/lib/whonix-firsttimesetup
+Exec=/usr/lib/_whonixsetup_
 Name=Connection Wizard
 GenericName=whonixsetup - Connection Wizard
 Comment=whonixsetup - Connection Wizard
