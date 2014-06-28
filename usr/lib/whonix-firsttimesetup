@@ -7,8 +7,9 @@
 set -x
 
 maximize_window() {
-   ## The "p" is not there for some reason.
-   title="whonix-firstti"
+   ## Needs to be a short title. For example "whonix-autosetup" is one char too
+   ## long, while "whonixsetup" works.
+   title="$(basename "$0")"
    if [ ! -f /usr/lib/msgcollector/msgwmctrl ]; then
       return 0
    fi
