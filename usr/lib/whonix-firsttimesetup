@@ -18,6 +18,8 @@ maximize_window() {
    ## Deactivate eventual trap from msgwmctrl.
    trap "" ERR
    true "INFO: Maximizing window title \"$title\"."
+   sleep 1 &
+   wait "$!"
    wmctrl -b add,maximized_vert,maximized_horz -r "$title"
    true "INFO: Maximized window title \"$title\"."
 }
