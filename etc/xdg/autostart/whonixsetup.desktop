@@ -5,4 +5,4 @@
 [Desktop Entry]
 Type=Application
 Terminal=true
-Exec=/usr/lib/whonix-autosetup
+Exec=/usr/lib/whonixsetup
