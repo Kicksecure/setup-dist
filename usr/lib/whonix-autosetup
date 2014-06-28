@@ -22,6 +22,8 @@ maximize_window() {
    wait "$!"
    wmctrl -b add,maximized_vert,maximized_horz -r "$title"
    true "INFO: Maximized window title \"$title\"."
+   sleep 1 &
+   wait "$!"
 }
 
 if [ -f "/usr/share/anon-ws-base-files/workstation" ]; then
