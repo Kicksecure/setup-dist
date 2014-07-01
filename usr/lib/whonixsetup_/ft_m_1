@@ -50,7 +50,7 @@ fi
 ## Check if Tor was already enabled.
 ## This is to prevent getting ed from failing.
 already_commented_in="0"
-while read LINE; do
+while read -r LINE; do
    if [ "$LINE" = 'DisableNetwork 0' ]; then
       already_commented_in="1"
       dialog --title "whonixsetup - Success!" --msgbox 'Tor networking should already be enabled.

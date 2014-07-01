@@ -66,7 +66,7 @@ fi
 ## This is to prevent getting a /etc/tor/torrc
 ## with ####DisableNetwork 0 if the user chooses
 ## this option multiple times.
-while read LINE; do
+while read -r LINE; do
    if [ "$LINE" = "#DisableNetwork 0" ]; then
       dialog --title "Success!" --msgbox '"DisableNetwork 0" was already commented in /etc/tor/torrc
 
