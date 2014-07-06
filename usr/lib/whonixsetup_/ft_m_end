@@ -29,7 +29,7 @@ fi
 
 if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
    true "INFO: Opening timesync progress bar..."
-    ## When Tor was not enabled when /usr/bin/sdwdate started
+   ## When Tor was not enabled when /usr/bin/sdwdate started
    ## /usr/lib/timesync/timesync_pre then timesync_pre exited without starting a
    ## progress bar (for better look and feel during first start, not needlessly
    ## start the timesync waiting progress bar if Tor has not been enabled yet in
