@@ -11,7 +11,7 @@ set -x
 maximize_window() {
    ## Needs to be a short title. For example "whonix-autosetup" is one char too
    ## long, while "whonixsetup" works.
-   title="$(basename "$0")"
+   title="$(basename "$BASH_SOURCE")"
    if [ ! -f /usr/lib/msgcollector/msgwmctrl ]; then
       return 0
    fi
