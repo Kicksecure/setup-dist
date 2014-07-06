@@ -25,7 +25,7 @@ error_handler() {
 
 trap "error_handler" ERR
 
-SCRIPTNAME="$(basename $BASH_SOURCE)"
+SCRIPTNAME="$(basename "$BASH_SOURCE")"
 
 if [ "$(id -u)" != "0" ]; then
     echo "ERROR: This must be run as root (sudo)!"
