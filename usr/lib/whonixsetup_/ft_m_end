@@ -42,7 +42,7 @@ if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
    ## "sudo -u user" because sdwdate also runs as user "user".
    ##
    ## (Developer comment: When modifying the next line, also consider modifying
-   ##                     /etc/sdwdate.d/30_sdwdate_default.)
+   ##                     /etc/sdwdate.d/31_timesync_plugin.)
    sudo -u user /usr/lib/timesync/timesync_pre --autostart --mode "startup" >/dev/null 2>/dev/null & disown
    ## Wait. Only for the look and feel. Prevent mixing up timesync message with whonixcheck.
    sleep 5 &
