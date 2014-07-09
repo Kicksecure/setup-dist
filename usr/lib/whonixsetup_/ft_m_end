@@ -97,7 +97,7 @@ maybe_start_anon_check() {
       return 0
    fi
    true "INFO: Starting $anon_check_bin..."
-   sudo -u user "$anon_check_bin" || { exit_code="$?" ; true; };
+   sudo -u "$SUDO_USER" "$anon_check_bin" || { exit_code="$?" ; true; };
    true "INFO: End of $anon_check_bin. You can always start $anon_check_bin again with:
     $anon_check_bin"
 }
