@@ -28,37 +28,61 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
-   true "INFO: Opening timesync progress bar..."
-   ## When Tor was not enabled when /usr/bin/sdwdate started
-   ## /usr/lib/timesync/timesync_pre then timesync_pre exited without starting a
-   ## progress bar (for better look and feel during first start, not needlessly
-   ## start the timesync waiting progress bar if Tor has not been enabled yet in
-   ## whonixsetup). Let's catch up on that and let /usr/lib/timesync/timesync_pre
-   ## start the timesync progress bar.
-   ##
-   ## ">/dev/null 2>/dev/null" to hide duplicate `echo`s, because `sdw_pre` will
-   ## use `msgcollector`.
-   ##
-   ## "sudo -u user" because sdwdate also runs as user "user".
-   ##
-   ## (Developer comment: When modifying the next line, also consider modifying
-   ##                     /etc/sdwdate.d/31_timesync_plugin.)
-   sudo -u user /usr/lib/timesync/timesync_pre --autostart --mode "startup" >/dev/null 2>/dev/null & disown
-   ## Wait. Only for the look and feel. Prevent mixing up timesync message with whonixcheck.
-   sleep 5 &
-   wait "$!"
-   true "INFO: Opened timesync progress bar."
-   true "INFO: (This is only of interest when Tor was disabled while Whonix was booted)."
+   timesync_pre="/usr/lib/timesync/timesync_pre"
+   timesync_test_f_exit_code="0"
+   test -f "$timesync_pre" || { timesync_test_f_exit_code="$?" ; true; };
+   if [ -x "$timesync_pre" ]; then
+      true "INFO: Opening timesync progress bar..."
+      ## When Tor was not enabled when /usr/bin/sdwdate started
+      ## /usr/lib/timesync/timesync_pre then timesync_pre exited without starting a
+      ## progress bar (for better look and feel during first start, not needlessly
+      ## start the timesync waiting progress bar if Tor has not been enabled yet in
+      ## whonixsetup). Let's catch up on that and let /usr/lib/timesync/timesync_pre
+      ## start the timesync progress bar.
+      ##
+      ## ">/dev/null 2>/dev/null" to hide duplicate `echo`s, because `sdw_pre` will
+      ## use `msgcollector`.
+      ##
+      ## "sudo -u user" because sdwdate also runs as user "user".
+      ##
+      ## (Developer comment: When modifying the next line, also consider modifying
+      ##                     /etc/sdwdate.d/31_timesync_plugin.)
+      sudo -u user "$timesync_pre" --autostart --mode "startup" >/dev/null 2>/dev/null & disown
+      ## Wait. Only for the look and feel. Prevent mixing up timesync message with whonixcheck.
+      sleep 5 &
+      wait "$!"
+      true "INFO: Opened timesync progress bar."
+      true "INFO: (This is only of interest when Tor was disabled while Whonix was booted)."
+   else
+      if [ "$timesync_test_f_exit_code" = "0" ]; then
+         true "INFO: Skipping opening timesync progress bar, because $timesync_pre is not executable."
+      else
+         true "INFO: Skipping opening timesync progress bar, because timesync progress bar is unavailable."
+      fi
+   fi
 fi
 
-true "INFO: Starting whonixcheck..."
+check_bin="whonixcheck"
+check_bin_command_v_exit_code="0"
+check_bin_path="$(command -v "$check_bin" 2>/dev/null)" || { check_bin_command_v_exit_code="$?" ; true; };
 
-## || true, so in case whonixcheck returns a non-zero exit code, it won't be
-## interpreted as an error in whonixsetup.
 exit_code="0"
-sudo -u user whonixcheck || { exit_code="$?" ; true; };
+if [ -x "$check_bin_path" ]; then
+   true "INFO: Starting $check_bin..."
 
-true "INFO: End of whonixcheck. You can always start whonixcheck again with:
-    whonixcheck"
+   ## || true, so in case whonixcheck returns a non-zero exit code, it won't be
+   ## interpreted as an error in whonixsetup.
+
+   sudo -u user $check_bin || { exit_code="$?" ; true; };
+
+   true "INFO: End of $check_bin. You can always start $check_bin again with:
+    $check_bin"
+else
+   if [ "$check_bin_command_v_exit_code" = "0" ]; then
+      true "INFO: Skipping starting $check_bin, because $check_bin_path is not executable."
+   else
+      true "INFO: Skipping starting $check_bin, because $check_bin is unavailable."
+   fi
+fi
 
 exit "$exit_code"
