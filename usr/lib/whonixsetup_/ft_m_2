@@ -58,7 +58,6 @@ dialog --title "$TITLE" --yesno "$MSG" 640 480 || { exit_code="$?"; true; };
 
 if [ ! "$exit_code" = "0" ]; then
    ## Back to main menu.
-   whonixsetup
    exit 0
 fi
 
