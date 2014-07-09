@@ -60,7 +60,7 @@ maybe_open_timesync_progress_bar() {
       echo "INFO: Skipping opening timesync progress bar, because variable DISPATCH_PRE is empty even after sourcing $timesync_config."
       return 0
    fi
-   echo "INFO: Opening timesync progress bar..."
+   echo "INFO: Opening timesync progress bar... This will take a few seconds..."
    ## When Tor was not enabled when /usr/bin/sdwdate started
    ## /usr/lib/timesync/timesync_pre then timesync_pre exited without starting a
    ## progress bar (for better look and feel during first start, not needlessly
