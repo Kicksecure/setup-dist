@@ -27,56 +27,87 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 fi
 
-if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
-   timesync_pre="/usr/lib/timesync/timesync_pre"
-   timesync_test_f_exit_code="0"
-   test -f "$timesync_pre" || { timesync_test_f_exit_code="$?" ; true; };
-   if [ -x "$timesync_pre" ]; then
-      true "INFO: Opening timesync progress bar..."
-      ## When Tor was not enabled when /usr/bin/sdwdate started
-      ## /usr/lib/timesync/timesync_pre then timesync_pre exited without starting a
-      ## progress bar (for better look and feel during first start, not needlessly
-      ## start the timesync waiting progress bar if Tor has not been enabled yet in
-      ## whonixsetup). Let's catch up on that and let /usr/lib/timesync/timesync_pre
-      ## start the timesync progress bar.
-      ##
-      ## ">/dev/null 2>/dev/null" to hide duplicate `echo`s, because `sdw_pre` will
-      ## use `msgcollector`.
-      ## (Developer comment: When modifying the next line, also consider modifying
-      ##                     /etc/sdwdate.d/31_timesync_plugin.)
-      "$timesync_pre" --autostart --mode "startup" >/dev/null 2>/dev/null & disown
-      ## Wait. Only for the look and feel. Prevent mixing up timesync message with whonixcheck.
-      sleep 5 &
-      wait "$!"
-      true "INFO: Opened timesync progress bar."
-      true "INFO: (This is only of interest when Tor was disabled while Whonix was booted)."
-   else
-      if [ "$timesync_test_f_exit_code" = "0" ]; then
-         true "INFO: Skipping opening timesync progress bar, because $timesync_pre is not executable."
-      else
-         true "INFO: Skipping opening timesync progress bar, because timesync progress bar is unavailable."
-      fi
-   fi
-fi
+maybe_open_timesync_progress_bar() {
+   trap "error_handler" ERR
 
-check_bin="whonixcheck"
-check_bin_command_v_exit_code="0"
-check_bin_path="$(command -v "$check_bin" 2>/dev/null)" || { check_bin_command_v_exit_code="$?" ; true; };
+   timesync_pre="/usr/lib/timesync/timesync_pre"
+   timesync_config="/etc/sdwdate.d/31_timesync_plugin"
+   if [ ! -f "$timesync_pre" ]; then
+      true "INFO: Skipping opening timesync progress bar, because timesync progress bar is unavailable."
+      return 0
+   fi
+   if [ ! -x "$timesync_pre" ]; then
+      true "INFO: Skipping opening timesync progress bar, because $timesync_pre is not executable."
+      return 0
+   fi
+   if [ ! -f "$timesync_config" ]; then
+      true "INFO: Skipping opening timesync progress bar, because timesync config file $timesync_config does not exist."
+      return 0
+   fi
+   timesync_config_bash_n_exit_code="0"
+   bash -n "$timesync_config" || { timesync_config_bash_n_exit_code="$?" ; true; };
+   if [ ! "$timesync_config_bash_n_exit_code" = "0" ]; then
+      true "ERROR: Skipping opening timesync progress bar, because of erroneous timesync config file $timesync_config!"
+      return 0
+   fi
+   timesync_config_source_exit_code="0"
+   source "$timesync_config" || { timesync_config_source_exit_code="$?" ; true; };
+   if [ ! "$timesync_config_source_exit_code" = "0" ]; then
+      true "ERROR: Skipping opening timesync progress bar, because of sourcing $timesync_config failed with exit code $timesync_config_source_exit_code!"
+      return 0
+   fi
+   if [ "$DISPATCH_PRE" = "" ]; then
+      true "INFO: Skipping opening timesync progress bar, because variable DISPATCH_PRE is empty even after sourcing $timesync_config."
+      return 0
+   fi
+   true "INFO: Opening timesync progress bar..."
+   ## When Tor was not enabled when /usr/bin/sdwdate started
+   ## /usr/lib/timesync/timesync_pre then timesync_pre exited without starting a
+   ## progress bar (for better look and feel during first start, not needlessly
+   ## start the timesync waiting progress bar if Tor has not been enabled yet in
+   ## whonixsetup). Let's catch up on that and let /usr/lib/timesync/timesync_pre
+   ## start the timesync progress bar.
+   ##
+   ## SDW_MODE variable is read by $DISPATCH_PRE.
+   SDW_MODE="startup"
+   ## $DISPATCH_PRE is provided by $timesync_config.
+   ## ">/dev/null 2>/dev/null" to hide duplicate `echo`s, because `sdw_pre` will
+   ## use `msgcollector`.
+   eval $DISPATCH_PRE >/dev/null 2>/dev/null & disown
+   ## Wait. Only for the look and feel. Prevent mixing up timesync message with whonixcheck.
+   sleep 5 &
+   wait "$!"
+   true "INFO: Opened timesync progress bar."
+   true "INFO: (This is only of interest when Tor was disabled while Whonix was booted)."
+}
+
+maybe_start_anon_check() {
+   trap "error_handler" ERR
+
+   anon_check_bin="whonixcheck"
+   anon_check_bin_command_v_exit_code="0"
+   anon_check_bin_path="$(command -v "$anon_check_bin" 2>/dev/null)" || { anon_check_bin_command_v_exit_code="$?" ; true; };
+
+   if [ ! "$anon_check_bin_command_v_exit_code" = "0" ]; then
+      true "INFO: Skipping starting $anon_check_bin, because $anon_check_bin is unavailable."
+      return 0
+   fi
+   if [ ! -x "$anon_check_bin_path" ]; then
+      true "INFO: Skipping starting $anon_check_bin, because $anon_check_bin_path is not executable."
+      return 0
+   fi
+   true "INFO: Starting $anon_check_bin..."
+   sudo -u user "$anon_check_bin" || { exit_code="$?" ; true; };
+   true "INFO: End of $anon_check_bin. You can always start $anon_check_bin again with:
+    $anon_check_bin"
+}
+
+if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
+   maybe_open_timesync_progress_bar
+fi
 
 exit_code="0"
-if [ -x "$check_bin_path" ]; then
-   true "INFO: Starting $check_bin..."
 
-   sudo -u user $check_bin || { exit_code="$?" ; true; };
-
-   true "INFO: End of $check_bin. You can always start $check_bin again with:
-    $check_bin"
-else
-   if [ "$check_bin_command_v_exit_code" = "0" ]; then
-      true "INFO: Skipping starting $check_bin, because $check_bin_path is not executable."
-   else
-      true "INFO: Skipping starting $check_bin, because $check_bin is unavailable."
-   fi
-fi
+maybe_start_anon_check
 
 exit "$exit_code"
