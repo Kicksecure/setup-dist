@@ -4,7 +4,7 @@
 ## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
-set -x
+#set -x
 set -o pipefail
 
 error_handler() {
@@ -33,34 +33,34 @@ maybe_open_timesync_progress_bar() {
    timesync_pre="/usr/lib/timesync/timesync_pre"
    timesync_config="/etc/sdwdate.d/31_timesync_plugin"
    if [ ! -f "$timesync_pre" ]; then
-      true "INFO: Skipping opening timesync progress bar, because timesync progress bar is unavailable."
+      echo "INFO: Skipping opening timesync progress bar, because timesync progress bar is unavailable."
       return 0
    fi
    if [ ! -x "$timesync_pre" ]; then
-      true "INFO: Skipping opening timesync progress bar, because $timesync_pre is not executable."
+      echo "INFO: Skipping opening timesync progress bar, because $timesync_pre is not executable."
       return 0
    fi
    if [ ! -f "$timesync_config" ]; then
-      true "INFO: Skipping opening timesync progress bar, because timesync config file $timesync_config does not exist."
+      echo "INFO: Skipping opening timesync progress bar, because timesync config file $timesync_config does not exist."
       return 0
    fi
    timesync_config_bash_n_exit_code="0"
    bash -n "$timesync_config" || { timesync_config_bash_n_exit_code="$?" ; true; };
    if [ ! "$timesync_config_bash_n_exit_code" = "0" ]; then
-      true "ERROR: Skipping opening timesync progress bar, because of erroneous timesync config file $timesync_config!"
+      echo "ERROR: Skipping opening timesync progress bar, because of erroneous timesync config file $timesync_config!"
       return 0
    fi
    timesync_config_source_exit_code="0"
    source "$timesync_config" || { timesync_config_source_exit_code="$?" ; true; };
    if [ ! "$timesync_config_source_exit_code" = "0" ]; then
-      true "ERROR: Skipping opening timesync progress bar, because of sourcing $timesync_config failed with exit code $timesync_config_source_exit_code!"
+      echo "ERROR: Skipping opening timesync progress bar, because of sourcing $timesync_config failed with exit code $timesync_config_source_exit_code!"
       return 0
    fi
    if [ "$DISPATCH_PRE" = "" ]; then
-      true "INFO: Skipping opening timesync progress bar, because variable DISPATCH_PRE is empty even after sourcing $timesync_config."
+      echo "INFO: Skipping opening timesync progress bar, because variable DISPATCH_PRE is empty even after sourcing $timesync_config."
       return 0
    fi
-   true "INFO: Opening timesync progress bar..."
+   echo "INFO: Opening timesync progress bar..."
    ## When Tor was not enabled when /usr/bin/sdwdate started
    ## /usr/lib/timesync/timesync_pre then timesync_pre exited without starting a
    ## progress bar (for better look and feel during first start, not needlessly
@@ -77,8 +77,8 @@ maybe_open_timesync_progress_bar() {
    ## Wait. Only for the look and feel. Prevent mixing up timesync message with whonixcheck.
    sleep 5 &
    wait "$!"
-   true "INFO: Opened timesync progress bar."
-   true "INFO: (This is only of interest when Tor was disabled while Whonix was booted)."
+   echo "INFO: Opened timesync progress bar."
+   echo "INFO: (This is only of interest when Tor was disabled while Whonix was booted)."
 }
 
 maybe_start_anon_check() {
@@ -89,16 +89,16 @@ maybe_start_anon_check() {
    anon_check_bin_path="$(command -v "$anon_check_bin" 2>/dev/null)" || { anon_check_bin_command_v_exit_code="$?" ; true; };
 
    if [ ! "$anon_check_bin_command_v_exit_code" = "0" ]; then
-      true "INFO: Skipping starting $anon_check_bin, because $anon_check_bin is unavailable."
+      echo "INFO: Skipping starting $anon_check_bin, because $anon_check_bin is unavailable."
       return 0
    fi
    if [ ! -x "$anon_check_bin_path" ]; then
-      true "INFO: Skipping starting $anon_check_bin, because $anon_check_bin_path is not executable."
+      echo "INFO: Skipping starting $anon_check_bin, because $anon_check_bin_path is not executable."
       return 0
    fi
-   true "INFO: Starting $anon_check_bin..."
+   echo "INFO: Starting $anon_check_bin..."
    sudo -u "$SUDO_USER" "$anon_check_bin" || { exit_code="$?" ; true; };
-   true "INFO: End of $anon_check_bin. You can always start $anon_check_bin again with:
+   echo "INFO: End of $anon_check_bin. You can always start $anon_check_bin again with:
     $anon_check_bin"
 }
 
