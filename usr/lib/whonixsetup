@@ -52,6 +52,8 @@ maximize_window() {
 
 start_whonixsetup() {
    true "Waiting a few seconds before starting whonixsetup."
+   ## This is required because `dialog`'s text may become unreadable when the
+   ## window was maximized after `dialog` was run.
    sleep 3 &
    wait "$!"
    true "Starting whonixsetup."
