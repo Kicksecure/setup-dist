@@ -8,6 +8,12 @@
 
 set -x
 
+maybe_show_motd() {
+   if [ -f /etc/motd ]; then
+      cat /etc/motd
+   fi
+}
+
 maximize_window() {
    if [ ! -f /usr/lib/msgcollector/msgwmctrl ]; then
       return 0
@@ -44,6 +50,19 @@ maximize_window() {
    wait "$!"
 }
 
+start_whonixsetup() {
+   true "Waiting a few seconds before starting whonixsetup."
+   sleep 3 &
+   wait "$!"
+   true "Starting whonixsetup."
+   sudo whonixsetup
+}
+
+end() {
+   true "INFO: Feel free to close this window."
+   sleep 86400
+}
+
 if [ -f "/usr/share/anon-ws-base-files/workstation" ]; then
    if [ -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
       ## /var/lib/whonix/do_once/whonixsetup.done exists.
@@ -52,11 +71,10 @@ if [ -f "/usr/share/anon-ws-base-files/workstation" ]; then
    else
       ## /var/lib/whonix/do_once/whonixsetup.done does not exist.
       ## whonixsetup not finished yet, continue.
-      cat /etc/motd
+      maybe_show_motd
       maximize_window
-      sudo whonixsetup
-      true "INFO: Feel free to close this window."
-      sleep 86400
+      start_whonixsetup
+      end
       exit 0
    fi
 fi
@@ -68,11 +86,10 @@ source /usr/lib/anon-shared-helper-scripts/tor_enabled_check
 check_tor_enabled_do
 
 if [ "$TOR_ENABLED" = "0" ]; then
-   cat /etc/motd
+   maybe_show_motd
    maximize_window
-   sudo whonixsetup
-   true "INFO: Feel free to close this window."
-   sleep 86400
+   start_whonixsetup
+   end
    exit 0
 fi
 
