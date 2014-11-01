@@ -47,7 +47,7 @@ maximize_window() {
 cat /etc/motd
 
 maximize_window
-sudo whonixsetup
+sudo whonixsetup --x
 
 true "INFO: Feel free to close this window."
 

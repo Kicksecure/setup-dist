@@ -127,7 +127,7 @@ in use."
       wait "$!" || true
 
       ## This has a sudoers exception in /etc/sudoers.d/whonixsetup.
-      sudo whonixsetup
+      sudo whonixsetup --cli
    fi
 }
 

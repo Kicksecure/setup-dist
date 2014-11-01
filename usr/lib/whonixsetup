@@ -57,7 +57,7 @@ start_whonixsetup() {
    sleep 3 &
    wait "$!"
    true "Starting whonixsetup."
-   sudo whonixsetup
+   sudo whonixsetup --x
 }
 
 end() {
