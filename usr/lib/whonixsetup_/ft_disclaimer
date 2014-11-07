@@ -56,10 +56,10 @@ GER: Bitte NICHT weitermachen, falls Sie nicht alles verstehen!
 ENG: The documentation available on Whonix.org is a crash course in anonymity, privacy, and security on the Internet. Whonix is a technological means to anonymity, but staying anonymous is not just a technological problem: No tool is enough to keep you safe. Anonymity is a complex problem without an easy solution, and security is only as strong as its weakest link, often the user. The more you know, the safer you can be.
 GER: Whonix documentation, verfuegbar auf Whonix.org ist ein Krashcours in Anonymitaet und Sicherheit im Internet. Whonix ist ein technologisches Hilfsmittel fue Anonymitaet, jedoch anonym zu bleiben ist nicht nur ein technologisches Problem: Keine software kann alleine leisten sicher zu sein. Anonymitaet ist ein komplexes Problem ohne einfache Loesung und die Sicherheit der Kette ist nur so Stark wie das schwaechste Glied, welches oft der Benutzer ist. Je mehr Sie wissen, desto sicherer koennen sie sein.
 
-ENG: Whonix is a complication of software packages, each under its own license.
+ENG: Whonix is a compilation of software packages, each under its own license.
 GER: Whonix ist eine Zusammenstellung von Softwarepaketen. Jedes unter einer eigenen Lizenz.
 
-ENG: The complication is made available under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ENG: The compilation is made available under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 GER: Die Zusammenstellung ist unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation, Version 3 der Lizenz oder (nach Ihrer Wahl) jeder spaeteren veroeffentlichten Version.
 
 ENG: The distribution terms for each program are described in/usr/share/doc/*/copyright.
