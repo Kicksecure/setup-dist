@@ -4,4 +4,4 @@
 
 ## whonixsetup edits /etc/tor/torrc, therefore needs root.
 ## Feel free to disable it.
-sudo ALL=NOPASSWD: /usr/bin/whonixsetup
+%sudo ALL=NOPASSWD: /usr/bin/whonixsetup *
