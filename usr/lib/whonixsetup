@@ -8,13 +8,13 @@
 
 set -x
 
-maybe_show_motd() {
+motd_show_maybe() {
    if [ -f /etc/motd ]; then
       cat /etc/motd
    fi
 }
 
-maximize_window() {
+maximize_window_maybe() {
    if [ ! -f /usr/lib/msgcollector/msgwmctrl ]; then
       return 0
    fi
@@ -50,7 +50,7 @@ maximize_window() {
    wait "$!"
 }
 
-start_whonixsetup() {
+whonixsetup_start() {
    true "Waiting a few seconds before starting whonixsetup."
    ## This is required because `dialog`'s text may become unreadable when the
    ## window was maximized after `dialog` was run.
@@ -60,7 +60,7 @@ start_whonixsetup() {
    sudo whonixsetup --x
 }
 
-end() {
+whonixsetup_end() {
    true "INFO: Feel free to close this window."
    sleep 86400
 }
@@ -73,10 +73,10 @@ if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
    check_tor_enabled_do
 
    if [ "$TOR_ENABLED" = "0" ]; then
-      maybe_show_motd
-      maximize_window
-      start_whonixsetup
-      end
+      motd_show_maybe
+      maximize_window_maybe
+      whonixsetup_start
+      whonixsetup_end
       exit 0
    fi
 else
@@ -87,10 +87,10 @@ else
    else
       ## /var/lib/whonix/do_once/whonixsetup.done does not exist.
       ## whonixsetup not finished yet, continue.
-      maybe_show_motd
-      maximize_window
-      start_whonixsetup
-      end
+      motd_show_maybe
+      maximize_window_maybe
+      whonixsetup_start
+      whonixsetup_end
       exit 0
    fi
 fi
