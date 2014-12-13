@@ -11,7 +11,7 @@ set -x
 whonixsetup_start_x_version_maybe() {
    if [ -x "/usr/bin/whonix-setup-wizard" ]; then
       true "/usr/bin/whonix-setup-wizard is executable. Starting..."
-      whonix-setup-wizard & disown
+      su-to-root -X -c whonix-setup-wizard & disown
       true "Started. Exiting."
       exit 0
    fi
