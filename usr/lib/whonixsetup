@@ -8,6 +8,16 @@
 
 set -x
 
+whonixsetup_start_x_version_maybe() {
+   if [ -x "/usr/bin/whonix-setup-wizard" ]; then
+      true "/usr/bin/whonix-setup-wizard is executable. Starting..."
+      whonix-setup-wizard & disown
+      true "Started. Exiting."
+      exit 0
+   fi
+   true "/usr/bin/whonix-setup-wizard is not executable or not installed. Maybe falling back to cli version..."
+}
+
 motd_show_maybe() {
    if [ -f /etc/motd ]; then
       cat /etc/motd
@@ -50,7 +60,14 @@ maximize_window_maybe() {
    wait "$!"
 }
 
+whonixsetup_sleep() {
+   true "INFO: Feel free to close this window."
+   sleep 86400
+}
+
 whonixsetup_start_cli_version() {
+   motd_show_maybe
+   maximize_window_maybe
    true "Waiting a few seconds before starting whonixsetup."
    ## This is required because `dialog`'s text may become unreadable when the
    ## window was maximized after `dialog` was run.
@@ -58,11 +75,7 @@ whonixsetup_start_cli_version() {
    wait "$!"
    true "Starting whonixsetup."
    sudo whonixsetup --x
-}
-
-whonixsetup_sleep() {
-   true "INFO: Feel free to close this window."
-   sleep 86400
+   whonixsetup_sleep
 }
 
 if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
@@ -73,10 +86,8 @@ if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
    check_tor_enabled_do
 
    if [ "$TOR_ENABLED" = "0" ]; then
-      motd_show_maybe
-      maximize_window_maybe
+      whonixsetup_start_x_version_maybe
       whonixsetup_start_cli_version
-      whonixsetup_sleep
       exit 0
    fi
 else
@@ -87,10 +98,8 @@ else
    else
       ## /var/lib/whonix/do_once/whonixsetup.done does not exist.
       ## whonixsetup not finished yet, continue.
-      motd_show_maybe
-      maximize_window_maybe
+      whonixsetup_start_x_version_maybe
       whonixsetup_start_cli_version
-      whonixsetup_sleep
       exit 0
    fi
 fi
