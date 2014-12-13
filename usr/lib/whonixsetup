@@ -60,7 +60,7 @@ whonixsetup_start() {
    sudo whonixsetup --x
 }
 
-whonixsetup_end() {
+whonixsetup_sleep() {
    true "INFO: Feel free to close this window."
    sleep 86400
 }
@@ -76,7 +76,7 @@ if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
       motd_show_maybe
       maximize_window_maybe
       whonixsetup_start
-      whonixsetup_end
+      whonixsetup_sleep
       exit 0
    fi
 else
@@ -90,7 +90,7 @@ else
       motd_show_maybe
       maximize_window_maybe
       whonixsetup_start
-      whonixsetup_end
+      whonixsetup_sleep
       exit 0
    fi
 fi
