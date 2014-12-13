@@ -81,18 +81,20 @@ if [ -f "/usr/share/anon-ws-base-files/workstation" ]; then
    fi
 fi
 
-source /usr/lib/anon-shared-helper-scripts/tor_enabled_check
+if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
+   source /usr/lib/anon-shared-helper-scripts/tor_enabled_check
 
-## Check if Tor is enabled.
-## sets: TOR_ENABLED
-check_tor_enabled_do
+   ## Check if Tor is enabled.
+   ## sets: TOR_ENABLED
+   check_tor_enabled_do
 
-if [ "$TOR_ENABLED" = "0" ]; then
-   maybe_show_motd
-   maximize_window
-   start_whonixsetup
-   end
-   exit 0
+   if [ "$TOR_ENABLED" = "0" ]; then
+      maybe_show_motd
+      maximize_window
+      start_whonixsetup
+      end
+      exit 0
+   fi
 fi
 
 exit 0
