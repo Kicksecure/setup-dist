@@ -65,22 +65,6 @@ end() {
    sleep 86400
 }
 
-if [ -f "/usr/share/anon-ws-base-files/workstation" ]; then
-   if [ -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
-      ## /var/lib/whonix/do_once/whonixsetup.done exists.
-      ## whonixsetup already finished earlier, exit.
-      exit 0
-   else
-      ## /var/lib/whonix/do_once/whonixsetup.done does not exist.
-      ## whonixsetup not finished yet, continue.
-      maybe_show_motd
-      maximize_window
-      start_whonixsetup
-      end
-      exit 0
-   fi
-fi
-
 if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
    source /usr/lib/anon-shared-helper-scripts/tor_enabled_check
 
@@ -89,6 +73,20 @@ if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
    check_tor_enabled_do
 
    if [ "$TOR_ENABLED" = "0" ]; then
+      maybe_show_motd
+      maximize_window
+      start_whonixsetup
+      end
+      exit 0
+   fi
+else
+   if [ -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
+      ## /var/lib/whonix/do_once/whonixsetup.done exists.
+      ## whonixsetup already finished earlier, exit.
+      exit 0
+   else
+      ## /var/lib/whonix/do_once/whonixsetup.done does not exist.
+      ## whonixsetup not finished yet, continue.
       maybe_show_motd
       maximize_window
       start_whonixsetup
