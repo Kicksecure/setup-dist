@@ -15,7 +15,7 @@ Standards-Version: 3.9.4
 Package: whonixsetup
 Architecture: all
 Depends: anon-gw-base-files | anon-ws-base-files, anon-shared-helper-scripts,
- msgcollector, dialog, ed, sudo, ${misc:Depends}
+ msgcollector, dialog, ed, sudo, menu, ${misc:Depends}
 Recommends: whonix-repository, anon-icon-pack
 Description: First Time Connection Setup
  When Whonix starts for the first time, it won't automatically connect to the
