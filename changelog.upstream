@@ -1,0 +1,487 @@
+commit 309bb081d1f0d21a300a31affa18b0134f68826a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 4 00:41:02 2015 +0000
+
+    updated makefile generic to version 1.3
+
+commit 9df07fedcd9eaa3e6f91e0db22e64125dfa8e905
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Feb 3 23:59:03 2015 +0000
+
+    Added creation of upstream changelog to debian/rules
+
+commit 371f1a45d951dd5f93a340892e8ad0febe75de46
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 17 22:57:34 2015 +0000
+
+    fixed changelog
+
+commit 3b352f25c53e74feb8ea78ed8bee20ddc677a194
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jan 7 19:35:05 2015 +0000
+
+    bumped compat from 8 to 9
+
+commit 7e75ad1c75cb9164d2485a4ccbb8619e75b34f83
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Jan 1 15:18:28 2015 +0000
+
+    moved /etc/xdg/autostart/whonixsetup.desktop from whonixsetup to whonix-setup-wizard /etc/xdg/autostart/whonix-setup-wizard.desktop
+
+commit bf90b2a9888a87f1b497b416e2958323bea5a475
+Merge: 574b389 0dcd86e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Dec 21 14:02:58 2014 +0000
+
+    Merge remote-tracking branch 'troubadoour/master'
+
+commit 0dcd86eb1ec7822c5237e2254f9c9ec38d4d9332
+Author: troubadoour <trobador@riseup.net>
+Date:   Sun Dec 21 11:44:11 2014 +0000
+
+    etc/xdg/autostart/whonixsetup.desktop -> /usr/lib/whonixsetup_check_for_start
+
+commit 574b389507dcb8b9c6dc29c2dbfc046bc79494a5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Dec 15 00:17:25 2014 +0000
+
+    added x11-xserver-utils to dependencies because it contains /usr/bin/xhost
+
+commit 6be9f1e25cb1a606f6dee9133b9c69b8d5b3d278
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Dec 15 00:12:26 2014 +0000
+
+    allow starting whonix-setup-wizard without entering password, thanks for Dennis for implementation suggestion https://www.whonix.org/forum/index.php/topic,705.msg6035.html#msg6035
+
+commit 152aedc60c2ada6e7e5cdc4cd658507912a4f63b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 13 17:07:31 2014 +0000
+
+    packaging: added "menu" to dependencies, because it contains `su-to-root`
+
+commit 17dcc5c694720e742c316bad3da408856f67d360
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 13 17:05:36 2014 +0000
+
+    fix, use su-to-root to start whonix-setup-wizard
+
+commit 1816e4d6533585f2129b34978eb8c402afaae93b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 13 16:46:53 2014 +0000
+
+    refactoring
+
+commit 703ebd6a9325bd4aad98118dead8a26efb81d933
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 13 16:40:06 2014 +0000
+
+    removed start menu entry and startup script for cli version whonixsetup because x version whonix-setup-wizard will add its own
+
+commit d253d461dde1963cbea9469c8500a84db31e2882
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 13 16:30:10 2014 +0000
+
+    in x, prefer starting the graphical version whonix-setup-wizard, fall back to cli version whonixsetup when graphical version is not available
+
+commit ac3e2f2ff1b9c1a9aa30c22b6a89e1ca315804e3
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 13 16:08:45 2014 +0000
+
+    refactoring
+
+commit e8cc860554fd61ed831665e06c99f041225fa07d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 13 16:07:26 2014 +0000
+
+    reffactoring
+
+commit 74b9544463434192094d5b3ae91905b238c714d0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 13 15:58:15 2014 +0000
+
+    refactoring
+
+commit fddc51a4694c490ade7a97ef3e4cf94a5361445b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 13 15:55:26 2014 +0000
+
+    refactoring
+
+commit 7f87d2d307b6f7a1a08a440ee2c86d99c8735905
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 13 15:51:15 2014 +0000
+
+    refactoring
+
+commit 1982a0165b25b9ff7a0704a0d41c3a4d1cace1e4
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Dec 5 19:01:32 2014 +0000
+
+    updated generic makefile
+
+commit 69a17bf0565ca427c8b970982cfacfc651649a6f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Nov 21 01:26:11 2014 +0000
+
+    fix
+
+commit 8054638c4d7e20fcaf2e671589ab3e5740642030
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Nov 14 19:39:51 2014 +0000
+
+    bumped version number
+
+commit 1b01e79c32791be471afb3f3861faa4cf6bd40bf
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Nov 14 19:39:40 2014 +0000
+
+    more restrictive sudoers settings
+
+commit e6d9cc12f1d23d1f6531ba06800fbf6a67bb2ebc
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Nov 7 18:23:57 2014 +0000
+
+    typo
+
+commit 7cd0a2533f35e636a37ac8e2707da16412fd4c47
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Nov 1 13:16:12 2014 +0000
+
+    let hooks pass to whonixsetup in which mode they are running (--x or --cli)
+
+commit 3195fa253d40800f17e39877af41babe2c3aa9ff
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Nov 1 13:13:38 2014 +0000
+
+    added --cli and --x switch to inform whonixsetup in which environment it was started
+
+commit 410641dba71e22b9f70f8864534cccf77c5f1e7c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Oct 28 22:35:35 2014 +0000
+
+    makefile: refactoring, avoid using IFS
+
+commit 1207b3ce2961c52289c75f031fbcbb0c5f4161ff
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Oct 25 01:58:55 2014 +0000
+
+    makefile:
+    - make debdist; make undebdist
+    - cleanup
+    - refactoring
+
+commit b742836c1341033e528b1b113983c8acdc858f93
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Oct 23 22:43:06 2014 +0000
+
+    makefile:
+    - new target "make undist", which deletes the upstream tarball
+    - $DISTDIR variable for make (un)dist, which defaults to ".." and can be used to create upstream tarballs in arbitrary locations
+    - refactoring, all function names and global variables now start with "make_" to make the script `source`ing friendly
+    - made `source`able
+
+commit 0392b0b2d77cfd014fa9a1d49696c83ace674bb0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Oct 13 12:37:00 2014 +0000
+
+    readme
+
+commit 95cb58bce351a7b6566b720aa3e52c8ddfaa0362
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 18 18:33:42 2014 +0000
+
+    code simplification
+
+commit 722ede51e00e4cd534192bd26747483736f6971c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Sep 5 15:49:38 2014 +0000
+
+    comment
+
+commit 1285d2207bb6c004e77252449d3b5a2ffd13cec3
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Sep 5 15:48:16 2014 +0000
+
+    fix; refactoring
+
+commit ded57c4fa7e1d2adb402f2d0caa2cc828ad9c7dc
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 4 22:52:03 2014 +0000
+
+    output
+
+commit 7d9a4d46a6a3307da378f7774bac099dd52f9f07
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Aug 19 18:52:47 2014 +0000
+
+    makefile: added new feature "make deb-chl-bumpup" - Bump upstream version number in debian/changelog.
+
+commit f026d4c4dc9a48a9dc15ce7467b17dd70420e35b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 17 20:54:29 2014 +0000
+
+    Updated debian/changelog.
+
+commit b32bb230c0590695d1fa4d94d718c6567d708b33
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 17 20:47:32 2014 +0000
+
+    Fixed changelog date.
+
+commit fbd6719614cf2f1b0b0e44cec728aff222742bc1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 17 18:03:34 2014 +0000
+
+    bump version number
+
+commit 4573dcf9388f479fbafd30dbe27a52d44b936122
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Aug 14 13:35:22 2014 +0000
+
+    Implemented make deb-icup: Combination of make deb-pkg, make deb-pkg-install and make deb-pkg-cleanup.
+
+commit e7d04d64e80c7b3dcd4baa0cd885a45ebc017878
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jul 29 19:01:40 2014 +0000
+
+    when whonixsetup is automatically started, support automatically maximizing window in other terminals than konsole
+
+commit 3a569c81e636238b75b690186e1c08cede630a4f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 27 12:42:31 2014 +0000
+
+    packaging
+
+commit c1afc54d4f586b80a771dd2c0ad7bed7feba18ed
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 27 04:01:17 2014 +0000
+
+    packaging
+
+commit e87b22f12a318f3fcd69590d5b2df5349cafa462
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jul 26 15:26:42 2014 +0000
+
+    packaging
+
+commit 12755296232e7f129d2cb7b30325b6914950ba14
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jul 26 15:16:09 2014 +0000
+
+    packaging: removed build dependency on git, since the .git folder won't be included in the upstream tarball.
+
+commit 576ca0585414d849264071d78230cd59a0d5e440
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jul 25 16:36:35 2014 +0000
+
+    add man page during package creation
+
+commit 22a4435833bfe6ec03bae6c9f292d2c9f2ca3aef
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jul 12 17:11:05 2014 +0000
+
+    packaging
+
+commit 917d95834498b2aea6d2658108f84a1fe12d0c28
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jul 12 15:34:22 2014 +0000
+
+    packaging
+
+commit 6002b8fe00ab7bb977418968009c5116bcbdfb10
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 9 13:52:05 2014 +0000
+
+    output
+
+commit 15ad8046b6adfb550d5581fa5945bd7e212df5bb
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 9 13:51:18 2014 +0000
+
+    fix
+
+commit 63ef818395df0b3fa99849cc7d61bc14ea333261
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 9 13:49:40 2014 +0000
+
+    output
+
+commit 4e136c62a8cbde3f926941768cf6ec6d54e7b161
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 9 13:48:05 2014 +0000
+
+    fix
+
+commit 565e98716841c74ac0a6969c1e540b27df3aff39
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 9 13:47:26 2014 +0000
+
+    refactoring
+
+commit ed0f3e536d47b9b1df938775db6dd2f51e1b3bfc
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 9 13:12:22 2014 +0000
+
+    refactoring
+
+commit da9334a83dd98101fea323eb75f9dd1c14e1158c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 9 13:02:40 2014 +0000
+
+    removed obsolete comment
+
+commit 6976ad176614897f4117bba0c95a8dc7e1c791b9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 9 13:01:49 2014 +0000
+
+    added support for situations where either timesync and/or whonixcheck are not installed or not executable
+
+commit 2f12fde5a961b9fbdcdcef943c64bbb511756d2d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 9 12:35:43 2014 +0000
+
+    comment
+
+commit 35d15209d43c055e789b3b34678927df1f4e2a96
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 9 12:30:25 2014 +0000
+
+    fix
+
+commit 177e065bcc51e3dc2b4ee7df03094fa43fea3e02
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 6 22:53:14 2014 +0000
+
+    minor
+
+commit 91ab88e9381d8288fa95b63066dc54b9f342255e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 6 13:31:44 2014 +0000
+
+    quotes
+
+commit b11f7e8faf5e9bb0272dd69831e7d9bf3eba2247
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jul 6 13:29:35 2014 +0000
+
+    use $BASH_SOURCE instead of $0
+
+commit efa29b314cfb7d6510b128c4d5a43904463bbb66
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jul 5 08:11:02 2014 +0000
+
+    Bumped debian revision number to avoid lintian warning "new-package-should-close-itp-bug" so we can use lintian --fail-on-warnings as sanity test.
+
+commit 9313c79de7e1aad0d79cfcfb6e0b355bf11d6211
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jul 1 16:52:00 2014 +0000
+
+    fix
+
+commit 01266298e12d6ddf2d5cdbf471715f2cdf18d88e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jun 28 18:28:01 2014 +0000
+
+    comments
+
+commit 34a12db667c3f9bfb1144ab40d30fd85877cc2fd
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jun 28 18:22:13 2014 +0000
+
+    changed window title
+
+commit 9c9b27bff080556c51efa474e70ebaa82fe27ecd
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jun 28 18:15:18 2014 +0000
+
+    refactoring
+
+commit a2812cfe213dd26bdd16aab67e9f02a1d303befe
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jun 28 18:07:18 2014 +0000
+
+    changed window title from whonix-autosetup to whonixsetup; refactoring
+
+commit b10d7709541469c846d92629c2655a5fe7937932
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jun 28 17:51:02 2014 +0000
+
+    sleep 1 to fix a race condition
+
+commit 187c05b260ec02bda3a6a186df5c494dec6c0e27
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jun 28 17:48:03 2014 +0000
+
+    fix
+
+commit b5a0f8030798e5f639915cc874ab19113087ccfc
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jun 28 17:47:34 2014 +0000
+
+    sleep 1 to fix a race condition
+
+commit 8764f7848232a7f2cf6df257ebc7c6f9e62af100
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jun 24 15:45:16 2014 +0000
+
+    added debian epoch; added dotglob
+
+commit 6795ad210081bc4d18bbaf68f55ac21c82cfdfc7
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jun 23 09:45:44 2014 +0000
+
+    fix
+
+commit 2814d63ff07c64bbb258d1b8b4dcb59c9ada5968
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jun 20 16:45:39 2014 +0000
+
+    fix
+
+commit 9ee961633ebeacd5634aff105dc698b1e27b9b68
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jun 20 16:41:46 2014 +0000
+
+    create done file
+
+commit 8106a8605ac3911b59e625df2b987f62b289b8ba
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jun 20 16:37:59 2014 +0000
+
+    quotes
+
+commit f87e6170893e6c47e8e8f038d3ed05efb860871c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jun 20 16:32:04 2014 +0000
+
+    fix
+
+commit a53aa612788bb9c30fb60640a2a4b7cee57ac4f7
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jun 20 15:35:31 2014 +0000
+
+    fix
+
+commit c83026841b10b47a215517725cb2048587d7cf6b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jun 3 18:27:41 2014 +0000
+
+    readme
+
+commit 37518b1ca3fc8bebc7e153706b8c12d2115e49da
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jun 1 15:38:59 2014 +0000
+
+    readme
+
+commit 8686d48b0bb20346657f48c5e4e2639effc33c00
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat May 31 16:32:53 2014 +0000
+
+    .
+
+commit f28ec3c20306f9ea49c029dff9f7efe4c43e3246
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat May 31 14:01:02 2014 +0000
+
+    initial import from https://github.com/Whonix/Whonix
