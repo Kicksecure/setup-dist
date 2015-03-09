@@ -109,10 +109,10 @@ if [ ! "$exit_code" = "0" ]; then
 fi
 
 ## /usr/lib/whonixsetup will not start whonixcheck, if
-## /var/lib/whonix/do_once/whonixsetup.done exists. So we won't
+## /var/cache/whonix-setup-wizard/status-files/whonixsetup.done exists. So we won't
 ## needlessly always start the whonix_repository tool.
 
-if [ ! -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
+if [ ! -f "/var/cache/whonix-setup-wizard/status-files/whonixsetup.done" ]; then
    if [ -x "/usr/bin/whonix_repository" ]; then
       echo "Starting Whonix Repository Tool..."
       whonix_repository
@@ -122,8 +122,8 @@ if [ ! -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
    fi
 fi
 
-mkdir --parents "/var/lib/whonix/do_once"
-touch "/var/lib/whonix/do_once/whonixsetup.done"
+mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
+touch "/var/cache/whonix-setup-wizard/status-files/whonixsetup.done"
 
 ## Start timesync progress bar and whonixcheck on Whonix-Workstation here.
 ## (On Whonix-Gateway ft_m_1 will start it.)
