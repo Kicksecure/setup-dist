@@ -14,6 +14,7 @@
 ## that /bin/bash's features can be used.
 
 #set -x
+set -o errtrace
 set -o pipefail
 
 error_handler_setup() {
@@ -32,8 +33,6 @@ trap "sigterm_setup" SIGTERM
 trap "sigterm_setup" SIGINT
 
 colors() {
-   trap "error_handler_setup" ERR
-
 ## Thanks to:
 ## http://mywiki.wooledge.org/BashFAQ/037
 ## Variables for terminal requests.
@@ -78,8 +77,6 @@ colors() {
 }
 
 maybe_start_setup() {
-   trap "error_handler_setup" ERR
-
    if [ -e "/tmp/rads/start_x.status" ]; then
       true "[${green}INFO${reset}] [whonixsetup] Not starting whonixsetup in \
 terminal, because rads reports, that X is going to be started. (Autostarting \
