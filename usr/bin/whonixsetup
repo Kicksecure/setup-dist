@@ -80,7 +80,6 @@ fi
 ## >/dev/null hides stdout, but not stderr,
 ## i.e. there will be no results from command -v,
 ## except if there was an error.
-command -v whonix_repository >/dev/null
 command -v ft_disclaimer >/dev/null
 command -v ft_main >/dev/null
 command -v ft_m_0 >/dev/null
