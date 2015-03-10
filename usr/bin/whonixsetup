@@ -62,6 +62,11 @@ parse_cmd() {
    ## will remain in the "$@" positional parameters.
 }
 
+whonixsetup_end_success() {
+   echo "You can always enter whonixsetup again, by starting: sudo whonixsetup"
+   exit 0
+}
+
 parse_cmd ${1+"$@"}
 
 if [ "$(id -u)" != "0" ]; then
@@ -100,30 +105,39 @@ if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
    fi
 fi
 
-exit_code="0"
-ft_disclaimer || { exit_code="$?" ; true; };
+if [ ! -f "/var/cache/whonix-setup-wizard/status-files/disclaimer.done" ]; then
+   if [ ! -f "/var/cache/whonix-setup-wizard/status-files/disclaimer.skip" ]; then
+      exit_code="0"
+      ft_disclaimer || { exit_code="$?" ; true; };
 
-if [ ! "$exit_code" = "0" ]; then
-   echo "You can always enter whonixsetup again, by starting: sudo whonixsetup"
-   exit 0
-fi
-
-## /usr/lib/whonixsetup will not start whonixcheck, if
-## /var/cache/whonix-setup-wizard/status-files/whonixsetup.done exists. So we won't
-## needlessly always start the whonix_repository tool.
-
-if [ ! -f "/var/cache/whonix-setup-wizard/status-files/whonixsetup.done" ]; then
-   if [ -x "/usr/bin/whonix_repository" ]; then
-      echo "Starting Whonix Repository Tool..."
-      whonix_repository
-      echo "End of Whonix Repository Tool."
-   else
-      echo "Not starting Whonix Repository Tool, because not installed. Skipping."
+      if [ ! "$exit_code" = "0" ]; then
+         echo "You can always enter whonixsetup again, by starting: sudo whonixsetup"
+         exit 0
+      fi
+      mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
+      touch "/var/cache/whonix-setup-wizard/status-files/disclaimer.done"
    fi
 fi
 
-mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
-touch "/var/cache/whonix-setup-wizard/status-files/whonixsetup.done"
+## /usr/lib/whonixsetup_cli_start_maybe will not start whonixcheck, if done
+## file exists. So we won't needlessly always start the whonix_repository tool.
+
+if [ ! -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done" ]; then
+   if [ ! -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.skip" ]; then
+      ## Legacy up to Whonix 9.x.
+      if [ ! -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
+         if [ -x "/usr/bin/whonix_repository" ]; then
+            echo "Starting Whonix Repository Tool..."
+            whonix_repository
+            echo "End of Whonix Repository Tool."
+            mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
+            touch "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done"
+         else
+            echo "Not starting Whonix Repository Tool, because not installed. Skipping."
+         fi
+      fi
+   fi
+fi
 
 ## Start timesync progress bar and whonixcheck on Whonix-Workstation here.
 ## (On Whonix-Gateway ft_m_1 will start it.)
@@ -140,8 +154,7 @@ Press Enter to run whonixcheck and exit.
    exit_code="0"
    ft_m_end || { exit_code="$?" ; true; };
 
-   echo "You can always enter whonixsetup again, by starting: sudo whonixsetup"
-   exit 0
+   whonixsetup_end_success
 
 elif [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
 
@@ -160,8 +173,7 @@ elif [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
       fi
    done
 
-   echo "You can always enter whonixsetup again, by starting: sudo whonixsetup"
-   exit 0
+   whonixsetup_end_success
 
 else
 

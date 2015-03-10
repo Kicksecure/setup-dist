@@ -80,6 +80,10 @@ maybe_start_anon_check() {
     $anon_check_bin"
 }
 
+## This is required, otherwise whonixcheck would abort.
+mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
+touch "/var/cache/whonix-setup-wizard/status-files/whonixsetup.done"
+
 if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
    maybe_open_timesync_progress_bar
 fi
