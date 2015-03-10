@@ -95,10 +95,10 @@ in use."
 
    ## Checking if Tor has been enabled.
    ## (For now, always 1 (yes) on Whonix-Workstation, so is skipped on Whonix-Workstation.)
-   ## And if Tor has not been enabled, auto start whonixsetup.
+   ## And if Tor has not been enabled, auto start whonixsetup (cli).
    ## This function only gets called, if we are not booting into a graphical desktop environment.
-   ## Eventually auto starting whonixsetup in a graphical desktop environment is implemented
-   ## through /etc/xdg/...
+   ## Eventually auto starting whonix-setup-wizard (gui) in a graphical desktop environment is
+   ## implemented through /etc/xdg/autostart/whonix-setup-wizard.desktop.
 
    source /usr/lib/anon-shared-helper-scripts/tor_enabled_check
 
