@@ -96,8 +96,11 @@ else
       ## /var/cache/whonix-setup-wizard/status-files/whonixsetup.done exists.
       ## whonixsetup already finished earlier, exit.
       exit 0
+   elif [ -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
+      ## Legacy up to build version 9.x.
+      exit 0
    else
-      ## /var/cache/whonix-setup-wizard/status-files/whonixsetup.done does not exist.
+      ## done file does not exist.
       ## whonixsetup not finished yet, continue.
       whonixsetup_start_x_version_maybe
       whonixsetup_start_cli_version
