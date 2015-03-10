@@ -7,7 +7,7 @@
 ## Gets started by /etc/profile.d/30_setup.sh.
 
 ## Using this script and not directly using /etc/profile.d/30_setup.sh,
-## because /etc/profile.d/30_setup.sh gets sourced, not executed, by
+## because /etc/profile.d/30_setup.sh gets `source`d, not executed, by
 ## /etc/profile. We would have to use "return". "exit" would not be
 ## available (without stopping /etc/profile to source the rest of the
 ## /etc/profile.d folder). Using this script has also the advantage,
