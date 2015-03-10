@@ -125,7 +125,7 @@ if [ ! -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done" ]
    if [ ! -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.skip" ]; then
       ## Legacy up to Whonix 9.x.
       if [ ! -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
-         if [ -x "/usr/bin/whonix_repository" ]; then
+         if [ -x "$(command -v whonix_repository)" ]; then
             echo "Starting Whonix Repository Tool..."
             whonix_repository
             echo "End of Whonix Repository Tool."
