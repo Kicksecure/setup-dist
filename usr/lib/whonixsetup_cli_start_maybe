@@ -76,11 +76,18 @@ colors() {
 } 2>/dev/null ||:
 }
 
+start_whonixsetup_cli_and_exit() {
+   ## This has a sudoers exception in /etc/sudoers.d/whonixsetup.
+   sudo whonixsetup --cli
+   exit 0
+}
+
 maybe_start_setup() {
    if [ -e "/tmp/rads/start_x.status" ]; then
       true "[${green}INFO${reset}] [whonixsetup] Not starting whonixsetup in \
 terminal, because rads reports, that X is going to be started. (Autostarting \
-whonixsetup in X is handled by /etc/xdg/autostart/whonixsetup.desktop.)"
+whonix-setup-wizard in X is handled by \
+/etc/xdg/autostart/whonixsetup.desktop.)"
       exit 0
    elif [ -e "/tmp/rads/no_start_x.status" ]; then
       true "[${green}INFO${reset}] [whonixsetup] rads appears to be \
@@ -90,42 +97,75 @@ installed. /tmp/rads/no_start_x.status exists."
 in use."
    fi
 
-   ## Checking if Tor has been enabled.
-   ## (For now, always 1 (yes) on Whonix-Workstation, so is skipped on Whonix-Workstation.)
-   ## And if Tor has not been enabled, auto start whonixsetup (cli).
-   ## This function only gets called, if we are not booting into a graphical desktop environment.
-   ## Eventually auto starting whonix-setup-wizard (gui) in a graphical desktop environment is
-   ## implemented through /etc/xdg/autostart/whonix-setup-wizard.desktop.
-
-   source /usr/lib/anon-shared-helper-scripts/tor_enabled_check
-
-   ## disable trap /usr/lib/anon-shared-helper-scripts/tor_enabled_check may have enabled
-   trap "error_handler_setup" ERR
-
-   ## Check if Tor is enabled.
-   ## returns: TOR_ENABLED
-   check_tor_enabled_do
-
-   ## disable trap of check_tor_enabled_do
-   trap "error_handler_setup" ERR
-
-   if [ "$TOR_ENABLED" = "0" ]; then
-      ## Sleep, so the following message comes after "waiting for results from timesync"
-      ## and to prevent the background message "waiting for results from timesync" from
-      ## interfering with whonixsetup.
-      sleep 5 &
-      wait "$!" || true
-
-      echo "[${green}INFO${reset}] [whonixsetup] Tor has not been enabled yet. Starting whonixsetup..."
-
-      ## Sleep just for the look and feel, so the following message comes after, so the previous
-      ## message can be read.
-      sleep 5 &
-      wait "$!" || true
-
-      ## This has a sudoers exception in /etc/sudoers.d/whonixsetup.
-      sudo whonixsetup --cli
+   if [ -f "/var/cache/whonix-setup-wizard/status-files/whonixsetup.skip" ]; then
+      true "[${green}INFO${reset}] [whonixsetup] skip file \
+/var/cache/whonix-setup-wizard/status-files/whonixsetup.skip exists. Exiting."
+      exit 0
    fi
+
+   if [ -e "/usr/share/anon-gw-base-files/gateway" ]; then
+      ## Checking if Tor has been enabled.
+      ## And if Tor has not been enabled, auto start whonixsetup (cli).
+      ## This function only gets called, if we are not booting into a graphical desktop environment.
+      ## Eventually auto starting whonix-setup-wizard (gui) in a graphical desktop environment is
+      ## implemented through /etc/xdg/autostart/whonix-setup-wizard.desktop.
+
+      source /usr/lib/anon-shared-helper-scripts/tor_enabled_check
+
+      ## disable trap /usr/lib/anon-shared-helper-scripts/tor_enabled_check may have enabled
+      trap "error_handler_setup" ERR
+
+      ## Check if Tor is enabled.
+      ## returns: TOR_ENABLED
+      check_tor_enabled_do
+
+      ## disable trap of check_tor_enabled_do
+      trap "error_handler_setup" ERR
+
+      if [ "$TOR_ENABLED" = "0" ]; then
+         ## Sleep, so the following message comes after "waiting for results from timesync"
+         ## and to prevent the background message "waiting for results from timesync" from
+         ## interfering with whonixsetup.
+         sleep 5 &
+         wait "$!" || true
+
+         echo "[${green}INFO${reset}] [whonixsetup] Tor has not been enabled yet. Starting whonixsetup..."
+
+         ## Sleep just for the look and feel, so the following message comes after, so the previous
+         ## message can be read.
+         sleep 5 &
+         wait "$!" || true
+
+         start_whonixsetup_cli_and_exit
+      fi
+   fi
+
+   ## Now, the script is either:
+   ## - Running on Whonix-Gateway, where Tor has been previously already
+   ##   enabled (custom builds or derivatives).
+   ## - Running on Whonix-Workstation.
+
+   if [ -f "/var/cache/whonix-setup-wizard/status-files/whonixsetup.done" ]; then
+      true "[${green}INFO${reset}] [whonixsetup] done file \
+/var/cache/whonix-setup-wizard/status-files/whonixsetup.done exists. Exiting."
+      exit 0
+   fi
+   ## Legacy up to build version 9.x.
+   if [ -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
+      true "[${green}INFO${reset}] [whonixsetup] legacy done file \
+/var/lib/whonix/do_once/whonixsetup.done exists. Exiting."
+      exit 0
+   fi
+
+   sleep 5 &
+   wait "$!" || true
+
+   echo "[${green}INFO${reset}] [whonixsetup] Starting whonixsetup..."
+
+   sleep 5 &
+   wait "$!" || true
+
+   start_whonixsetup_cli_and_exit
 }
 
 colors
