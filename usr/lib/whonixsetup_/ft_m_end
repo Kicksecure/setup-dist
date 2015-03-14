@@ -47,7 +47,11 @@ maybe_open_timesync_progress_bar() {
    ## whonixsetup). Let's catch up on that.
    ## ">/dev/null 2>/dev/null" to hide duplicate `echo`s, because `sdw_pre` will
    ## use `msgcollector`.
-   "$timesync_bin" >/dev/null 2>/dev/null & disown
+   if [ "$SUDO_USER" = "" ]; then
+      sudo -u user "$timesync_bin" >/dev/null 2>/dev/null & disown
+   else
+      sudo -u "$SUDO_USER" "$timesync_bin" >/dev/null 2>/dev/null & disown
+   fi
    ## Wait. Only for the look and feel. Prevent mixing up timesync message with whonixcheck.
    sleep 5 &
    wait "$!"
