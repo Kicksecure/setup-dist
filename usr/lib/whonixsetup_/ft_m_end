@@ -52,9 +52,11 @@ maybe_open_timesync_progress_bar() {
    else
       sudo -u "$SUDO_USER" "$timesync_bin" >/dev/null 2>/dev/null & disown
    fi
-   ## Wait. Only for the look and feel. Prevent mixing up timesync message with whonixcheck.
-   sleep 5 &
-   wait "$!"
+   if [ "$DISPLAY" = "" ]; then
+      ## Wait. Only for the look and feel. Prevent mixing up timesync message with whonixcheck.
+      sleep 5 &
+      wait "$!"
+   fi
    echo "INFO: Opened timesync progress bar."
    echo "INFO: (This is only of interest when Tor was disabled while Whonix was booted)."
 }
