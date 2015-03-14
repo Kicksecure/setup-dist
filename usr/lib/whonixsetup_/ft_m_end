@@ -6,6 +6,7 @@
 
 #set -x
 set -o pipefail
+set -o errtrace
 
 error_handler() {
    local MSG="\
@@ -28,8 +29,6 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 maybe_open_timesync_progress_bar() {
-   trap "error_handler" ERR
-
    timesync_bin="/usr/bin/timesync"
    if [ ! -f "$timesync_bin" ]; then
       echo "INFO: Skipping opening timesync progress bar, because timesync progress bar is unavailable."
@@ -62,8 +61,6 @@ maybe_open_timesync_progress_bar() {
 }
 
 maybe_start_anon_check() {
-   trap "error_handler" ERR
-
    anon_check_bin="whonixcheck"
    anon_check_bin_command_v_exit_code="0"
    anon_check_bin_path="$(command -v "$anon_check_bin" 2>/dev/null)" || { anon_check_bin_command_v_exit_code="$?" ; true; };
