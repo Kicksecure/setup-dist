@@ -1,3 +1,106 @@
+commit 1d71ba03cccf0c2426da586deaf94d35dd523cd1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Mar 24 17:27:04 2015 +0000
+
+    updated makefile generic to version 1.4
+
+commit 2b0ba4da3a223ffbc2aead423998ec18f3b7f582
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Mar 18 22:31:10 2015 +0000
+
+    man page
+
+commit 60a31224ce44412aea15a26f7bff6ebddda533f9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Mar 14 05:12:52 2015 +0000
+
+    refactoring
+
+commit e9211f611260621affc2b90255e367441b497cb2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Mar 14 05:10:33 2015 +0000
+
+    wait only in cli 5 seconds to start whonixcheck for better look and feel (to prevent whonixcheck and timesync messages mixing up), not in X, there it's not necessary
+
+commit 9298ff81868c6de5740815fa76c43538c281ca10
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Mar 14 05:05:01 2015 +0000
+
+    fix
+
+commit 2a5883754665c4a63e8de02dbb3ff228f7ec1540
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Mar 12 18:17:16 2015 +0000
+
+    -- added support for /var/cache/whonix-setup-wizard/status-files/whonixsetup.done
+    -- added support for /var/cache/whonix-setup-wizard/status-files/whonixsetup.skip
+
+commit 90ee32ecfe3bb4f91e5a4f7704966336d123a1a2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Mar 10 10:55:09 2015 +0000
+
+    refactoring
+
+commit 5281604be2c8f8599f882f6484796957acd98ac8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Mar 10 10:46:25 2015 +0000
+
+    comment
+
+commit dc6438af4e49a4dc46920dce494bab3921a1c5f1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Mar 10 10:45:54 2015 +0000
+
+    comment
+
+commit 502549f23e8312a6e9598a1d6cb283544d80a906
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Mar 10 10:37:21 2015 +0000
+
+    deprecated whonixsetup_x_start_maybe
+
+commit 6314df36e7c187e060c97e650fe7d904c9adb645
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Mar 10 10:27:53 2015 +0000
+
+    fix
+
+commit e87c0c6b3853732c6e89dbb24308db6f05ea4ef0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Mar 10 10:25:50 2015 +0000
+
+    fix, does not depend on whonix_repository, so don't check for it
+
+commit 14f79aa21dd96fcc20281f3690ef2e12e1a9d581
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Mar 10 10:24:23 2015 +0000
+
+    - added support for /var/cache/whonix-setup-wizard/status-files/whonixsetup.done
+    - added support for /var/cache/whonix-setup-wizard/status-files/whonix_repository.done
+    - added support for /var/cache/whonix-setup-wizard/status-files/whonix_repository.skip
+    - added support for /var/cache/whonix-setup-wizard/status-files/disclaimer.done
+    - added support for /var/cache/whonix-setup-wizard/status-files/disclaimer.skip
+    - added support for legacy /var/lib/whonix/do_once/whonixsetup.done
+    - comments
+
+commit 811d05e7c6f8ccbbba15f144dd59d0c394f1bdfd
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Mar 10 09:34:58 2015 +0000
+
+    support for legacy /var/lib/whonix/do_once/whonixsetup.done
+
+commit 847b62eb81eed4e98e5dca2599484f08aa13e2d0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Mar 9 20:29:44 2015 +0000
+
+    instead of /var/lib/whonix/do_once/whonixsetup.done use /var/cache/whonix-setup-wizard/status-files/whonixsetup.done - https://phabricator.whonix.org/T155
+
+commit fbb29c03c5f45c75130381b15e83706e9fae0540
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 4 00:56:46 2015 +0000
+
+    bumped changelog version
+
 commit 0218a02df3a2771d42307ab1fd3e3b1754e385ae
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Feb 4 00:45:09 2015 +0000
