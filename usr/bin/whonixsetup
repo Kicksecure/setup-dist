@@ -62,7 +62,31 @@ parse_cmd() {
    ## will remain in the "$@" positional parameters.
 }
 
+whonixsetup_whonix_repository() {
+   ## /usr/lib/whonixsetup_cli_start_maybe will not start whonixcheck, if done
+   ## file exists. So we won't needlessly always start the whonix_repository tool.
+
+   if [ ! -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done" ]; then
+      if [ ! -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.skip" ]; then
+         ## Legacy up to Whonix 9.x.
+         if [ ! -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
+            if [ -x "$(command -v whonix_repository)" ]; then
+               echo "Consider running the Whonix Repository Tool!"
+               echo "Otherwise you will not be receiving upgrades from the Whonix team!"
+               echo "For example:"
+               echo "whonix_repository --enable --repository stable"
+               mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
+               touch "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done"
+            else
+               echo "Not starting Whonix Repository Tool, because not installed. Skipping."
+            fi
+         fi
+      fi
+   fi
+}
+
 whonixsetup_end_success() {
+   whonixsetup_whonix_repository
    echo "You can always enter whonixsetup again, by starting: sudo whonixsetup"
    exit 0
 }
@@ -115,26 +139,6 @@ if [ ! -f "/var/cache/whonix-setup-wizard/status-files/disclaimer.done" ]; then
       fi
       mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
       touch "/var/cache/whonix-setup-wizard/status-files/disclaimer.done"
-   fi
-fi
-
-## /usr/lib/whonixsetup_cli_start_maybe will not start whonixcheck, if done
-## file exists. So we won't needlessly always start the whonix_repository tool.
-
-if [ ! -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done" ]; then
-   if [ ! -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.skip" ]; then
-      ## Legacy up to Whonix 9.x.
-      if [ ! -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
-         if [ -x "$(command -v whonix_repository)" ]; then
-            echo "Starting Whonix Repository Tool..."
-            whonix_repository
-            echo "End of Whonix Repository Tool."
-            mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
-            touch "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done"
-         else
-            echo "Not starting Whonix Repository Tool, because not installed. Skipping."
-         fi
-      fi
    fi
 fi
 
