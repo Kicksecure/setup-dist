@@ -26,7 +26,7 @@ tor_action_exit_code_check() {
    if [ ! "$exit_code" = "0" ]; then
       TITLE="whonixsetup - Error!"
       MSG="
-    sudo service tor $service_action
+    sudo service tor@default $service_action
 
 returned exit code $exit_code, which means Tor does NOT work.
 Maybe your Whonix-Gateway has only one network card attached? Most likely there
@@ -40,7 +40,7 @@ Or, if you are using a graphical Whonix-Gateway:
 
 Running:
 
-   sudo service tor restart
+   sudo service tor@default restart
 
 might help with troubleshooting.
 "
@@ -125,14 +125,14 @@ fi
 
 service_action="restart"
 exit_code="0"
-service tor "$service_action" >/dev/null || { exit_code="$?" ; true; };
+service tor@default "$service_action" >/dev/null || { exit_code="$?" ; true; };
 sync
 sleep 1
 tor_action_exit_code_check
 
 exit_code="0"
 service_action="status"
-service tor "$service_action" || { exit_code="$?" ; true; };
+service tor@default "$service_action" || { exit_code="$?" ; true; };
 sync
 sleep 1
 tor_action_exit_code_check
