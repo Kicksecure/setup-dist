@@ -123,9 +123,7 @@ in use."
       trap "error_handler_setup" ERR
 
       if [ "$TOR_ENABLED" = "0" ]; then
-         ## Sleep, so the following message comes after "waiting for results from timesync"
-         ## and to prevent the background message "waiting for results from timesync" from
-         ## interfering with whonixsetup.
+         ## Look and feel.
          sleep 5 &
          wait "$!" || true
 
