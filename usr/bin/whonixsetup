@@ -142,7 +142,7 @@ if [ ! -f "/var/cache/whonix-setup-wizard/status-files/disclaimer.done" ]; then
    fi
 fi
 
-## Start timesync progress bar and whonixcheck on Whonix-Workstation here.
+## Start whonixcheck on Whonix-Workstation here.
 ## (On Whonix-Gateway ft_m_1 will start it.)
 if [ -f "/usr/share/anon-ws-base-files/workstation" ]; then
    TITLE="whonixsetup - Success!"
@@ -153,7 +153,7 @@ Press Enter to run whonixcheck and exit.
 
    dialog --title "$TITLE" --msgbox "$MSG" 640 480
 
-   ## Start timesync progress bar and whonixcheck.
+   ## Start whonixcheck.
    exit_code="0"
    ft_m_end || { exit_code="$?" ; true; };
 

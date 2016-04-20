@@ -147,7 +147,7 @@ Press Enter to run whonixcheck and exit.
 
 dialog --title "$TITLE" --msgbox "$MSG" 640 480
 
-## Start timesync progress bar and whonixcheck.
+## Start whonixcheck.
 exit_code="0"
 ft_m_end || { exit_code="$?" ; true; };
 
