@@ -33,6 +33,10 @@ trap "sigterm_setup" SIGTERM
 trap "sigterm_setup" SIGINT
 
 colors() {
+   if [ "$TERM" = "" ]; then
+      return 0
+   fi
+
 ## Thanks to:
 ## http://mywiki.wooledge.org/BashFAQ/037
 ## Variables for terminal requests.
