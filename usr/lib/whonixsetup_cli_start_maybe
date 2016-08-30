@@ -82,7 +82,7 @@ colors() {
 
 start_whonixsetup_cli_and_exit() {
    ## This has a sudoers exception in /etc/sudoers.d/whonixsetup.
-   sudo whonixsetup --cli
+   sudo --non-interactive whonixsetup --cli
    exit 0
 }
 
