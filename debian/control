@@ -10,7 +10,7 @@ Build-Depends: debhelper (>= 9), faketime, genmkfile, ruby-ronn (>= 0.7.3)
 Homepage: https://github.com/Whonix/whonixsetup
 Vcs-Browser: https://github.com/Whonix/whonixsetup
 Vcs-Git: https://github.com/Whonix/whonixsetup.git
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 
 Package: whonixsetup
 Architecture: all
