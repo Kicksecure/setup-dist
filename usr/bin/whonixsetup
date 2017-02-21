@@ -119,7 +119,7 @@ command -v ft_m_end >/dev/null
 
 command -v dialog >/dev/null
 command -v ed >/dev/null
-command -v service >/dev/null
+command -v systemctl >/dev/null
 
 if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
    if [ ! -f "/etc/tor/torrc" ]; then

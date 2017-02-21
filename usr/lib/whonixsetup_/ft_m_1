@@ -125,14 +125,14 @@ fi
 
 service_action="restart"
 exit_code="0"
-service tor@default "$service_action" >/dev/null || { exit_code="$?" ; true; };
+systemctl --no-pager "$service_action" tor@default >/dev/null || { exit_code="$?" ; true; };
 sync
 sleep 1
 tor_action_exit_code_check
 
 exit_code="0"
 service_action="status"
-service tor@default "$service_action" || { exit_code="$?" ; true; };
+systemctl --no-pager "$service_action" tor@default || { exit_code="$?" ; true; };
 sync
 sleep 1
 tor_action_exit_code_check
