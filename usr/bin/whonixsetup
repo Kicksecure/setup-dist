@@ -91,7 +91,7 @@ whonixsetup_end_success() {
    exit 0
 }
 
-parse_cmd ${1+"$@"}
+parse_cmd "$@"
 
 if [ "$(id -u)" != "0" ]; then
     echo "ERROR: This must be run as root (sudo)!"
