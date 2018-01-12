@@ -1,3 +1,17 @@
+commit 2437d30b7cf8b56f8668d6a9cd6a84fd47f3d475
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 18:10:03 2018 +0000
+
+    sudoers asterix hardening
+    
+    removed unused options --cli and --x
+
+commit 4a6295c7033b8c78555fc5bdf7aa758875d6d07f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Mar 6 16:21:09 2017 +0000
+
+    bumped changelog version
+
 commit 217b352c0622c568d8c4ebc23a4883eb0d9867f8
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Mar 6 14:46:57 2017 +0000
