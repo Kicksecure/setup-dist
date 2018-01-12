@@ -27,41 +27,6 @@ trap "error_handler" ERR
 
 SCRIPTNAME="$(basename "$BASH_SOURCE")"
 
-parse_cmd() {
-   ## Thanks to:
-   ## http://mywiki.wooledge.org/BashFAQ/035
-
-   while :
-   do
-       case $1 in
-           --x)
-               whonixsetup_started_in_mode_x="true"
-               shift
-               ;;
-           --cli)
-               whonixsetup_started_in_mode_cli="true"
-               shift
-               ;;
-           --)
-               shift
-               break
-               ;;
-           -*)
-               echo "$SCRIPTNAME unknown option: $1" >&2
-               EXIT_CODE="1"
-               cleanup "1"
-               return 0
-               ;;
-           *)
-               break
-               ;;
-       esac
-   done
-
-   ## If there are input files (for example) that follow the options, they
-   ## will remain in the "$@" positional parameters.
-}
-
 whonixsetup_whonix_repository() {
    ## /usr/lib/whonixsetup_cli_start_maybe will not start whonixcheck, if done
    ## file exists. So we won't needlessly always start the whonix_repository tool.
@@ -90,8 +55,6 @@ whonixsetup_end_success() {
    echo "You can always enter whonixsetup again, by starting: sudo whonixsetup"
    exit 0
 }
-
-parse_cmd "$@"
 
 if [ "$(id -u)" != "0" ]; then
     echo "ERROR: This must be run as root (sudo)!"
