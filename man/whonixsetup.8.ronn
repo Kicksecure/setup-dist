@@ -21,7 +21,7 @@ whonixsetup(8) -- Connection Wizard
 ## DESCRIPTION
 
 Asks in which environment you are using Whonix, informs about various
-situations, helps to enable Tor in /etc/tor/torrc.
+situations, helps to enable Tor in Tor config.
 
 ## EXAMPLE
 

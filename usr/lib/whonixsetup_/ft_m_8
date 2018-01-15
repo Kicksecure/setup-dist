@@ -28,15 +28,15 @@ Whonix recommends using "bridge obfs3" IP addresses only.
 Configure Whonix to Use Bridges
 -------------------------------
 
-Press enter to close this message, then cancel the connection wizard by using Cancel button in the main menu. You must manually add the bridge(s) IP address to /etc/tor/torrc. Comments and examples in that file will help you through the process. After you have finished, restart whonixsetup - Connection Wizard.
+Press enter to close this message, then cancel the connection wizard by using Cancel button in the main menu. You must manually add the bridge(s) IP address to /usr/local/etc/torrc.d/50_user.torrc.
 
-You can open /etc/tor/torrc in the terminal:
+You can open /usr/local/etc/torrc.d/50_user.torrc in the terminal:
 
-    sudo nano /etc/tor/torrc
+    sudo nano /usr/local/etc/torrc.d/50_user.torrc
 
 Or, if you are using a graphical Whonix-Gateway:
 
-    Start Menu -> Applications -> /etc/tor/torrc
+    Start Menu -> Applications -> Tor Config File
 '
 
 TITLE="whonixsetup - Tor is censored in my area."

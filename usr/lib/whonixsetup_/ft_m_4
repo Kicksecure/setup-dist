@@ -7,15 +7,15 @@
 MSG='
 (You can scroll down using the arrow key).
 
-You must manually edit /etc/tor/torrc for Tor to navigate through your firewall or proxy.
+You must manually edit /usr/local/etc/torrc.d/50_user.torrc for Tor to navigate through your firewall or proxy.
 
-Press Enter to close this message, then select Exit. After you have finished editing, run whonixsetup again.
+Press Enter to close this message, then select Exit.
 
-You can open /etc/tor/torrc in the terminal:
-    sudo nano /etc/tor/torrc
+You can open /usr/local/etc/torrc.d/50_user.torrc in the terminal:
+    sudo nano /usr/local/etc/torrc.d/50_user.torrc
 
 Or on the desktop:
-    Start Menu -> Applications -> /etc/tor/torrc
+    Start Menu -> Applications -> Tor Config File
 '
 
 TITLE="whonixsetup - I use proxy or firewall settings to connect to the internet."

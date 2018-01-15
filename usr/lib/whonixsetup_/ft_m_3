@@ -17,13 +17,13 @@ Because there is NOT a 100%  way to hide Tor, Whonix does NOT recommend using To
 Configure Whonix to Use a Bridge
 --------------------------------
 
-Press Enter to close this message, then select Exit. You must manually find and add the bridges to /etc/tor/torrc. After you have finished, run whonixsetup again.
+Press Enter to close this message, then select Exit. You must manually find and add the bridges to /usr/local/etc/torrc.d/50_user.torrc.
 
-You can open /etc/tor/torrc in the terminal:
-    sudo nano /etc/tor/torrc
+You can open /usr/local/etc/torrc.d/50_user.torrc in the terminal:
+    sudo nano /usr/local/etc/torrc.d/50_user.torrc
 
 Or, if you are using a graphical Whonix-Gateway:
-    Start Menu -> Applications -> /etc/tor/torrc
+    Start Menu -> Applications -> Tor Config File
 
 
 Configure Whonix to a Use a VPN
