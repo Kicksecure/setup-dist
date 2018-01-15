@@ -78,7 +78,7 @@ fi
 
 if [ ! -f /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc ]; then
    mkdir -p /usr/local/etc/torrc.d
-   echo "DisableNetwork 0" > /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc
+   echo "#DisableNetwork 0" > /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc
 fi
 
 ## Check if Tor was already enabled.
