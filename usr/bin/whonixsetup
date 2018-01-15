@@ -67,7 +67,6 @@ fi
 ## >/dev/null hides stdout, but not stderr,
 ## i.e. there will be no results from command -v,
 ## except if there was an error.
-command -v ft_disclaimer >/dev/null
 command -v ft_main >/dev/null
 command -v ft_m_0 >/dev/null
 command -v ft_m_1 >/dev/null
@@ -88,20 +87,6 @@ if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
    if [ ! -f "/etc/tor/torrc" ]; then
       error "/etc/tor/torrc does not exist. Please report this bug!"
       exit 1
-   fi
-fi
-
-if [ ! -f "/var/cache/whonix-setup-wizard/status-files/disclaimer.done" ]; then
-   if [ ! -f "/var/cache/whonix-setup-wizard/status-files/disclaimer.skip" ]; then
-      exit_code="0"
-      ft_disclaimer || { exit_code="$?" ; true; };
-
-      if [ ! "$exit_code" = "0" ]; then
-         echo "You can always enter whonixsetup again, by starting: sudo whonixsetup"
-         exit 0
-      fi
-      mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
-      touch "/var/cache/whonix-setup-wizard/status-files/disclaimer.done"
    fi
 fi
 
