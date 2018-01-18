@@ -1,3 +1,33 @@
+commit 99ebcc2ac3abc2a49815984331abc943d1d7717d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 15 20:03:23 2018 +0000
+
+    disable disclaimer
+
+commit 16b53b866ae79b36b781afb0f348ae8dc36f7624
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 15 20:03:06 2018 +0000
+
+    fix
+
+commit a2bd6efeb9421c3d96752c5270ed92049bf4678e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 15 20:59:05 2018 +0100
+
+    create Tor config if not existing
+
+commit a66d89f4148afd431d92a91aa25a2d2f949849ab
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jan 15 20:53:49 2018 +0100
+
+    port to /usr/local/etc/torrc.d
+
+commit 0d5ab8432d619ddabb5567d318bb91ac2a0f9942
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jan 12 20:14:46 2018 +0000
+
+    bumped changelog version
+
 commit 2437d30b7cf8b56f8668d6a9cd6a84fd47f3d475
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jan 12 18:10:03 2018 +0000
