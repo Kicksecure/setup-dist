@@ -27,11 +27,11 @@ Whonix recommends using "bridge obfs3" IP addresses only.
 Configure Whonix to Use Bridges
 -------------------------------
 
-Press enter to close this message, then cancel the connection wizard by using Cancel button in the main menu. You must manually add the bridge(s) IP address to /usr/local/etc/torrc.d/50_user.torrc.
+Press enter to close this message, then cancel the connection wizard by using Cancel button in the main menu. You must manually add the bridge(s) IP address to /usr/local/etc/torrc.d/50_user.conf.
 
-You can open /usr/local/etc/torrc.d/50_user.torrc in the terminal:
+You can open /usr/local/etc/torrc.d/50_user.conf in the terminal:
 
-    sudo nano /usr/local/etc/torrc.d/50_user.torrc
+    sudo nano /usr/local/etc/torrc.d/50_user.conf
 
 Or, if you are using a graphical Whonix-Gateway:
 

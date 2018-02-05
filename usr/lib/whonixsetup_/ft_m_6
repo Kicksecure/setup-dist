@@ -11,13 +11,13 @@ Tunnel Tor through proxy
 
 On Whonix-Gateway:
 
-   sudo nano /usr/local/etc/torrc.d/50_user.torrc
+   sudo nano /usr/local/etc/torrc.d/50_user.conf
 
 Or, if you are using a graphical Whonix-Gateway.
 
-    Start Menu -> Applications -> /usr/local/etc/torrc.d/50_user.torrc
+    Start Menu -> Applications -> /usr/local/etc/torrc.d/50_user.conf
 
-Depending on your proxy configuration, add the settings you'll need to your /usr/local/etc/torrc.d/50_user.torrc. For more information on these settings, have a look in the Tor manual and read the FAQ.
+Depending on your proxy configuration, add the settings you'll need to your /usr/local/etc/torrc.d/50_user.conf. For more information on these settings, have a look in the Tor manual and read the FAQ.
 
 HTTPProxy host[:port]
 HTTPProxyAuthenticator username:password

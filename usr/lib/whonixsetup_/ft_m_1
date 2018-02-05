@@ -31,8 +31,8 @@ returned exit code $exit_code, which means Tor does NOT work.
 Maybe your Whonix-Gateway has only one network card attached? Most likely there
 is something wrong with your Tor config.
 
-You can open /usr/local/etc/torrc.d/50_user.torrc in the terminal:
-    sudo nano /usr/local/etc/torrc.d/50_user.torrc
+You can open /usr/local/etc/torrc.d/50_user.conf in the terminal:
+    sudo nano /usr/local/etc/torrc.d/50_user.conf
 
 Or, if you are using a graphical Whonix-Gateway:
     Start Menu -> Applications -> Tor Config File
@@ -62,7 +62,7 @@ By default, Tor does not try to hide the fact that you are using it. If this con
 
 Ultimately, the best protection is a social approach: the more Tor users there are near you and the more diverse their interests, the safer it will be to use it. Convince other people to use Tor!
 
-Note: whonixsetup enables Tor networking by adding "DisableNetwork 0" to /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc.
+Note: whonixsetup enables Tor networking by adding "DisableNetwork 0" to /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
 '
 
 TITLE="whonixsetup - Connect to the Tor network."
@@ -75,9 +75,9 @@ if [ ! "$exit_code" = "0" ]; then
    exit 0
 fi
 
-if [ ! -f /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc ]; then
+if [ ! -f /usr/local/etc/torrc.d/40_anon_connection_wizard.conf ]; then
    mkdir -p /usr/local/etc/torrc.d
-   echo "#DisableNetwork 0" > /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc
+   echo "#DisableNetwork 0" > /usr/local/etc/torrc.d/40_anon_connection_wizard.conf
 fi
 
 ## Check if Tor was already enabled.
@@ -88,18 +88,18 @@ while read -r LINE; do
       already_commented_in="1"
       dialog --title "whonixsetup - Success!" --msgbox 'Tor networking should already be enabled.
 
-Note: whonixsetup enables Tor networking by adding "DisableNetwork 0" to /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc. There is no need to this multiple times, and it is probably not the cause of network problems. You can manually check if "DisableNetwork 0" is in /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc.
+Note: whonixsetup enables Tor networking by adding "DisableNetwork 0" to /usr/local/etc/torrc.d/40_anon_connection_wizard.conf. There is no need to this multiple times, and it is probably not the cause of network problems. You can manually check if "DisableNetwork 0" is in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
 
 Press Enter to restart Tor and check its status.
 ' 640 480
       break
    fi
-done < "/usr/local/etc/torrc.d/40_anon_connection_wizard.torrc"
+done < "/usr/local/etc/torrc.d/40_anon_connection_wizard.conf"
 
 if [ "$already_commented_in" = "0" ]; then
-   ## Comment in DisableNetwork 0 in /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc.
+   ## Comment in DisableNetwork 0 in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
    exit_code="0"
-   ed -s /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc <<< $',s/\#DisableNetwork 0/DisableNetwork 0/g\nw' || { exit_code="$?" ; true; };
+   ed -s /usr/local/etc/torrc.d/40_anon_connection_wizard.conf <<< $',s/\#DisableNetwork 0/DisableNetwork 0/g\nw' || { exit_code="$?" ; true; };
 
    ## Ensure changes get written to the disk right now.
    sync
@@ -108,7 +108,7 @@ if [ "$already_commented_in" = "0" ]; then
       TITLE="whonixsetup - Info"
 
       MSG='
-Could not add "DisableNetwork 0" to /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc.
+Could not add "DisableNetwork 0" to /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
 
 Press Enter to restart Tor and check its status.
 '
@@ -117,7 +117,7 @@ Press Enter to restart Tor and check its status.
       TITLE="whonixsetup - Info"
 
       MSG="
-Tor networking has been enabled in /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc.
+Tor networking has been enabled in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
 
 Press Enter to restart Tor and check its status.
 "

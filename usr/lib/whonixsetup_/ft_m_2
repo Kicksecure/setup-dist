@@ -61,12 +61,12 @@ if [ ! "$exit_code" = "0" ]; then
 fi
 
 ## Check if Tor networking was already disabled.
-## This is to prevent getting a /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc
+## This is to prevent getting a /usr/local/etc/torrc.d/40_anon_connection_wizard.conf
 ## with ####DisableNetwork 0 if the user chooses
 ## this option multiple times.
 while read -r LINE; do
    if [ "$LINE" = "#DisableNetwork 0" ]; then
-      dialog --title "Success!" --msgbox '"DisableNetwork 0" was already in /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc
+      dialog --title "Success!" --msgbox '"DisableNetwork 0" was already in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf
 
 Tor networking should already be disabled, and there is no need to disable it multiple times.
 ' 640 480
@@ -78,16 +78,16 @@ Tor networking should already be disabled, and there is no need to disable it mu
       ## Signal for whonixsetup to break the while loop.
       exit 1
    fi
-done < "/usr/local/etc/torrc.d/40_anon_connection_wizard.torrc"
+done < "/usr/local/etc/torrc.d/40_anon_connection_wizard.conf"
 
 dialog --title "Info" --msgbox 'Trying to disable Tor networking...
 
-Note: This will comment out "DisableNetwork 0" in /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc
+Note: This will comment out "DisableNetwork 0" in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf
 ' 640 480
 
-## Comment out DisableNetwork 0 in /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc.
+## Comment out DisableNetwork 0 in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
 exit_code="0"
-ed -s /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc <<< $',s/DisableNetwork 0/#DisableNetwork 0/g\nw' || { exit_code="$?"; true; };
+ed -s /usr/local/etc/torrc.d/40_anon_connection_wizard.conf <<< $',s/DisableNetwork 0/#DisableNetwork 0/g\nw' || { exit_code="$?"; true; };
 
 ## Ensure changes get written to the disk right now.
 sync
@@ -100,17 +100,17 @@ if [ "$exit_code" = "0" ]; then
 
    dialog --title "whonixsetup - Success!" --msgbox 'Tor networking has been disabled.
 
-Note: whonixsetup disables Tor networking by commenting "DisableNetwork 0" in /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc
+Note: whonixsetup disables Tor networking by commenting "DisableNetwork 0" in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf
 ' 640 480
 else
    dialog --title "whonixsetup - ERROR!" --msgbox 'Tor networking could not be disabled. Please report this bug!
 
-Note: whonixsetup tried to disable Tor networking by commenting "DisableNetwork 0" in /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc but was unable to.
+Note: whonixsetup tried to disable Tor networking by commenting "DisableNetwork 0" in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf but was unable to.
 ' 640 480
 
    dialog --title "whonixsetup - WARNING" --msgbox 'Trying to stop the Tor process...
 
-Warning: Since Tor networking could not be disabled in /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc, Tor will reconnect the next time you reboot or restart Tor. You can try to manually comment "DisableNetwork 0" in /usr/local/etc/torrc.d/40_anon_connection_wizard.torrc and run "sudo service tor@default stop" to ensure that Tor will not start.
+Warning: Since Tor networking could not be disabled in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf, Tor will reconnect the next time you reboot or restart Tor. You can try to manually comment "DisableNetwork 0" in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf and run "sudo service tor@default stop" to ensure that Tor will not start.
 ' 640 480
 
    stop_tor

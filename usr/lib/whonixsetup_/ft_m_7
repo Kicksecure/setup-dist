@@ -14,7 +14,7 @@ ReachableORAddresses *:443
 
 You can open torrc by using editor nano.
 
-   sudo nano /usr/local/etc/torrc.d/50_user.torrc
+   sudo nano /usr/local/etc/torrc.d/50_user.conf
 
 Or, if you are using a graphical Whonix-Gateway.
 

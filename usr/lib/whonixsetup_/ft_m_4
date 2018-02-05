@@ -6,12 +6,12 @@
 MSG='
 (You can scroll down using the arrow key).
 
-You must manually edit /usr/local/etc/torrc.d/50_user.torrc for Tor to navigate through your firewall or proxy.
+You must manually edit /usr/local/etc/torrc.d/50_user.conf for Tor to navigate through your firewall or proxy.
 
 Press Enter to close this message, then select Exit.
 
-You can open /usr/local/etc/torrc.d/50_user.torrc in the terminal:
-    sudo nano /usr/local/etc/torrc.d/50_user.torrc
+You can open /usr/local/etc/torrc.d/50_user.conf in the terminal:
+    sudo nano /usr/local/etc/torrc.d/50_user.conf
 
 Or on the desktop:
     Start Menu -> Applications -> Tor Config File
