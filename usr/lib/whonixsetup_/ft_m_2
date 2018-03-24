@@ -60,52 +60,24 @@ if [ ! "$exit_code" = "0" ]; then
    exit 0
 fi
 
-## Check if Tor networking was already disabled.
-## This is to prevent getting a /usr/local/etc/torrc.d/40_anon_connection_wizard.conf
-## with ####DisableNetwork 0 if the user chooses
-## this option multiple times.
-while read -r LINE; do
-   if [ "$LINE" = "#DisableNetwork 0" ]; then
-      dialog --title "Success!" --msgbox '"DisableNetwork 0" was already in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf
-
-Tor networking should already be disabled, and there is no need to disable it multiple times.
-' 640 480
-
-      dialog --title "whonixsetup - Info" --msgbox 'Checking if the Tor process is still running and stopping it if necessary...' 640 480
-
-      stop_tor
-      true "INFO: Ok, exit 1, so whonixsetup will end."
-      ## Signal for whonixsetup to break the while loop.
-      exit 1
-   fi
-done < "/usr/local/etc/torrc.d/40_anon_connection_wizard.conf"
-
-dialog --title "Info" --msgbox 'Trying to disable Tor networking...
-
-Note: This will comment out "DisableNetwork 0" in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf
-' 640 480
-
-## Comment out DisableNetwork 0 in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
-exit_code="0"
-ed -s /usr/local/etc/torrc.d/40_anon_connection_wizard.conf <<< $',s/DisableNetwork 0/#DisableNetwork 0/g\nw' || { exit_code="$?"; true; };
-
-## Ensure changes get written to the disk right now.
-sync
+## set_disabled() function will:
+## 1. create 40_anon_connection_wizard.conf if it was missing
+## 2. set final value of DisableNetwork in the file to 1
+## 3. stop Tor using systemd
+python3 -c 'from anon_connection_wizard import tor_status; tor_status.set_disabled()' >/dev/null 2>&1  || { exit_code="$?" ; true; };
 
 if [ "$exit_code" = "0" ]; then
-   stop_tor
    true "INFO: Ok, exit 1, so whonixsetup will end."
-   ## Signal for whonixsetup to break the while loop.
-   exit 1
-
    dialog --title "whonixsetup - Success!" --msgbox 'Tor networking has been disabled.
 
-Note: whonixsetup disables Tor networking by commenting "DisableNetwork 0" in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf
+Note: whonixsetup disables Tor networking by using the tor_disabled() function in tor_status.py in anon_connection_wizard package
 ' 640 480
+   ## Signal for whonixsetup to break the while loop.
+   exit 1
 else
    dialog --title "whonixsetup - ERROR!" --msgbox 'Tor networking could not be disabled. Please report this bug!
 
-Note: whonixsetup tried to disable Tor networking by commenting "DisableNetwork 0" in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf but was unable to.
+Note: whonixsetup disables Tor networking by using the tor_disabled() function in tor_status.py in anon_connection_wizard package
 ' 640 480
 
    dialog --title "whonixsetup - WARNING" --msgbox 'Trying to stop the Tor process...

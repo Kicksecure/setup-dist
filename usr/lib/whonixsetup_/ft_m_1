@@ -75,63 +75,12 @@ if [ ! "$exit_code" = "0" ]; then
    exit 0
 fi
 
-if [ ! -f /usr/local/etc/torrc.d/40_anon_connection_wizard.conf ]; then
-   mkdir -p /usr/local/etc/torrc.d
-   echo "#DisableNetwork 0" > /usr/local/etc/torrc.d/40_anon_connection_wizard.conf
-fi
 
-## Check if Tor was already enabled.
-## This is to prevent getting ed from failing.
-already_commented_in="0"
-while read -r LINE; do
-   if [ "$LINE" = 'DisableNetwork 0' ]; then
-      already_commented_in="1"
-      dialog --title "whonixsetup - Success!" --msgbox 'Tor networking should already be enabled.
-
-Note: whonixsetup enables Tor networking by adding "DisableNetwork 0" to /usr/local/etc/torrc.d/40_anon_connection_wizard.conf. There is no need to this multiple times, and it is probably not the cause of network problems. You can manually check if "DisableNetwork 0" is in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
-
-Press Enter to restart Tor and check its status.
-' 640 480
-      break
-   fi
-done < "/usr/local/etc/torrc.d/40_anon_connection_wizard.conf"
-
-if [ "$already_commented_in" = "0" ]; then
-   ## Comment in DisableNetwork 0 in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
-   exit_code="0"
-   ed -s /usr/local/etc/torrc.d/40_anon_connection_wizard.conf <<< $',s/\#DisableNetwork 0/DisableNetwork 0/g\nw' || { exit_code="$?" ; true; };
-
-   ## Ensure changes get written to the disk right now.
-   sync
-
-   if [ ! "$exit_code" = "0" ]; then
-      TITLE="whonixsetup - Info"
-
-      MSG='
-Could not add "DisableNetwork 0" to /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
-
-Press Enter to restart Tor and check its status.
-'
-
-   else
-      TITLE="whonixsetup - Info"
-
-      MSG="
-Tor networking has been enabled in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
-
-Press Enter to restart Tor and check its status.
-"
-   fi
-
-   dialog --title "$TITLE" --msgbox "$MSG" 640 480
-fi
-
-service_action="restart"
-exit_code="0"
-systemctl --no-pager "$service_action" tor@default >/dev/null || { exit_code="$?" ; true; };
-sync
-sleep 1
-tor_action_exit_code_check
+## set_enabled() function will:
+## 1. create 40_anon_connection_wizard.conf if it was missing
+## 2. set final value of DisableNetwork in the file to 0
+## 3. restart Tor using systemd
+python3 -c 'from anon_connection_wizard import tor_status; tor_status.set_enabled()' >/dev/null 2>&1
 
 exit_code="0"
 service_action="status"
