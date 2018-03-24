@@ -70,14 +70,14 @@ if [ "$exit_code" = "0" ]; then
    true "INFO: Ok, exit 1, so whonixsetup will end."
    dialog --title "whonixsetup - Success!" --msgbox 'Tor networking has been disabled.
 
-Note: whonixsetup disables Tor networking by using the tor_disabled() function in tor_status.py in anon_connection_wizard package
+Note: whonixsetup disables Tor networking by writing "DisableNetwork 1" to /usr/local/etc/torrc.d/40_anon_connection_wizard.conf
 ' 640 480
    ## Signal for whonixsetup to break the while loop.
    exit 1
 else
    dialog --title "whonixsetup - ERROR!" --msgbox 'Tor networking could not be disabled. Please report this bug!
 
-Note: whonixsetup disables Tor networking by using the tor_disabled() function in tor_status.py in anon_connection_wizard package
+Note: whonixsetup tried to disable Tor networking by writing "DisableNetwork 1" to /usr/local/etc/torrc.d/40_anon_connection_wizard.conf but was unable to
 ' 640 480
 
    dialog --title "whonixsetup - WARNING" --msgbox 'Trying to stop the Tor process...
