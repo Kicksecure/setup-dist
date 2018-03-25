@@ -80,24 +80,25 @@ fi
 ## 1. create 40_anon_connection_wizard.conf if it was missing
 ## 2. set final value of DisableNetwork in the file to 0
 ## 3. restart Tor using systemd
-python3 -c 'from anon_connection_wizard import tor_status; tor_status.set_enabled()' >/dev/null 2>&1
+python3 -c 'from anon_connection_wizard import tor_status; tor_status.set_enabled()' >/dev/null 2>&1 || { exit_code="$?" ; true; };
 
-exit_code="0"
-service_action="status"
-systemctl --no-pager "$service_action" tor@default || { exit_code="$?" ; true; };
-sync
-sleep 1
-tor_action_exit_code_check
+if [ "$exit_code" = "0" ]; then
+    TITLE="whonixsetup - Success!"
 
-TITLE="whonixsetup - Success!"
-
-MSG="
-Tor was successfully restarted.
+    MSG="
+Tor has been successfully enabled.
 
 Press Enter to run whonixcheck and exit.
 "
-
-dialog --title "$TITLE" --msgbox "$MSG" 640 480
+    dialog --title "$TITLE" --msgbox "$MSG" 640 480
+else
+    exit_code="0"
+    service_action="status"
+    systemctl --no-pager "$service_action" tor@default || { exit_code="$?" ; true; };
+    sync
+    sleep 1
+    tor_action_exit_code_check
+fi
 
 ## Start whonixcheck.
 exit_code="0"
