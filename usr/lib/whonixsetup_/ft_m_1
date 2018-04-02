@@ -75,80 +75,59 @@ if [ ! "$exit_code" = "0" ]; then
    exit 0
 fi
 
-if [ ! -f /usr/local/etc/torrc.d/40_anon_connection_wizard.conf ]; then
-   mkdir -p /usr/local/etc/torrc.d
-   echo "#DisableNetwork 0" > /usr/local/etc/torrc.d/40_anon_connection_wizard.conf
-fi
 
-## Check if Tor was already enabled.
-## This is to prevent getting ed from failing.
-already_commented_in="0"
-while read -r LINE; do
-   if [ "$LINE" = 'DisableNetwork 0' ]; then
-      already_commented_in="1"
-      dialog --title "whonixsetup - Success!" --msgbox 'Tor networking should already be enabled.
+## set_enabled() function will:
+## 1. create 40_anon_connection_wizard.conf if it was missing
+## 2. set final value of DisableNetwork in the file to 0
+## 3. restart Tor using systemd
 
-Note: whonixsetup enables Tor networking by adding "DisableNetwork 0" to /usr/local/etc/torrc.d/40_anon_connection_wizard.conf. There is no need to this multiple times, and it is probably not the cause of network problems. You can manually check if "DisableNetwork 0" is in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
 
-Press Enter to restart Tor and check its status.
-' 640 480
-      break
-   fi
-done < "/usr/local/etc/torrc.d/40_anon_connection_wizard.conf"
+error_msg="$(python3 -c 'from anon_connection_wizard import tor_status; tor_status.set_enabled()' 2>&1)" || { exit_code="$?" ; true; };
 
-if [ "$already_commented_in" = "0" ]; then
-   ## Comment in DisableNetwork 0 in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
-   exit_code="0"
-   ed -s /usr/local/etc/torrc.d/40_anon_connection_wizard.conf <<< $',s/\#DisableNetwork 0/DisableNetwork 0/g\nw' || { exit_code="$?" ; true; };
+if [ "$exit_code" != "0" ]; then
+    TITLE="whonixsetup - Error!"
+    MSG="
+python3 -c 'from anon_connection_wizard import tor_status; tor_status.set_enabled()'
+returned exit code $exit_code, which means failed to enable Tor.
 
-   ## Ensure changes get written to the disk right now.
-   sync
+Error messages are as follows:
+$error_msg
 
-   if [ ! "$exit_code" = "0" ]; then
-      TITLE="whonixsetup - Info"
+If some dependencies are missing (for example, cannot import name 'tor_status'):
+    sudo apt-get install anon-connection-wizard
 
-      MSG='
-Could not add "DisableNetwork 0" to /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
+If there is something wrong with your Tor config, you can open /usr/local/etc/torrc.d/50_user.conf in the terminal:
+    sudo nano /usr/local/etc/torrc.d/50_user.conf
 
-Press Enter to restart Tor and check its status.
-'
+Or, if you are using a graphical Whonix-Gateway:
+    Start Menu -> Applications -> Tor Config File
 
-   else
-      TITLE="whonixsetup - Info"
+Useful troubleshooting commands:
 
-      MSG="
-Tor networking has been enabled in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
+    sudo service tor@default restart
 
-Press Enter to restart Tor and check its status.
+Or for more detailed Tor config report:
+    sudo --non-interactive /usr/bin/tor --defaults-torrc /usr/share/tor/tor-service-defaults-torrc -f /etc/tor/torrc --RunAsDaemon 0 --verify-config
 "
-   fi
-
-   dialog --title "$TITLE" --msgbox "$MSG" 640 480
+    dialog --title "$TITLE" --msgbox "$MSG" 640 480
+    true "INFO: Ok, exit 1, so whonixsetup will end."
+    exit 1
 fi
-
-service_action="restart"
-exit_code="0"
-systemctl --no-pager "$service_action" tor@default >/dev/null || { exit_code="$?" ; true; };
-sync
-sleep 1
-tor_action_exit_code_check
-
-exit_code="0"
-service_action="status"
-systemctl --no-pager "$service_action" tor@default || { exit_code="$?" ; true; };
-sync
-sleep 1
-tor_action_exit_code_check
 
 TITLE="whonixsetup - Success!"
-
 MSG="
-Tor was successfully restarted.
+Tor has been successfully enabled.
 
 Press Enter to run whonixcheck and exit.
 "
-
 dialog --title "$TITLE" --msgbox "$MSG" 640 480
+
+# exit_code="0"
+# service_action="status"
+# systemctl --no-pager "$service_action" tor@default || { exit_code="$?" ; true; };
+# sync
+# sleep 1
+# tor_action_exit_code_check
 
 ## Start whonixcheck.
 exit_code="0"
