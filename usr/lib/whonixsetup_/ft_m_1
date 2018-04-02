@@ -75,12 +75,10 @@ if [ ! "$exit_code" = "0" ]; then
    exit 0
 fi
 
-
 ## set_enabled() function will:
 ## 1. create 40_anon_connection_wizard.conf if it was missing
 ## 2. set final value of DisableNetwork in the file to 0
 ## 3. restart Tor using systemd
-
 
 error_msg="$(python3 -c 'from anon_connection_wizard import tor_status; tor_status.set_enabled()' 2>&1)" || { exit_code="$?" ; true; };
 
