@@ -1,3 +1,101 @@
+commit 936551080274be7cf66ab99e58589caf15a948f6
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 2 14:02:55 2018 +0200
+
+    minor
+
+commit 109f2e0a1d76d649de8fdb3d11ce61ec311ee3af
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 2 14:01:43 2018 +0200
+
+    minor
+
+commit 28cb9c919fdc4c4dc8e57628786bb91de8f31af8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 2 13:59:30 2018 +0200
+
+    output
+
+commit 472fbca52dd30d0da0011edebabab415dbdd5bfc
+Merge: 90f9e52 b862446
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 2 13:56:24 2018 +0200
+
+    Merge remote-tracking branch 'irykoon/master'
+
+commit b862446d960dcce8b0b6f06bc8c97cb4cf727e26
+Author: irykoon <irykoon@gmail.com>
+Date:   Sat Mar 31 20:24:28 2018 +0000
+
+    Fix logic error and provide better error and debugging info
+    
+    The code block below is not needed anymore because same function has been included in set_enabled():
+    
+    ```
+        exit_code="0"
+        service_action="status"
+        systemctl --no-pager "$service_action" tor@default || { exit_code="$?" ; true; };
+        sync
+        sleep 1
+        tor_action_exit_code_check
+    ```
+
+commit 3f26528e6c6937db784fb23f1e331114a82a8b0f
+Author: irykoon <irykoon@gmail.com>
+Date:   Sun Mar 25 16:31:26 2018 +0000
+
+    Check the exit code of set_enabled()
+    
+    Make sure the evaluation always be true, otherwise, "that command failing would trigger the error_handler and exit 1."
+    
+    Also more user-friendly wording is used.
+
+commit 3c7f72abf0dc78600ad07becd5d357f53db18883
+Author: irykoon <irykoon@gmail.com>
+Date:   Sat Mar 24 18:27:43 2018 +0000
+
+    User friendly hints and error info
+
+commit aa378c9260f74c712f19be328019b63dde74cf3f
+Author: irykoon <irykoon@gmail.com>
+Date:   Sat Mar 24 04:20:33 2018 +0000
+
+    Use set_enabled() and set_disabled() instead
+    
+    When parsing the torrc file, we switch from command line flavor to using the python functions availabed in anon_connection_wizard package.
+    
+    The advantages are as follows:
+    
+    1. Better consistency with anon_connection_wizard style parsing
+    
+    While the command line flavor parsing comments (out) `#DisableNetwork 0`, anon_connection_wizard writes `DisableNetwork 0` or `DisableNetwork 1` to 40_connection_wizard.conf . This can be a issue when user uses both anon-connection-wizard and whonixsetup for at least once. Using the same implementation will aviod the inconsistency.
+    
+    2. More robust in handling different cases
+    
+    Considering the inconsistency descriped above, the command line flavor parsing was not robust enough. For example, it will assume the final value in anon_connection_wizard.conf is 0 right after it sees a `DisableNetwork 0` line. This will ignore the case where there is also a `DisableNetwork 1` line after it.
+    
+    3. Lower maintanance cost
+    
+    It allows us to only maintance one piece of code.
+    
+    4. Simplified the logic in the bash script
+    
+    The disadvantages are as follows:
+    
+    1. anon-connection-wizard becomes a dependency of whonixsetup now
+    
+    However, since whonixsetup should be installed in both Whonox-Gateway and Whonox-Workstation, but anon-connection-wizard should NOT be installed in Whonix-Worksatation, we cannot claim the dependency in Debian control.
+    
+    2. Less error info in CLI
+    
+    The error happens in the python function may not be well-reflected to the CLI which is seen by user. For example, user may only know the attempt to enable Tor failed, but does not know if the problem is because of the missing of anon_connection_wizard package or anything else.
+
+commit 90f9e52fdc3fd2d558cef2bc8c9391295988b124
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Feb 5 22:00:11 2018 +0000
+
+    bumped changelog version
+
 commit 887437c65205eb79ad95815f79f13d34dc847e42
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Feb 5 21:39:44 2018 +0000
