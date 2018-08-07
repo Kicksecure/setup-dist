@@ -61,29 +61,29 @@ if [ ! "$exit_code" = "0" ]; then
 fi
 
 ## set_disabled() function will:
-## 1. create 40_anon_connection_wizard.conf if it was missing
+## 1. create 40_tor_control_panel.conf if it was missing
 ## 2. set final value of DisableNetwork in the file to 1
 ## 3. stop Tor using systemd
 
-python3 -c 'from anon_connection_wizard import tor_status; tor_status.set_disabled()' >/dev/null 2>&1  || { exit_code="$?" ; true; };
+python3 -c 'from tor_control_panel import tor_status; tor_status.set_disabled()' >/dev/null 2>&1  || { exit_code="$?" ; true; };
 
 if [ "$exit_code" = "0" ]; then
    true "INFO: Ok, exit 1, so whonixsetup will end."
    dialog --title "whonixsetup - Success!" --msgbox 'Tor networking has been disabled.
 
-Note: whonixsetup disables Tor networking by writing "DisableNetwork 1" to /usr/local/etc/torrc.d/40_anon_connection_wizard.conf
+Note: whonixsetup disables Tor networking by writing "DisableNetwork 1" to /usr/local/etc/torrc.d/40_tor_control_panel.conf
 ' 640 480
    ## Signal for whonixsetup to break the while loop.
    exit 1
 else
    dialog --title "whonixsetup - ERROR!" --msgbox 'Tor networking could not be disabled. Please report this bug!
 
-Note: whonixsetup tried to disable Tor networking by writing "DisableNetwork 1" to /usr/local/etc/torrc.d/40_anon_connection_wizard.conf but was unable to.
+Note: whonixsetup tried to disable Tor networking by writing "DisableNetwork 1" to /usr/local/etc/torrc.d/40_tor_control_panel.conf but was unable to.
 ' 640 480
 
    dialog --title "whonixsetup - WARNING" --msgbox 'Trying to stop the Tor process...
 
-Warning: Since Tor networking could not be disabled in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf, Tor will reconnect the next time you reboot or restart Tor. You can try to manually comment "DisableNetwork 0" in /usr/local/etc/torrc.d/40_anon_connection_wizard.conf and run "sudo service tor@default stop" to ensure that Tor will not start.
+Warning: Since Tor networking could not be disabled in /usr/local/etc/torrc.d/40_tor_control_panel.conf, Tor will reconnect the next time you reboot or restart Tor. You can try to manually comment "DisableNetwork 0" in /usr/local/etc/torrc.d/40_tor_control_panel.conf and run "sudo service tor@default stop" to ensure that Tor will not start.
 ' 640 480
 
    stop_tor

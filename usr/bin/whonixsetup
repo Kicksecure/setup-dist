@@ -79,7 +79,6 @@ command -v ft_m_8 >/dev/null
 command -v ft_m_end >/dev/null
 
 command -v dialog >/dev/null
-command -v ed >/dev/null
 command -v systemctl >/dev/null
 
 if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
