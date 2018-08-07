@@ -62,7 +62,7 @@ By default, Tor does not try to hide the fact that you are using it. If this con
 
 Ultimately, the best protection is a social approach: the more Tor users there are near you and the more diverse their interests, the safer it will be to use it. Convince other people to use Tor!
 
-Note: whonixsetup enables Tor networking by adding "DisableNetwork 0" to /usr/local/etc/torrc.d/40_anon_connection_wizard.conf.
+Note: whonixsetup enables Tor networking by adding "DisableNetwork 0" to /usr/local/etc/torrc.d/40_tor_control_panel.conf.
 '
 
 TITLE="whonixsetup - Connect to the Tor network."
@@ -76,23 +76,23 @@ if [ ! "$exit_code" = "0" ]; then
 fi
 
 ## set_enabled() function will:
-## 1. create 40_anon_connection_wizard.conf if it was missing
+## 1. create 40_tor_control_panel.conf if it was missing
 ## 2. set final value of DisableNetwork in the file to 0
 ## 3. restart Tor using systemd
 
-error_msg="$(python3 -c 'from anon_connection_wizard import tor_status; tor_status.set_enabled()' 2>&1)" || { exit_code="$?" ; true; };
+error_msg="$(python3 -c 'from tor_control_panel import tor_status; tor_status.set_enabled()' 2>&1)" || { exit_code="$?" ; true; };
 
 if [ "$exit_code" != "0" ]; then
     TITLE="whonixsetup - Error!"
     MSG="
-python3 -c 'from anon_connection_wizard import tor_status; tor_status.set_enabled()'
+python3 -c 'from tor_control_panel import tor_status; tor_status.set_enabled()'
 returned exit code $exit_code, which means failed to enable Tor.
 
 Error messages are as follows:
 $error_msg
 
 If some dependencies are missing (for example, cannot import name 'tor_status'):
-    sudo apt-get install anon-connection-wizard
+    sudo apt-get install tor-control-panel
 
 If there is something wrong with your Tor config, you can open /usr/local/etc/torrc.d/50_user.conf in the terminal:
     sudo nano /usr/local/etc/torrc.d/50_user.conf
