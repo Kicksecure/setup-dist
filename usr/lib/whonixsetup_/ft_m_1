@@ -105,7 +105,7 @@ Useful troubleshooting commands:
     sudo service tor@default restart
 
 Or for more detailed Tor config report:
-    sudo -u debian-tor tor --verify-config
+    anon-verify -v
 "
     dialog --title "$TITLE" --msgbox "$MSG" 640 480
     true "INFO: Ok, exit 1, so whonixsetup will end."
