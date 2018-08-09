@@ -1,3 +1,78 @@
+commit 038e88ce75d639003a6c3b7838e3f6b15dcb74ea
+Merge: 88bf5b0 84ae504
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Aug 7 12:06:35 2018 +0000
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 84ae50456361a27f0321ca71ca109e2e2d2ec3c7
+Merge: 88bf5b0 2c0124e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Aug 7 20:03:20 2018 +0800
+
+    Merge pull request #2 from irykoon/master
+    
+    Use correct hint on tor --verify command
+
+commit 2c0124e3f0c108f7deb8f6750abbace365b8d1b9
+Author: irykoon <irykoon@gmail.com>
+Date:   Tue Aug 7 11:45:24 2018 +0000
+
+    Suggest using anon-verify -v
+
+commit c3c6186670de79556e6992ecb04b4c6fcddb7b3a
+Merge: 11851b1 88bf5b0
+Author: irykoon <irykoon@gmail.com>
+Date:   Tue Aug 7 11:42:20 2018 +0000
+
+    Merge branch 'master' of https://github.com/Whonix/whonixsetup
+
+commit 88bf5b067f77ccd9b56406efb5881a91fba295c7
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Aug 7 19:03:28 2018 +0800
+
+    tor-control-panel migration
+
+commit 5a47bb0c862bfd45cbcad202ab20b5ccc6c71330
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Aug 6 14:44:35 2018 +0800
+
+    fix, no longer check for existence of `ed` since no longer in use
+
+commit b4bda7d96683e3b2506c7369088bd30c296b60b2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 5 07:14:56 2018 +0000
+
+    remove unnecessary dependency x11-xserver-utils
+    because we are no longer using xhost
+
+commit cba0e3fb25298fbbc316ea5a1f5351acea38180d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 5 07:09:56 2018 +0000
+
+    remove unnecessary dependency on ed
+    (no longer using ed to modify Tor config files)
+
+commit d3859d495dff15e81874d711cf76089892c4b858
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Aug 5 07:08:47 2018 +0000
+
+    remove unneccessary dependency on msgcollector
+
+commit 11851b166c4db9c8981b5f4625f193353dd0f680
+Author: irykoon <irykoon@gmail.com>
+Date:   Fri Apr 13 23:12:12 2018 +0000
+
+    Use correct hint on tor --verify command
+    
+    The reason for this change has been explained in http://phabricator.whonix.org/T787
+
+commit 812c30b3d62ed355e843eca0b80d71f78c3f7b67
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 2 12:57:06 2018 +0000
+
+    bumped changelog version
+
 commit 936551080274be7cf66ab99e58589caf15a948f6
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Apr 2 14:02:55 2018 +0200
