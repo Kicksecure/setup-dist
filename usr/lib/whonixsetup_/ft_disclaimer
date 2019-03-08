@@ -22,7 +22,7 @@ ENG: Although Whonix attempts to be as usable as possible, there are many ways i
 
 ENG: Whonix is in English. Do not use Whonix without excellent knowledge of the English language. Misunderstandings have consequences.
 
-ENG: Whonix is based on other software, including GNU/Linux, Debian, and VirtualBox. Do not rely on Whonix without working knowledge of these technologies.
+ENG: Whonix is based on other software, including GNU/Linux, Debian, and virtualization. Do not rely on Whonix without working knowledge of these technologies.
 '
 
 dialog --title "$TITLE" --defaultno --yes-label "Understood / Verstanden" --no-label "Not understood / Nicht verstanden" --yesno "$MSG" 640 480
