@@ -1,3 +1,67 @@
+commit ca44bb3dc79d5d2df8deff80cdc8d33e0ccee304
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Mar 12 11:07:47 2019 +0000
+
+    disclaimer
+
+commit 3d7f2401fb44492aae6430e60a74c670e312ea48
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Mar 12 10:43:05 2019 +0000
+
+    disclaimer
+
+commit 02c3812937f5ae44db31ce376723001dbb2692e0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Mar 8 12:58:18 2019 +0000
+
+    disclaimer
+
+commit 541d2a9086e2a04a257ee7617367e3847fab542c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Mar 8 12:54:59 2019 +0000
+
+    VirtualBox -> virtualization
+
+commit a69b4173f8e3337cd3b12b9bccb13493df43a40f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Mar 8 12:52:01 2019 +0000
+
+    remove German from disclaimer (no German language being used anywhere on whonix.org)
+
+commit 0fd98866d8c8e217c15524658e5146230e02a42d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Mar 8 12:49:57 2019 +0000
+
+    Revert "disable disclaimer"
+    
+    This reverts commit 99ebcc2ac3abc2a49815984331abc943d1d7717d.
+
+commit 60779a857296c7ccae9db04ff43a170577012c98
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Mar 1 14:32:44 2019 +0000
+
+    add improved legal protections clauses
+    
+    The license for software created by Whonix is the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version with additional terms applicable per GNU GPL version 3 section 7.
+    
+    The additional terms are based on the Doom 3 license which is Debian refers to as `GPL-3+-with-id-software-additional-terms`, which is Debian DFSG [1] (The Debian Free Software Guidelines) approved and which is therefore suitable for Debian `main`. Whonix made applied minimal changes to it:
+    
+    * Rewrite `The Doom 3 BFG Edition GPL Source Code` to the more common `this program` which is used throughout the GPL.
+    * Added a "trump clause" [2], in other words, any conflicts or disputes between the additional terms and the GPLv3 shall be resolved in favor of the GPLv3 by adding `Notwithstanding any other provision of this License` (as mentioned in GPL FAQ [3]) at the beginning of the additional terms.
+    
+    [1] https://www.debian.org/social_contract#guidelines
+    [2] https://www.fsf.org/news/canonical-updated-licensing-terms
+    [3] https://www.gnu.org/licenses/gpl-faq.html#v3Notwithstanding
+    
+    For more considerations, see also:
+    https://www.whonix.org/wiki/Dev/Licensing
+
+commit 20ac4c3e791f53ee89be28af05347357638c7b1d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Aug 27 17:07:11 2018 +0000
+
+    bumped changelog version
+
 commit 5eecfc30e4563ae4f6cc867acc72589a8cd20902
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Aug 24 09:58:16 2018 -0400
