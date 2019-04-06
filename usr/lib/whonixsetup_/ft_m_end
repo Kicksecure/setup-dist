@@ -23,7 +23,7 @@ trap "error_handler" ERR
 
 ## root check
 if [ "$(id -u)" != "0" ]; then
-    echo "ERROR: This must be run as root (sudo)!"
+    echo "$0 ERROR: This must be run as root (sudo)!"
     exit 1
 fi
 
