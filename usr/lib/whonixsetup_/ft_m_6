@@ -15,7 +15,7 @@ On Whonix-Gateway:
 
 Or, if you are using a graphical Whonix-Gateway.
 
-    Start Menu -> Applications -> /usr/local/etc/torrc.d/50_user.conf
+    Start Menu -> System -> Tor User Config
 
 Depending on your proxy configuration, add the settings you'll need to your /usr/local/etc/torrc.d/50_user.conf. For more information on these settings, have a look in the Tor manual and read the FAQ.
 

@@ -99,7 +99,7 @@ If there is something wrong with your Tor config, you can open /usr/local/etc/to
     sudo nano /usr/local/etc/torrc.d/50_user.conf
 
 Or, if you are using a graphical Whonix-Gateway:
-    Start Menu -> Applications -> Tor Config File
+    Start Menu -> System -> Tor User Config
 
 Useful troubleshooting commands:
 
