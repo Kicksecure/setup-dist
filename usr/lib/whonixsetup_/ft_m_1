@@ -80,7 +80,7 @@ fi
 ## 2. set final value of DisableNetwork in the file to 0
 ## 3. restart Tor using systemd
 
-/usr/lib/anon-shared-helper-scripts/repair_torrc.py
+/usr/lib/helper-scripts/repair_torrc.py
 error_msg="$(python3 -c 'from tor_control_panel import tor_status; tor_status.set_enabled()' 2>&1)" || { exit_code="$?" ; true; };
 
 if [ "$exit_code" != "0" ]; then

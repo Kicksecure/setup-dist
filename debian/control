@@ -13,7 +13,7 @@ Standards-Version: 4.3.0
 
 Package: whonixsetup
 Architecture: all
-Depends: anon-gw-base-files | anon-ws-base-files, anon-shared-helper-scripts,
+Depends: anon-gw-base-files | anon-ws-base-files, helper-scripts,
  dialog, sudo, menu, ${misc:Depends}
 Recommends: whonix-repository, anon-icon-pack
 Description: First Time Connection Setup
