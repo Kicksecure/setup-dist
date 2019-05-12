@@ -1,3 +1,15 @@
+commit 4e837c221ae45438b65dc7dc0bef1fa0430f5540
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun May 12 02:50:17 2019 -0400
+
+    anon-shared-helper-scripts -> helper-scripts
+
+commit 385f872322bde89fc21dead4f836e7446f812634
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri May 3 11:46:42 2019 +0000
+
+    bumped changelog version
+
 commit 526bc7df0d0910d3340514add76f0596536d1e1a
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri May 3 10:56:59 2019 +0000
