@@ -32,6 +32,10 @@ maybe_start_anon_check() {
    anon_check_bin_command_v_exit_code="0"
    anon_check_bin_path="$(command -v "$anon_check_bin" 2>/dev/null)" || { anon_check_bin_command_v_exit_code="$?" ; true; };
 
+   if command -v "qubesdb-read" >/dev/null 2>&1 ; then
+      qubes_extra_args="--autostart"
+   fi
+
    if [ ! "$anon_check_bin_command_v_exit_code" = "0" ]; then
       echo "INFO: Skipping starting $anon_check_bin, because $anon_check_bin is unavailable."
       return 0
@@ -42,9 +46,9 @@ maybe_start_anon_check() {
    fi
    echo "INFO: Starting $anon_check_bin..."
    if [ "$SUDO_USER" = "" ]; then
-      sudo --non-interactive --set-home -u user "$anon_check_bin" || { exit_code="$?" ; true; };
+      sudo --non-interactive --set-home -u user "$anon_check_bin" $qubes_extra_args || { exit_code="$?" ; true; };
    else
-      sudo --non-interactive --set-home -u "$SUDO_USER" "$anon_check_bin" || { exit_code="$?" ; true; };
+      sudo --non-interactive --set-home -u "$SUDO_USER" "$anon_check_bin" $qubes_extra_args || { exit_code="$?" ; true; };
    fi
    echo "INFO: End of $anon_check_bin. You can always start $anon_check_bin again with:
     $anon_check_bin"
