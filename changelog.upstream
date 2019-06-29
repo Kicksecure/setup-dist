@@ -1,3 +1,19 @@
+commit 9c6ec0f503c1b381d0e7cd50e465eb491f58447e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jun 28 10:23:22 2019 +0000
+
+    fix Qubes integration
+    
+    Thanks to @marmarek for the bug report!
+    
+    https://www.whonix.org/pipermail/whonix-devel/2019-June/001397.html
+
+commit 4797537502104fc563371389b744f375d5a45e11
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jun 8 11:44:29 2019 +0000
+
+    bumped changelog version
+
 commit 603dfe80fd6972e3684b22cffed802538db8babf
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jun 8 00:05:39 2019 -0400
