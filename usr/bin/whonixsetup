@@ -31,7 +31,7 @@ whonixsetup_whonix_repository() {
    ## file exists. So we won't needlessly always start the whonix_repository tool.
 
    if [ ! -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done" ]; then
-      if [ ! -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.skip" ]; then
+      if [ ! -f "/usr/share/whonix-setup-wizard/status-files/whonix_repository.skip" ]; then
          ## Legacy up to Whonix 9.x.
          if [ ! -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
             if [ -x "$(command -v whonix_repository)" ]; then
@@ -90,7 +90,7 @@ if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
 fi
 
 if [ ! -f "/var/cache/whonix-setup-wizard/status-files/disclaimer.done" ]; then
-   if [ ! -f "/var/cache/whonix-setup-wizard/status-files/disclaimer.skip" ]; then
+   if [ ! -f "/usr/share/whonix-setup-wizard/status-files/disclaimer.skip" ]; then
       exit_code="0"
       ft_disclaimer || { exit_code="$?" ; true; };
 

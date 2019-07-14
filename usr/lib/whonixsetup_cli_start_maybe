@@ -100,9 +100,9 @@ installed. /var/run/rads/no_start_x.status exists."
 in use."
    fi
 
-   if [ -f "/var/cache/whonix-setup-wizard/status-files/whonixsetup.skip" ]; then
+   if [ -f "/usr/share/whonix-setup-wizard/status-files/whonixsetup.skip" ]; then
       true "[${green}INFO${reset}] [whonixsetup] skip file \
-/var/cache/whonix-setup-wizard/status-files/whonixsetup.skip exists. Exiting."
+/usr/share/whonix-setup-wizard/status-files/whonixsetup.skip exists. Exiting."
       exit 0
    fi
 
