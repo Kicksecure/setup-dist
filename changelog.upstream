@@ -628,7 +628,7 @@ commit da348d52f9494b9beb6bad8fc5a6b1b23471d558
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Dec 19 20:21:04 2015 +0100
 
-    update path from /tmp/rads to /var/run/rads as it was changed in rads
+    update path from /tmp/rads to /run/rads as it was changed in rads
     
     https://github.com/Whonix/rads/commit/76f26d2650f70ad6e5ce01bb436f0e0621241e03
 

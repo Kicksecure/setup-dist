@@ -86,15 +86,15 @@ start_whonixsetup_cli_and_exit() {
 }
 
 maybe_start_setup() {
-   if [ -e "/var/run/rads/start_x.status" ]; then
+   if [ -e "/run/rads/start_x.status" ]; then
       true "[${green}INFO${reset}] [whonixsetup] Not starting whonixsetup in \
 terminal, because rads reports, that X is going to be started. (Autostarting \
 whonix-setup-wizard in X is handled by \
 /etc/xdg/autostart/whonixsetup.desktop.)"
       exit 0
-   elif [ -e "/var/run/rads/no_start_x.status" ]; then
+   elif [ -e "/run/rads/no_start_x.status" ]; then
       true "[${green}INFO${reset}] [whonixsetup] rads appears to be \
-installed. /var/run/rads/no_start_x.status exists."
+installed. /run/rads/no_start_x.status exists."
    else
       true "[${green}INFO${reset}] [whonixsetup] rads appears not to be \
 in use."
