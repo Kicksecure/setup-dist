@@ -15,7 +15,6 @@ Package: whonixsetup
 Architecture: all
 Depends: anon-gw-base-files | anon-ws-base-files, helper-scripts,
  dialog, sudo, menu, ${misc:Depends}
-Recommends: whonix-repository, anon-icon-pack
 Description: First Time Connection Setup
  When Whonix starts for the first time, it won't automatically connect to the
  public Tor network. This is useful for users who want to hide Tor from their
