@@ -1,3 +1,15 @@
+commit e4a8687fc0d81bf4b14ed0298c7ae8e8a159e326
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 10 09:49:18 2019 -0500
+
+    remove "Recommends: whonix-repository, anon-icon-pack"
+
+commit 13b565333bf2191cc776ad101f3be54fb3dba8df
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Aug 28 12:54:50 2019 +0000
+
+    bumped changelog version
+
 commit 7e861d14f80d79b52038ffbca4d30e3bf640e478
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Aug 28 11:35:57 2019 +0000
