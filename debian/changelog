@@ -1,3 +1,9 @@
+whonixsetup (3:4.7-1) unstable; urgency=medium
+
+  * New upstream version (local package).
+
+ -- Patrick Schleizer <adrelanos@riseup.net>  Thu, 30 Jan 2020 11:52:11 +0000
+
 whonixsetup (3:4.6-1) unstable; urgency=medium
 
   * New upstream version (local package).
