@@ -1,0 +1,38 @@
+.\" generated with Ronn-NG/v0.8.0
+.\" http://github.com/apjanke/ronn-ng/tree/0.8.0
+.TH "WHONIXSETUP" "8" "April 2020" "whonixsetup" "whonixsetup Manual"
+.SH "NAME"
+\fBwhonixsetup\fR \- Connection Wizard
+.P
+.SH "SYNOPSIS"
+\fBwhonixsetup\fR
+.SH "DESCRIPTION"
+Asks in which environment you are using Whonix, informs about various situations, helps to enable Tor in Tor config\.
+.SH "EXAMPLE"
+\fBwhonixsetup\fR
+.SH "SKIP FILES"
+Useful to custom builds and derivative distributions\.
+.P
+\fB/usr/share/whonix\-setup\-wizard/status\-files/whonix_repository\.skip\fR
+.P
+Prevents start of Whonix Repository Tool by whonixsetup\.
+.P
+\fB/usr/share/whonix\-setup\-wizard/status\-files/disclaimer\.skip\fR
+.P
+Prevents showing Whonix\'s disclaimer\.
+.P
+\fB/usr/share/whonix\-setup\-wizard/status\-files/first_use_check\.skip\fR
+.P
+Prevents showing first run notice\.
+.SH "SKIP FILES USAGE EXAMPLES"
+\fBsudo mkdir \-\-parents /usr/share/whonix\-setup\-wizard/status\-files\fR
+.P
+\fBsudo touch /usr/share/whonix\-setup\-wizard/status\-files/whonix_repository\.skip\fR
+.P
+\fBsudo touch /usr/share/whonix\-setup\-wizard/status\-files/disclaimer\.skip\fR
+.P
+\fBsudo touch /usr/share/whonix\-setup\-wizard/status\-files/first_use_check\.skip\fR
+.SH "WWW"
+https://www\.whonix\.org
+.SH "AUTHOR"
+This man page has been written by Patrick Schleizer (adrelanos@riseup\.net)\.
