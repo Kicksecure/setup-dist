@@ -1,3 +1,52 @@
+commit 2dbf5b28f74255e81b5a5b1651a5c82122f5bbe7
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 2 07:23:08 2020 -0400
+
+    readme
+
+commit a1a90fdce6b9e07b5792237d894fece9b70c674e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Apr 1 17:35:01 2020 -0400
+
+    remove 'Build-Depends: ronn' since no longer required
+
+commit 0d21dffebc7ccf6d35cd270180a0e0bf487bcde3
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Apr 1 16:57:36 2020 -0400
+
+    remove genmkfile
+
+commit cce3a74165c011fad6296477e74344ffd50f8430
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Apr 1 16:34:23 2020 -0400
+
+    add debian install file
+
+commit c985b7ade1c00174ede1c9f3f0db51474684b75f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Apr 1 15:56:50 2020 -0400
+
+    add man pages (generated using "genmkfile manpages")
+
+commit 7faf0bb2f4a237a2a5720db24b000955ee6ffb6c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Apr 1 15:50:40 2020 -0400
+
+    no longer create man pages during build process
+    use pre-created man pages
+
+commit a70b5d49d12d4f0069060e8d0c3e783e9b4a734f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Apr 1 15:43:18 2020 -0400
+
+    change path to auto generated man pages
+
+commit d8b99e0293a07b59e47d50480cc76e53188a07fb
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Apr 1 11:16:11 2020 -0400
+
+    bumped changelog version
+
 commit 5fe4a6c504c2533bcf9dfb74886d119a8e95c2b1
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Apr 1 08:50:03 2020 -0400
