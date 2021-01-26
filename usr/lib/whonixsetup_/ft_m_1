@@ -117,7 +117,7 @@ TITLE="whonixsetup - Success!"
 MSG="
 Tor has been successfully enabled.
 
-Press Enter to run whonixcheck and exit.
+Press Enter to run systemcheck and exit.
 "
 dialog --title "$TITLE" --msgbox "$MSG" 640 480
 
@@ -128,7 +128,7 @@ dialog --title "$TITLE" --msgbox "$MSG" 640 480
 # sleep 1
 # tor_action_exit_code_check
 
-## Start whonixcheck.
+## Start systemcheck.
 exit_code="0"
 ft_m_end || { exit_code="$?" ; true; };
 

@@ -28,7 +28,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 maybe_start_anon_check() {
-   anon_check_bin="whonixcheck"
+   anon_check_bin="systemcheck"
    anon_check_bin_command_v_exit_code="0"
    anon_check_bin_path="$(command -v "$anon_check_bin" 2>/dev/null)" || { anon_check_bin_command_v_exit_code="$?" ; true; };
 
@@ -54,7 +54,7 @@ maybe_start_anon_check() {
     $anon_check_bin"
 }
 
-## This is required, otherwise whonixcheck would abort.
+## This is required, otherwise systemcheck would abort.
 mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
 touch "/var/cache/whonix-setup-wizard/status-files/whonixsetup.done"
 

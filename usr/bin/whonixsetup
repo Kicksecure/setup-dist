@@ -27,7 +27,7 @@ trap "error_handler" ERR
 SCRIPTNAME="$(basename "$BASH_SOURCE")"
 
 whonixsetup_whonix_repository() {
-   ## /usr/lib/whonixsetup_cli_start_maybe will not start whonixcheck, if done
+   ## /usr/lib/whonixsetup_cli_start_maybe will not start systemcheck, if done
    ## file exists. So we won't needlessly always start the whonix_repository tool.
 
    if [ ! -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done" ]; then
@@ -103,18 +103,18 @@ if [ ! -f "/var/cache/whonix-setup-wizard/status-files/disclaimer.done" ]; then
    fi
 fi
 
-## Start whonixcheck on Whonix-Workstation here.
+## Start systemcheck on Whonix-Workstation here.
 ## (On Whonix-Gateway ft_m_1 will start it.)
 if [ -f "/usr/share/anon-ws-base-files/workstation" ]; then
    TITLE="whonixsetup - Success!"
 
    MSG="
-Press Enter to run whonixcheck and exit.
+Press Enter to run systemcheck and exit.
 "
 
    dialog --title "$TITLE" --msgbox "$MSG" 640 480
 
-   ## Start whonixcheck.
+   ## Start systemcheck.
    exit_code="0"
    ft_m_end || { exit_code="$?" ; true; };
 
