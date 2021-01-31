@@ -139,6 +139,7 @@ elif [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
          break
       fi
       if ! tty --quiet ; then
+         ## Break loop in case running non-interactive (without stdin).
          break
       fi
    done
