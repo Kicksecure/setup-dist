@@ -1,0 +1,9 @@
+#!/bin/bash
+
+## Copyright (C) 2021 - 2021 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+## Close stdin so whonixsetup will run non-interactive.
+exec 0<&-
+
+whonixsetup "$@"
