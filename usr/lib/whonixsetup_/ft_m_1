@@ -3,7 +3,7 @@
 ## Copyright (C) 2012 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
-set -x
+#set -x
 set -o pipefail
 set -o errtrace
 
@@ -20,6 +20,8 @@ error_handler() {
 }
 
 trap "error_handler" ERR
+
+source "/usr/lib/whonixsetup_/shared"
 
 tor_action_exit_code_check() {
    if [ ! "$exit_code" = "0" ]; then
@@ -43,7 +45,7 @@ Running:
 
 might help with troubleshooting.
 "
-      dialog --title "$TITLE" --msgbox "$MSG" 640 480
+      dialog_wrapper --title "$TITLE" --msgbox "$MSG" 640 480
       true "INFO: Ok, exit 1, so whonixsetup will end."
       exit 1
    fi
@@ -68,7 +70,7 @@ Note: whonixsetup enables Tor networking by adding "DisableNetwork 0" to /usr/lo
 TITLE="whonixsetup - Connect to the Tor network."
 
 exit_code="0"
-dialog --title "$TITLE" --yesno "$MSG" 640 480 || { exit_code="$?" ; true; };
+dialog_wrapper --title "$TITLE" --yesno "$MSG" 640 480 || { exit_code="$?" ; true; };
 
 if [ ! "$exit_code" = "0" ]; then
    ## Back to main menu.
@@ -108,7 +110,7 @@ Useful troubleshooting commands:
 Or for more detailed Tor config report:
     anon-verify -v
 "
-    dialog --title "$TITLE" --msgbox "$MSG" 640 480
+    dialog_wrapper --title "$TITLE" --msgbox "$MSG" 640 480
     true "INFO: Ok, exit 1, so whonixsetup will end."
     exit 1
 fi
@@ -119,7 +121,7 @@ Tor has been successfully enabled.
 
 Press Enter to run systemcheck and exit.
 "
-dialog --title "$TITLE" --msgbox "$MSG" 640 480
+dialog_wrapper --title "$TITLE" --msgbox "$MSG" 640 480
 
 # exit_code="0"
 # service_action="status"

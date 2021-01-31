@@ -5,6 +5,8 @@
 
 #set -x
 
+source "/usr/lib/whonixsetup_/shared"
+
 MSG='
 (You can scroll down using the arrow key.)
 
@@ -40,6 +42,6 @@ Or, if you are using a graphical Whonix-Gateway:
 
 TITLE="whonixsetup - Tor is censored in my area."
 
-dialog --title "$TITLE" --msgbox "$MSG" 640 480
+dialog_wrapper --title "$TITLE" --msgbox "$MSG" 640 480
 
 exit 0

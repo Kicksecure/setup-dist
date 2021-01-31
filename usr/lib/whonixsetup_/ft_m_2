@@ -3,7 +3,7 @@
 ## Copyright (C) 2012 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
-set -x
+#set -x
 set -o pipefail
 
 error_handler() {
@@ -20,6 +20,8 @@ error_handler() {
 
 trap "error_handler" ERR
 
+source "/usr/lib/whonixsetup_/shared"
+
 ## root check
 if [ "$(id -u)" != "0" ]; then
     echo "ERROR: This must be run as root (sudo)!"
@@ -33,16 +35,16 @@ stop_tor() {
       sleep 1
 
       if [ "$exit_code" = "0" ]; then
-         dialog --title "whonixsetup - Info" --msgbox 'The Tor process is still running. Stopping it now...' 640 480
+         dialog_wrapper --title "whonixsetup - Info" --msgbox 'The Tor process is still running. Stopping it now...' 640 480
 
          exit_code="0"
          systemctl --no-pager stop tor@default || { exit_code="$?"; true; };
          sync
          sleep 1
 
-         dialog --title "whonixsetup - Info" --msgbox 'Stopped the Tor process.' 640 480
+         dialog_wrapper --title "whonixsetup - Info" --msgbox 'Stopped the Tor process.' 640 480
       else
-         dialog --title "whonixsetup - Info" --msgbox 'The Tor process was already stopped.' 640 480
+         dialog_wrapper --title "whonixsetup - Info" --msgbox 'The Tor process was already stopped.' 640 480
       fi
 }
 
@@ -53,7 +55,7 @@ Do you want to disable Tor networking?
 TITLE="whonixsetup - Disable Tor Networking"
 
 exit_code="0"
-dialog --title "$TITLE" --yesno "$MSG" 640 480 || { exit_code="$?"; true; };
+dialog_wrapper --title "$TITLE" --yesno "$MSG" 640 480 || { exit_code="$?"; true; };
 
 if [ ! "$exit_code" = "0" ]; then
    ## Back to main menu.
@@ -70,19 +72,19 @@ python3 -c 'from tor_control_panel import tor_status; tor_status.set_disabled()'
 
 if [ "$exit_code" = "0" ]; then
    true "INFO: Ok, exit 1, so whonixsetup will end."
-   dialog --title "whonixsetup - Success!" --msgbox 'Tor networking has been disabled.
+   dialog_wrapper --title "whonixsetup - Success!" --msgbox 'Tor networking has been disabled.
 
 Note: whonixsetup disables Tor networking by writing "DisableNetwork 1" to /usr/local/etc/torrc.d/40_tor_control_panel.conf
 ' 640 480
    ## Signal for whonixsetup to break the while loop.
    exit 1
 else
-   dialog --title "whonixsetup - ERROR!" --msgbox 'Tor networking could not be disabled. Please report this bug!
+   dialog_wrapper --title "whonixsetup - ERROR!" --msgbox 'Tor networking could not be disabled. Please report this bug!
 
 Note: whonixsetup tried to disable Tor networking by writing "DisableNetwork 1" to /usr/local/etc/torrc.d/40_tor_control_panel.conf but was unable to.
 ' 640 480
 
-   dialog --title "whonixsetup - WARNING" --msgbox 'Trying to stop the Tor process...
+   dialog_wrapper --title "whonixsetup - WARNING" --msgbox 'Trying to stop the Tor process...
 
 Warning: Since Tor networking could not be disabled in /usr/local/etc/torrc.d/40_tor_control_panel.conf, Tor will reconnect the next time you reboot or restart Tor. You can try to manually comment "DisableNetwork 0" in /usr/local/etc/torrc.d/40_tor_control_panel.conf and run "sudo service tor@default stop" to ensure that Tor will not start.
 ' 640 480

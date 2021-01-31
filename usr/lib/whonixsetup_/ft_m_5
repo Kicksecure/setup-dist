@@ -3,11 +3,13 @@
 ## Copyright (C) 2012 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
+source "/usr/lib/whonixsetup_/shared"
+
 #MSG=""
 
 #TITLE="I want to hide Whonix from my ISP."
 
-#dialog --title "$TITLE" --msgbox "$MSG" 640 480
+#dialog_wrapper --title "$TITLE" --msgbox "$MSG" 640 480
 
 ## Same message as ft_m_3.
 ft_m_3

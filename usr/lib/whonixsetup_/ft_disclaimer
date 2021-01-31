@@ -3,6 +3,8 @@
 ## Copyright (C) 2012 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
+source "/usr/lib/whonixsetup_/shared"
+
 TITLE="Important Information About Whonix Part 1/2 | Wichtige Informationen zu Whonix Teil 1/2 (whonixsetup)"
 
 MSG='
@@ -17,12 +19,13 @@ Whonix is a compilation of software packages, each under its own copyright and l
 The compilation is made available the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version with additional terms applicable per GNU GPL version 3 section 7. The license can be refereed to as GPL-3+-with-additional-terms-1 and can be found in /usr/share/whonix/WHONIX_BINARY_LICENSE_AGREEMENT or online here: https://www.whonix.org/wiki/Whonix:Copyrights
 '
 
-dialog --title "$TITLE" --defaultno --yes-label "Understood / Verstanden" --no-label "Not understood / Nicht verstanden" --yesno "$MSG" 640 480
+dialog_wrapper --title "$TITLE" --yesno "$MSG" --defaultno --yes-label "Understood / Verstanden" --no-label "Not understood / Nicht verstanden" 640 480
 
 ret="$?"
 
 if [ "$ret" = "1" ]; then
-   /sbin/poweroff
+   ## TODO: enable
+   #/sbin/poweroff
    ## Endless loop.
    while true; do
       sleep 1
@@ -76,12 +79,13 @@ Program, unless a warranty or assumption of liability accompanies a
 copy of the Program in return for a fee.
 "
 
-dialog --title "$TITLE" --defaultno --yes-label "Understood / Verstanden" --no-label "Not understood / Nicht verstanden" --yesno "$MSG" 640 480
+dialog_wrapper --title "$TITLE" --yesno "$MSG" --defaultno --yes-label "Understood / Verstanden" --no-label "Not understood / Nicht verstanden" 640 480
 
 ret="$?"
 
 if [ "$ret" = "1" ]; then
-   /sbin/poweroff
+   ## TODO: enable
+   #/sbin/poweroff
    ## Endless loop.
    while true; do
       sleep 1

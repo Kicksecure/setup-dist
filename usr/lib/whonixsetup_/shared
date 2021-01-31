@@ -1,0 +1,13 @@
+#!/bin/bash
+
+## Copyright (C) 2012 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+dialog_wrapper() {
+   if tty --quiet ; then
+      dialog "$@"
+   else
+      echo "$2"
+      echo "$4"
+   fi
+}
