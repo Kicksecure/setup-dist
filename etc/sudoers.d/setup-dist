@@ -3,4 +3,4 @@
 
 ## setup-dist edits Tor config, therefore needs root.
 ## Feel free to disable it.
-%sudo ALL=NOPASSWD: /usr/bin/setup-dist
+%sudo ALL=NOPASSWD: /usr/sbin/setup-dist
