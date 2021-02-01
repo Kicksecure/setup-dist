@@ -3,7 +3,7 @@
 ## Copyright (C) 2012 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
-source "/usr/lib/whonixsetup_/shared"
+source "/usr/lib/setup-dist/shared"
 
 MSG='
 If your firewall works by blocking ports, then you can tell Tor to only use the ports that your firewall permits by adding "FascistFirewall 1" to your Tor configuration file.
@@ -26,7 +26,7 @@ Tor Manual:
 https://www.torproject.org/docs/tor-manual.html.en
 '
 
-TITLE="whonixsetup - My firewall only lets me connect to certain ports."
+TITLE="setup-dist - My firewall only lets me connect to certain ports."
 
 dialog_wrapper --title "$TITLE" --msgbox "$MSG" 640 480
 

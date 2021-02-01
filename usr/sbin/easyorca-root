@@ -31,4 +31,4 @@ if type -P orca-enable-autostart >/dev/null ; then
    orca-enable-autostart
 fi
 
-whonixsetup-noninteractive 1
+setup-dist-noninteractive 1

@@ -5,7 +5,7 @@
 
 #set -x
 
-source "/usr/lib/whonixsetup_/shared"
+source "/usr/lib/setup-dist/shared"
 
 MSG='
 (You can scroll down using the arrow key.)
@@ -40,7 +40,7 @@ Or, if you are using a graphical Whonix-Gateway:
     Start Menu -> System -> Tor User Config
 '
 
-TITLE="whonixsetup - Tor is censored in my area."
+TITLE="setup-dist - Tor is censored in my area."
 
 dialog_wrapper --title "$TITLE" --msgbox "$MSG" 640 480
 

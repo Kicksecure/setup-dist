@@ -21,11 +21,11 @@ error_handler() {
 
 trap "error_handler" ERR
 
-source "/usr/lib/whonixsetup_/shared"
+source "/usr/lib/setup-dist/shared"
 
 tor_action_exit_code_check() {
    if [ ! "$exit_code" = "0" ]; then
-      TITLE="whonixsetup - Error!"
+      TITLE="setup-dist - Error!"
       MSG="
     sudo service tor@default $service_action
 
@@ -46,7 +46,7 @@ Running:
 might help with troubleshooting.
 "
       dialog_wrapper --title "$TITLE" --msgbox "$MSG" 640 480
-      true "INFO: Ok, exit 1, so whonixsetup will end."
+      true "INFO: Ok, exit 1, so setup-dist will end."
       exit 1
    fi
 }
@@ -64,10 +64,10 @@ By default, Tor does not try to hide the fact that you are using it. If this con
 
 Ultimately, the best protection is a social approach: the more Tor users there are near you and the more diverse their interests, the safer it will be to use it. Convince other people to use Tor!
 
-Note: whonixsetup enables Tor networking by adding "DisableNetwork 0" to /usr/local/etc/torrc.d/40_tor_control_panel.conf.
+Note: setup-dist enables Tor networking by adding "DisableNetwork 0" to /usr/local/etc/torrc.d/40_tor_control_panel.conf.
 '
 
-TITLE="whonixsetup - Connect to the Tor network."
+TITLE="setup-dist - Connect to the Tor network."
 
 exit_code="0"
 dialog_wrapper --title "$TITLE" --yesno "$MSG" 640 480 || { exit_code="$?" ; true; };
@@ -86,7 +86,7 @@ fi
 error_msg="$(python3 -c 'from tor_control_panel import tor_status; tor_status.set_enabled()' 2>&1)" || { exit_code="$?" ; true; };
 
 if [ "$exit_code" != "0" ]; then
-    TITLE="whonixsetup - Error!"
+    TITLE="setup-dist - Error!"
     MSG="
 python3 -c 'from tor_control_panel import tor_status; tor_status.set_enabled()'
 returned exit code $exit_code, which means failed to enable Tor.
@@ -111,11 +111,11 @@ Or for more detailed Tor config report:
     anon-verify -v
 "
     dialog_wrapper --title "$TITLE" --msgbox "$MSG" 640 480
-    true "INFO: Ok, exit 1, so whonixsetup will end."
+    true "INFO: Ok, exit 1, so setup-dist will end."
     exit 1
 fi
 
-TITLE="whonixsetup - Success!"
+TITLE="setup-dist - Success!"
 MSG="
 Tor has been successfully enabled.
 
@@ -134,5 +134,5 @@ dialog_wrapper --title "$TITLE" --msgbox "$MSG" 640 480
 exit_code="0"
 ft_m_end || { exit_code="$?" ; true; };
 
-true "INFO: Ok, exit 1, so whonixsetup will end."
+true "INFO: Ok, exit 1, so setup-dist will end."
 exit 1

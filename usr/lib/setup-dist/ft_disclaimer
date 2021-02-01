@@ -3,9 +3,9 @@
 ## Copyright (C) 2012 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
-source "/usr/lib/whonixsetup_/shared"
+source "/usr/lib/setup-dist/shared"
 
-TITLE="Important Information About Whonix Part 1/2 | Wichtige Informationen zu Whonix Teil 1/2 (whonixsetup)"
+TITLE="Important Information About Whonix Part 1/2 | Wichtige Informationen zu Whonix Teil 1/2 (setup-dist)"
 
 MSG='
 Please do NOT continue unless you understand everything!
@@ -32,7 +32,7 @@ if [ "$ret" = "1" ]; then
    done
 fi
 
-TITLE="Important Information About Whonix Part 2/2 | Wichtige Informationen zu Whonix Teil 2/2 (whonixsetup)"
+TITLE="Important Information About Whonix Part 2/2 | Wichtige Informationen zu Whonix Teil 2/2 (setup-dist)"
 
 MSG="
 Please do NOT continue unless you understand everything!

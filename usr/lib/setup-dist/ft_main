@@ -22,9 +22,9 @@ error_handler() {
 
 trap "error_handler" ERR
 
-source "/usr/lib/whonixsetup_/shared"
+source "/usr/lib/setup-dist/shared"
 
-MENU_TITLE="whonixsetup - Connection Wizard"
+MENU_TITLE="setup-dist - Connection Wizard"
 
 MENU_TEXT="Before we let Tor connect, we need to know about your Internet connection.
 

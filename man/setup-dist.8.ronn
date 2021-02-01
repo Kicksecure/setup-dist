@@ -1,4 +1,4 @@
-whonixsetup(8) -- Connection Wizard
+setup-dist(8) -- Connection Wizard
 =============================================
 
 <span class="comment">
@@ -8,7 +8,7 @@ whonixsetup(8) -- Connection Wizard
 
 ## SYNOPSIS
 
-`whonixsetup`
+`setup-dist`
 
 ## DESCRIPTION
 
@@ -17,7 +17,7 @@ situations, helps to enable Tor in Tor config.
 
 ## EXAMPLE
 
-`whonixsetup`
+`setup-dist`
 
 ## SKIP FILES
 
@@ -25,7 +25,7 @@ Useful to custom builds and derivative distributions.
 
 `/usr/share/whonix-setup-wizard/status-files/whonix_repository.skip`
 
-Prevents start of Whonix Repository Tool by whonixsetup.
+Prevents start of Whonix Repository Tool by setup-dist.
 
 `/usr/share/whonix-setup-wizard/status-files/disclaimer.skip`
 

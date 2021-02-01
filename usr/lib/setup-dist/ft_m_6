@@ -3,7 +3,7 @@
 ## Copyright (C) 2012 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
-source "/usr/lib/whonixsetup_/shared"
+source "/usr/lib/setup-dist/shared"
 
 MSG="
 Tunnel Tor through proxy
@@ -49,7 +49,7 @@ Whonix documentation online:
 https://www.whonix.org/wiki/Tunnel_Tor_through_proxy_or_VPN_or_SSH
 "
 
-TITLE="whonixsetup - I need a proxy to access the Internet."
+TITLE="setup-dist - I need a proxy to access the Internet."
 
 dialog_wrapper --title "$TITLE" --msgbox "$MSG" 640 480
 

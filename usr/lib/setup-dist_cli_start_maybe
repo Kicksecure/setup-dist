@@ -17,15 +17,15 @@ set -o errtrace
 set -o pipefail
 
 error_handler_setup() {
-   echo "[${red}${bold}ERROR${reset}] [whonixsetup] \
+   echo "[${red}${bold}ERROR${reset}] [setup-dist] \
 ret: $? | BASH_COMMAND: $BASH_COMMAND | Please report this bug!"
 }
 
 trap "error_handler_setup" ERR
 
 sigterm_setup() {
-   #echo "[${green}INFO${reset}] [whonixsetup] SIGTERM received!"
-   true "INFO: [whonixsetup] SIGTERM received!"
+   #echo "[${green}INFO${reset}] [setup-dist] SIGTERM received!"
+   true "INFO: [setup-dist] SIGTERM received!"
 }
 
 trap "sigterm_setup" SIGTERM
@@ -79,36 +79,36 @@ colors() {
 } 2>/dev/null ||:
 }
 
-start_whonixsetup_cli_and_exit() {
-   ## This has a sudoers exception in /etc/sudoers.d/whonixsetup.
-   sudo --non-interactive whonixsetup
+start_setup_dist_cli_and_exit() {
+   ## This has a sudoers exception in /etc/sudoers.d/setup-dist.
+   sudo --non-interactive setup-dist
    exit 0
 }
 
 maybe_start_setup() {
    if [ -e "/run/rads/start_x.status" ]; then
-      true "[${green}INFO${reset}] [whonixsetup] Not starting whonixsetup in \
+      true "[${green}INFO${reset}] [setup-dist] Not starting setup-dist in \
 terminal, because rads reports, that X is going to be started. (Autostarting \
 whonix-setup-wizard in X is handled by \
-/etc/xdg/autostart/whonixsetup.desktop.)"
+/etc/xdg/autostart/setup-dist.desktop.)"
       exit 0
    elif [ -e "/run/rads/no_start_x.status" ]; then
-      true "[${green}INFO${reset}] [whonixsetup] rads appears to be \
+      true "[${green}INFO${reset}] [setup-dist] rads appears to be \
 installed. /run/rads/no_start_x.status exists."
    else
-      true "[${green}INFO${reset}] [whonixsetup] rads appears not to be \
+      true "[${green}INFO${reset}] [setup-dist] rads appears not to be \
 in use."
    fi
 
    if [ -f "/usr/share/whonix-setup-wizard/status-files/whonixsetup.skip" ]; then
-      true "[${green}INFO${reset}] [whonixsetup] skip file \
+      true "[${green}INFO${reset}] [setup-dist] skip file \
 /usr/share/whonix-setup-wizard/status-files/whonixsetup.skip exists. Exiting."
       exit 0
    fi
 
    if [ -e "/usr/share/anon-gw-base-files/gateway" ]; then
       ## Checking if Tor has been enabled.
-      ## And if Tor has not been enabled, auto start whonixsetup (cli).
+      ## And if Tor has not been enabled, auto start setup-dist (cli).
       ## This function only gets called, if we are not booting into a graphical desktop environment.
       ## Eventually auto starting whonix-setup-wizard (gui) in a graphical desktop environment is
       ## implemented through /etc/xdg/autostart/whonix-setup-wizard.desktop.
@@ -130,14 +130,14 @@ in use."
          sleep 5 &
          wait "$!" || true
 
-         echo "[${green}INFO${reset}] [whonixsetup] Tor has not been enabled yet. Starting whonixsetup..."
+         echo "[${green}INFO${reset}] [setup-dist] Tor has not been enabled yet. Starting setup-dist..."
 
          ## Sleep just for the look and feel, so the following message comes after, so the previous
          ## message can be read.
          sleep 5 &
          wait "$!" || true
 
-         start_whonixsetup_cli_and_exit
+         start_setup_dist_cli_and_exit
       fi
    fi
 
@@ -147,13 +147,13 @@ in use."
    ## - Running on Whonix-Workstation.
 
    if [ -f "/var/cache/whonix-setup-wizard/status-files/whonixsetup.done" ]; then
-      true "[${green}INFO${reset}] [whonixsetup] done file \
+      true "[${green}INFO${reset}] [setup-dist] done file \
 /var/cache/whonix-setup-wizard/status-files/whonixsetup.done exists. Exiting."
       exit 0
    fi
    ## Legacy up to build version 9.x.
    if [ -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
-      true "[${green}INFO${reset}] [whonixsetup] legacy done file \
+      true "[${green}INFO${reset}] [setup-dist] legacy done file \
 /var/lib/whonix/do_once/whonixsetup.done exists. Exiting."
       exit 0
    fi
@@ -161,12 +161,12 @@ in use."
    sleep 5 &
    wait "$!" || true
 
-   echo "[${green}INFO${reset}] [whonixsetup] Starting whonixsetup..."
+   echo "[${green}INFO${reset}] [setup-dist] Starting setup-dist..."
 
    sleep 5 &
    wait "$!" || true
 
-   start_whonixsetup_cli_and_exit
+   start_setup_dist_cli_and_exit
 }
 
 colors

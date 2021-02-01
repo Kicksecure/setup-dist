@@ -8,7 +8,7 @@
 
 set -o pipefail
 
-export PATH="$PATH:/usr/lib/whonixsetup_/"
+export PATH="$PATH:/usr/lib/setup-dist/"
 
 error_handler() {
    local MSG="\
@@ -26,8 +26,8 @@ trap "error_handler" ERR
 
 SCRIPTNAME="$(basename "$BASH_SOURCE")"
 
-whonixsetup_whonix_repository() {
-   ## /usr/lib/whonixsetup_cli_start_maybe will not start systemcheck, if done
+setup_dist_whonix_repository() {
+   ## /usr/lib/setup-dist_cli_start_maybe will not start systemcheck, if done
    ## file exists. So we won't needlessly always start the whonix_repository tool.
 
    if [ ! -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done" ]; then
@@ -49,9 +49,9 @@ whonixsetup_whonix_repository() {
    fi
 }
 
-whonixsetup_end_success() {
-   whonixsetup_whonix_repository
-   echo "You can always enter whonixsetup again, by starting: sudo whonixsetup"
+setup_dist_end_success() {
+   setup_dist_whonix_repository
+   echo "You can always enter setup-dist again, by starting: sudo setup-dist"
    exit 0
 }
 
@@ -62,7 +62,7 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 fi
 
-source "/usr/lib/whonixsetup_/shared"
+source "/usr/lib/setup-dist/shared"
 
 ## sanity tests
 ## >/dev/null hides stdout, but not stderr,
@@ -98,7 +98,7 @@ if [ ! -f "/var/cache/whonix-setup-wizard/status-files/disclaimer.done" ]; then
       ft_disclaimer || { exit_code="$?" ; true; };
 
       if [ ! "$exit_code" = "0" ]; then
-         echo "You can always enter whonixsetup again, by starting: sudo whonixsetup"
+         echo "You can always enter setup-dist again, by starting: sudo setup-dist"
          exit 0
       fi
       mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
@@ -109,7 +109,7 @@ fi
 ## Start systemcheck on Whonix-Workstation here.
 ## (On Whonix-Gateway ft_m_1 will start it.)
 if [ -f "/usr/share/anon-ws-base-files/workstation" ]; then
-   TITLE="whonixsetup - Success!"
+   TITLE="setup-dist - Success!"
 
    MSG="
 Press Enter to run systemcheck and exit.
@@ -121,7 +121,7 @@ Press Enter to run systemcheck and exit.
    exit_code="0"
    ft_m_end || { exit_code="$?" ; true; };
 
-   whonixsetup_end_success
+   setup_dist_end_success
 
 elif [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
 
@@ -144,12 +144,12 @@ elif [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
       fi
    done
 
-   whonixsetup_end_success
+   setup_dist_end_success
 
 else
 
    echo "ERROR: This neither Whonix-Gateway nor Whonix-Workstation detected! Please report this Whonix bug!"
-   echo "You can always enter whonixsetup again, by starting: sudo whonixsetup"
+   echo "You can always enter setup-dist again, by starting: sudo setup-dist"
    exit 1
 
 fi
