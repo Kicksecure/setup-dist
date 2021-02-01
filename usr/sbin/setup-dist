@@ -30,23 +30,27 @@ setup_dist_whonix_repository() {
    ## /usr/lib/setup-dist_cli_start_maybe will not start systemcheck, if done
    ## file exists. So we won't needlessly always start the whonix_repository tool.
 
-   if [ ! -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done" ]; then
-      if [ ! -f "/usr/share/whonix-setup-wizard/status-files/whonix_repository.skip" ]; then
-         ## Legacy up to Whonix 9.x.
-         if [ ! -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
-            if [ -x "$(command -v whonix_repository)" ]; then
-               echo "Consider running the Whonix Repository Tool!"
-               echo "Otherwise you will not be receiving upgrades from the Whonix team!"
-               echo "For example:"
-               echo "whonix_repository --enable --repository stable"
-               mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
-               touch "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done"
-            else
-               echo "Not starting Whonix Repository Tool, because not installed. Skipping."
-            fi
-         fi
-      fi
+   if [ -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done" ]; then
+      return 0
    fi
+   if [ -f "/usr/share/whonix-setup-wizard/status-files/whonix_repository.skip" ]; then
+      return 0
+   fi
+   ## Legacy up to Whonix 9.x.
+   if [ -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
+      return 0
+   fi
+   if [ -x "$(command -v whonix_repository)" ]; then
+      echo "Consider running the Whonix Repository Tool!"
+      echo "Otherwise you will not be receiving upgrades from the Whonix team!"
+      echo "For example:"
+      echo "whonix_repository --enable --repository stable"
+      mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
+      touch "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done"
+   else
+      echo "Not starting Whonix Repository Tool, because not installed. Skipping."
+   fi
+
 }
 
 setup_dist_end_success() {
