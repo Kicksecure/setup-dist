@@ -1,0 +1,34 @@
+#!/bin/bash
+
+## Copyright (C) 2021 - 2021 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+#### meta start
+#### project Whonix and Kicksecure
+#### category usability
+#### description
+## Accept disclaimer.
+## Disable autostart of Whonix Setup GUI.
+## Enable orca autostart.
+## Enable Tor public network.
+#address 10.152.152.10
+#netmask 255.255.192.0
+#### meta end
+
+if [ "$(id -u)" != "0" ]; then
+    echo "ERROR: This must be run as root (sudo)!"
+    echo "INFO: You can start $0 by entering..."
+    echo "      sudo $0"
+    exit 1
+fi
+
+## Disable autostart of Whonix Setup GUI since it does not have accessibility
+## support yet.
+rm -f /etc/xdg/autostart/whonix-setup-wizard.desktop
+
+if type -P orca-enable-autostart >/dev/null ; then
+   ## From package usability-misc.
+   orca-enable-autostart
+fi
+
+whonixsetup-noninteractive 1
