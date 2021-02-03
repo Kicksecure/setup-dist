@@ -52,14 +52,14 @@ run_disclaimer_maybe() {
    touch "/var/cache/setup-dist/status-files/disclaimer.done"
 }
 
-setup_dist_whonix_repository() {
+setup_dist_repository_dist() {
    ## /usr/lib/setup-dist_cli_start_maybe will not start systemcheck, if done
-   ## file exists. So we won't needlessly always start the whonix_repository tool.
+   ## file exists. So we won't needlessly always start the repository-dist tool.
 
-   if [ -f "/var/cache/setup-dist/status-files/whonix_repository.done" ]; then
+   if [ -f "/var/cache/setup-dist/status-files/repository-dist.done" ]; then
       return 0
    fi
-   if [ -f "/usr/share/setup-dist/status-files/whonix_repository.skip" ]; then
+   if [ -f "/usr/share/setup-dist/status-files/repository-dist.skip" ]; then
       return 0
    fi
 
@@ -73,13 +73,13 @@ setup_dist_whonix_repository() {
    if [ -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
       return 0
    fi
-   if [ -x "$(command -v whonix_repository)" ]; then
+   if [ -x "$(command -v repository-dist)" ]; then
       echo "Consider running the Whonix Repository Tool!"
       echo "Otherwise you will not be receiving upgrades from the Whonix team!"
       echo "For example:"
-      echo "whonix_repository --enable --repository stable"
+      echo "repository-dist --enable --repository stable"
       mkdir --parents "/var/cache/setup-dist/status-files"
-      touch "/var/cache/setup-dist/status-files/whonix_repository.done"
+      touch "/var/cache/setup-dist/status-files/repository-dist.done"
    else
       echo "Not starting Whonix Repository Tool, because not installed. Skipping."
    fi
@@ -87,7 +87,7 @@ setup_dist_whonix_repository() {
 }
 
 setup_dist_end_success() {
-   setup_dist_whonix_repository
+   setup_dist_repository_dist
    echo "You can always enter setup-dist again, by starting: sudo setup-dist"
    exit 0
 }

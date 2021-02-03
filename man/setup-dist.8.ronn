@@ -12,7 +12,7 @@ setup-dist(8) -- Connection Wizard
 
 ## DESCRIPTION
 
-Asks in which environment you are using Whonix, informs about various
+Asks in which environment you are using the derivative distribution, informs about various
 situations, helps to enable Tor in Tor config.
 
 ## EXAMPLE
@@ -23,13 +23,13 @@ situations, helps to enable Tor in Tor config.
 
 Useful to custom builds and derivative distributions.
 
-`/usr/share/setup-dist/status-files/whonix_repository.skip`
+`/usr/share/setup-dist/status-files/repository-dist.skip`
 
-Prevents start of Whonix Repository Tool by setup-dist.
+Prevents start of Derivative Distribution Repository Tool by setup-dist.
 
 `/usr/share/setup-dist/status-files/disclaimer.skip`
 
-Prevents showing Whonix's disclaimer.
+Prevents showing Derivative Distribution's disclaimer.
 
 `/usr/share/setup-dist/status-files/first_use_check.skip`
 
@@ -39,7 +39,7 @@ Prevents showing first run notice.
 
 `sudo mkdir --parents /usr/share/setup-dist/status-files`
 
-`sudo touch /usr/share/setup-dist/status-files/whonix_repository.skip`
+`sudo touch /usr/share/setup-dist/status-files/repository-dist.skip`
 
 `sudo touch /usr/share/setup-dist/status-files/disclaimer.skip`
 
