@@ -23,27 +23,27 @@ situations, helps to enable Tor in Tor config.
 
 Useful to custom builds and derivative distributions.
 
-`/usr/share/whonix-setup-wizard/status-files/whonix_repository.skip`
+`/usr/share/setup-dist/status-files/whonix_repository.skip`
 
 Prevents start of Whonix Repository Tool by setup-dist.
 
-`/usr/share/whonix-setup-wizard/status-files/disclaimer.skip`
+`/usr/share/setup-dist/status-files/disclaimer.skip`
 
 Prevents showing Whonix's disclaimer.
 
-`/usr/share/whonix-setup-wizard/status-files/first_use_check.skip`
+`/usr/share/setup-dist/status-files/first_use_check.skip`
 
 Prevents showing first run notice.
 
 ## SKIP FILES USAGE EXAMPLES
 
-`sudo mkdir --parents /usr/share/whonix-setup-wizard/status-files`
+`sudo mkdir --parents /usr/share/setup-dist/status-files`
 
-`sudo touch /usr/share/whonix-setup-wizard/status-files/whonix_repository.skip`
+`sudo touch /usr/share/setup-dist/status-files/whonix_repository.skip`
 
-`sudo touch /usr/share/whonix-setup-wizard/status-files/disclaimer.skip`
+`sudo touch /usr/share/setup-dist/status-files/disclaimer.skip`
 
-`sudo touch /usr/share/whonix-setup-wizard/status-files/first_use_check.skip`
+`sudo touch /usr/share/setup-dist/status-files/first_use_check.skip`
 
 ## WWW
 

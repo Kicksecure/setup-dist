@@ -89,7 +89,7 @@ maybe_start_setup() {
    if [ -e "/run/rads/start_x.status" ]; then
       true "[${green}INFO${reset}] [setup-dist] Not starting setup-dist in \
 terminal, because rads reports, that X is going to be started. (Autostarting \
-whonix-setup-wizard in X is handled by \
+setup-dist in X is handled by \
 /etc/xdg/autostart/setup-dist.desktop.)"
       exit 0
    elif [ -e "/run/rads/no_start_x.status" ]; then
@@ -98,6 +98,12 @@ installed. /run/rads/no_start_x.status exists."
    else
       true "[${green}INFO${reset}] [setup-dist] rads appears not to be \
 in use."
+   fi
+
+   if [ -f "/usr/share/setup-dist/status-files/setup-dist.skip" ]; then
+      true "[${green}INFO${reset}] [setup-dist] skip file \
+/usr/share/setup-dist/status-files/setup-dist.skip exists. Exiting."
+      exit 0
    fi
 
    if [ -f "/usr/share/whonix-setup-wizard/status-files/whonixsetup.skip" ]; then
@@ -146,6 +152,11 @@ in use."
    ##   enabled (custom builds or derivatives).
    ## - Running on Whonix-Workstation.
 
+   if [ -f "/var/cache/setup-dist/status-files/setup-dist.done" ]; then
+      true "[${green}INFO${reset}] [setup-dist] done file \
+/var/cache/setup-dist/status-files/setup-dist.done exists. Exiting."
+      exit 0
+   fi
    if [ -f "/var/cache/whonix-setup-wizard/status-files/whonixsetup.done" ]; then
       true "[${green}INFO${reset}] [setup-dist] done file \
 /var/cache/whonix-setup-wizard/status-files/whonixsetup.done exists. Exiting."

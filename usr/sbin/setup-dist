@@ -26,9 +26,42 @@ trap "error_handler" ERR
 
 SCRIPTNAME="$(basename "$BASH_SOURCE")"
 
+run_disclaimer_maybe() {
+   if [ -f "/var/cache/setup-dist/status-files/disclaimer.done" ]; then
+      return 0
+   fi
+   if [ -f "/usr/share/setup-dist/status-files/disclaimer.skip" ]; then
+      return 0
+   fi
+   if [ -f "/var/cache/whonix-setup-wizard/status-files/disclaimer.done" ]; then
+      return 0
+   fi
+   if [ -f "/usr/share/whonix-setup-wizard/status-files/disclaimer.skip" ]; then
+      return 0
+   fi
+
+   exit_code="0"
+   ft_disclaimer || { exit_code="$?" ; true; };
+
+   if [ ! "$exit_code" = "0" ]; then
+      echo "You can always enter setup-dist again, by starting: sudo setup-dist"
+      exit 0
+   fi
+
+   mkdir --parents "/var/cache/setup-dist/status-files"
+   touch "/var/cache/setup-dist/status-files/disclaimer.done"
+}
+
 setup_dist_whonix_repository() {
    ## /usr/lib/setup-dist_cli_start_maybe will not start systemcheck, if done
    ## file exists. So we won't needlessly always start the whonix_repository tool.
+
+   if [ -f "/var/cache/setup-dist/status-files/whonix_repository.done" ]; then
+      return 0
+   fi
+   if [ -f "/usr/share/setup-dist/status-files/whonix_repository.skip" ]; then
+      return 0
+   fi
 
    if [ -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done" ]; then
       return 0
@@ -45,8 +78,8 @@ setup_dist_whonix_repository() {
       echo "Otherwise you will not be receiving upgrades from the Whonix team!"
       echo "For example:"
       echo "whonix_repository --enable --repository stable"
-      mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
-      touch "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done"
+      mkdir --parents "/var/cache/setup-dist/status-files"
+      touch "/var/cache/setup-dist/status-files/whonix_repository.done"
    else
       echo "Not starting Whonix Repository Tool, because not installed. Skipping."
    fi
@@ -96,19 +129,7 @@ if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
    fi
 fi
 
-if [ ! -f "/var/cache/whonix-setup-wizard/status-files/disclaimer.done" ]; then
-   if [ ! -f "/usr/share/whonix-setup-wizard/status-files/disclaimer.skip" ]; then
-      exit_code="0"
-      ft_disclaimer || { exit_code="$?" ; true; };
-
-      if [ ! "$exit_code" = "0" ]; then
-         echo "You can always enter setup-dist again, by starting: sudo setup-dist"
-         exit 0
-      fi
-      mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
-      touch "/var/cache/whonix-setup-wizard/status-files/disclaimer.done"
-   fi
-fi
+run_disclaimer_maybe
 
 ## Start systemcheck on Whonix-Workstation here.
 ## (On Whonix-Gateway ft_m_1 will start it.)

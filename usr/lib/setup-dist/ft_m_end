@@ -55,8 +55,8 @@ maybe_start_anon_check() {
 }
 
 ## This is required, otherwise systemcheck would abort.
-mkdir --parents "/var/cache/whonix-setup-wizard/status-files"
-touch "/var/cache/whonix-setup-wizard/status-files/setup-dist.done"
+mkdir --parents "/var/cache/setup-dist/status-files"
+touch "/var/cache/setup-dist/status-files/setup-dist.done"
 
 exit_code="0"
 
