@@ -1,3 +1,99 @@
+commit c326145b2b5b1f7a5bff0852bdf6cbb63b15f59f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 11:45:18 2021 -0500
+
+    no man page for now
+
+commit 65a9a185b4d11e459bca5767a1f40af71dd2d367
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 09:05:02 2021 -0500
+
+    whonix_repository -> repository-dist
+
+commit 912a0a615476b76932d82a336aeb2a89069d636d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Feb 3 08:48:18 2021 -0500
+
+    whonixsetup -> setup-dist
+
+commit 78d404999a10cc9c89c75623c429b3dcf6458e09
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Feb 1 11:55:31 2021 -0500
+
+    refactoring
+
+commit 8b1de81651e2eedc189f32036bfd8d8d6c9e8f6d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Feb 1 11:50:25 2021 -0500
+
+    whonixsetup -> dist-setup
+
+commit 20a9f2da1b1e44cbd5fdfc2b4642b592c115155e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Feb 1 11:48:31 2021 -0500
+
+    update path
+
+commit 27e0327639037731e57b2fabe6670b387aefe436
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Feb 1 11:47:53 2021 -0500
+
+    whonixsetup -> setup-dist
+
+commit 6d2db8033f6cdc8d489300392fc5bb2bc01d2363
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Feb 1 11:33:42 2021 -0500
+
+    whonixsetup -> setup-dist
+
+commit ddd690102614e1bfc61a4ef8434e15d1d0e33f5e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Feb 1 11:26:27 2021 -0500
+
+    renamed:    usr/sbin/easyorca -> usr/bin/easyorca
+
+commit f4a99f33d73361efbec1d5236907d13d51f72ceb
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Feb 1 11:25:37 2021 -0500
+
+    add easyorca / easyorca-root
+
+commit 6828d998bab61b38c44f0909e93f6f9dd0d9fb9c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jan 31 14:31:23 2021 -0500
+
+    move from usr/bin to usr/sbin
+
+commit d3e8b9ae4b45a43b45e3c60433fb9705493a9879
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jan 31 14:30:21 2021 -0500
+
+    comment
+
+commit 46055d19428a8ec97b52e11e5a1ad6d25fb4a26f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jan 31 14:27:32 2021 -0500
+
+    adding missing Depends: tor-control-panel
+
+commit ebe8c3e96bcfb238f79bf23a80bf30e249d66347
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jan 31 14:22:56 2021 -0500
+
+    add whonixsetup-noninteractive
+
+commit 53faac74706ecb71cd4eb4cea4cb3eeedd475f16
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jan 31 14:19:21 2021 -0500
+
+    support running whonixsetup witout terminal attached for non-interactive use
+
+commit 1560db877ac3e55d972ad9a42be8e95f6c8a21ba
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jan 26 09:57:07 2021 -0500
+
+    bumped changelog version
+
 commit c7d89666aeb237c605111b7c6180302c4f54a692
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Jan 26 09:57:06 2021 -0500
