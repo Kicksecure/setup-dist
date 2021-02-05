@@ -13,8 +13,7 @@ Standards-Version: 4.3.0
 
 Package: setup-dist
 Architecture: all
-Depends: anon-gw-base-files | anon-ws-base-files, helper-scripts,
- dialog, sudo, menu, ${misc:Depends}
+Depends: helper-scripts, dialog, sudo, menu, ${misc:Depends}
 Replaces: whonixsetup
 Conflicts: whonixsetup
 Description: First Time Connection Setup

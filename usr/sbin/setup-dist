@@ -146,8 +146,6 @@ Press Enter to run systemcheck and exit.
    exit_code="0"
    ft_m_end || { exit_code="$?" ; true; };
 
-   setup_dist_end_success
-
 elif [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
 
    ## Start Whonix Connection Wizard.
@@ -169,12 +167,6 @@ elif [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
       fi
    done
 
-   setup_dist_end_success
-
-else
-
-   echo "ERROR: This neither Whonix-Gateway nor Whonix-Workstation detected! Please report this Whonix bug!"
-   echo "You can always enter setup-dist again, by starting: sudo setup-dist"
-   exit 1
-
 fi
+
+setup_dist_end_success
