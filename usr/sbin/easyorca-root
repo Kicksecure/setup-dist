@@ -7,10 +7,16 @@
 #### project Whonix and Kicksecure
 #### category usability
 #### description
-## Disable autostart of setup-wizard-dist GUI.
-## Enable orca autostart.
-## Accept setup-wizard-dist legal notices using `setup-dist`(`-noninteractive`).
-## Enable Tor public network using `setup-dist`(`-noninteractive`).
+## Helper script. Supposed to be run by `easyorca`. Not supposed to be run
+## directly.
+##
+## * Disable autostart of setup-wizard-dist GUI.
+## * Enable orca autostart.
+## * Accept setup-wizard-dist legal notices using `setup-dist`(`-noninteractive`).
+## * Enable Tor public network using `setup-dist`(`-noninteractive`).
+## * Does not start `orca` because this script is supposed to run as root while
+## `orca` should run as user, not root. Starting `orca` is expected to be done
+## `easyorca` or the user.
 #### meta end
 
 if [ "$(id -u)" != "0" ]; then
