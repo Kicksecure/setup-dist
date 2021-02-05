@@ -7,10 +7,10 @@
 #### project Whonix and Kicksecure
 #### category usability
 #### description
-## Accept setup-wizard-dist legal notices.
 ## Disable autostart of setup-wizard-dist GUI.
 ## Enable orca autostart.
-## Enable Tor public network.
+## Accept setup-wizard-dist legal notices using `setup-dist`(`-noninteractive`).
+## Enable Tor public network using `setup-dist`(`-noninteractive`).
 #### meta end
 
 if [ "$(id -u)" != "0" ]; then
