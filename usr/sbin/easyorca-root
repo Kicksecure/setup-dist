@@ -11,8 +11,6 @@
 ## Disable autostart of setup-wizard-dist GUI.
 ## Enable orca autostart.
 ## Enable Tor public network.
-#address 10.152.152.10
-#netmask 255.255.192.0
 #### meta end
 
 if [ "$(id -u)" != "0" ]; then
