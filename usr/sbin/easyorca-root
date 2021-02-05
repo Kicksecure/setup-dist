@@ -8,7 +8,7 @@
 #### category usability
 #### description
 ## Accept disclaimer.
-## Disable autostart of Whonix Setup GUI.
+## Disable autostart of setup-wizard-dist GUI.
 ## Enable orca autostart.
 ## Enable Tor public network.
 #address 10.152.152.10
@@ -22,9 +22,9 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 fi
 
-## Disable autostart of Whonix Setup GUI since it does not have accessibility
-## support yet.
-rm -f /etc/xdg/autostart/whonix-setup-wizard.desktop
+## Disable autostart of setup-wizard-dist GUI since it does not have
+## accessibility support yet.
+rm -f /etc/xdg/autostart/setup-wizard-dist.desktop
 
 if type -P orca-enable-autostart >/dev/null ; then
    ## From package usability-misc.
