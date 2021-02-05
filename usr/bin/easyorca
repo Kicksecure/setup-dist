@@ -8,8 +8,8 @@
 #### category usability
 #### description
 ## Simple wrapper that runs `dsudo easyorca-root`.
-#address 10.152.152.10
-#netmask 255.255.192.0
+## `dsudo`, see:
+## https://www.whonix.org/wiki/Root#dsudo_-_default_password_sudo
 #### meta end
 
 dsudo easyorca-root
