@@ -18,4 +18,6 @@
 ## `sudo easyorca-root` instead.
 #### meta end
 
+orca --replace
+
 dsudo easyorca-root
