@@ -7,7 +7,7 @@ dialog_wrapper() {
    if tty --quiet ; then
       dialog "$@"
    else
-      echo "$2"
-      echo "$4"
+      echo "$TITLE"
+      echo "$MSG"
    fi
 }
