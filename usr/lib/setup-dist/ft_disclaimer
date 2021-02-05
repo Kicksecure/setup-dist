@@ -24,8 +24,7 @@ dialog_wrapper --title "$TITLE" --defaultno --yes-label "Understood / Verstanden
 ret="$?"
 
 if [ "$ret" = "1" ]; then
-   ## TODO: enable
-   #/sbin/poweroff
+   /sbin/poweroff
    ## Endless loop.
    while true; do
       sleep 1
@@ -84,8 +83,7 @@ dialog_wrapper --title "$TITLE" --defaultno --yes-label "Understood / Verstanden
 ret="$?"
 
 if [ "$ret" = "1" ]; then
-   ## TODO: enable
-   #/sbin/poweroff
+   /sbin/poweroff
    ## Endless loop.
    while true; do
       sleep 1
