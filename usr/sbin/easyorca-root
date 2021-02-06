@@ -35,4 +35,9 @@ if type -P orca-enable-autostart >/dev/null ; then
    orca-enable-autostart
 fi
 
+systemctl enable orca-kill-at-shutdown.service
+systemctl start  orca-kill-at-shutdown.service
+## Debugging.
+systemctl status orca-kill-at-shutdown.service
+
 setup-dist-noninteractive 1
