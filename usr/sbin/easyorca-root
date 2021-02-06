@@ -19,6 +19,8 @@
 ## `easyorca` or the user.
 #### meta end
 
+set -x
+
 if [ "$(id -u)" != "0" ]; then
     echo "ERROR: This must be run as root (sudo)!"
     echo "INFO: You can start $0 by entering..."
