@@ -1,3 +1,15 @@
+commit 2724417c14063ea108363f9c590f0bd124978e3f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Feb 6 04:57:07 2021 -0500
+
+    easyorca-root: enable orca-kill-at-shutdown.service
+
+commit 90f9abda0c35de66a3756ad4d79abf3f36cfd919
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Feb 6 03:39:34 2021 -0500
+
+    bumped changelog version
+
 commit ed2f1508317f00628d274749288da2aa5fa10ab2
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Feb 5 02:34:38 2021 -0500
