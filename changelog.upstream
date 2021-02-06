@@ -1,3 +1,81 @@
+commit ed2f1508317f00628d274749288da2aa5fa10ab2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 02:34:38 2021 -0500
+
+    re-enable
+
+commit 28d93f9e95e00ce57ac5e6724b1df3bc31452a00
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 02:09:44 2021 -0500
+
+    fix
+
+commit f62e0b623f638fd687d0ec8c94e88b426d9f827e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 02:04:30 2021 -0500
+
+    Kicksecure compatibility
+
+commit dc0db103d617028a4acf8d04c9c282dce9d5f0cf
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 01:40:01 2021 -0500
+
+    comment
+
+commit 4e25774a63c35b7ba9a569f8151288845b0e8781
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 01:37:46 2021 -0500
+
+    comment
+
+commit 4b0e3cdb10db5023648be325fc1f5ff53376d8f5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 01:36:21 2021 -0500
+
+    comment
+
+commit 0cd0bdbe181204a54d83b86cb2c6ff6a8f4db737
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 01:35:49 2021 -0500
+
+    comment
+
+commit e0efad4ccfd7ecf8ac8898824631d6e1dfa3ab52
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 01:35:16 2021 -0500
+
+    update path
+
+commit b147e4c55fba277ca1f2be61d0d0d095ef77ac38
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 01:33:02 2021 -0500
+
+    comment
+
+commit 083d3fcc5cdf75ec4141a99d387a002ff3c19258
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 01:32:20 2021 -0500
+
+    easyorca: run `orca --replace` first
+
+commit f306c7135789c279cb0ffc05e084432ed8988b06
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 01:31:36 2021 -0500
+
+    comment
+
+commit 5f696001102f6fc71c22ac7dada375d2948f4b82
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 01:29:12 2021 -0500
+
+    comment
+
+commit 5c0da802eb1c5cb1d03e0fcf94032b088272aeac
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 5 00:27:02 2021 -0500
+
+    bumped changelog version
+
 commit d56545e60b5393fe88e064f998094eea705336ad
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Feb 5 00:25:57 2021 -0500
