@@ -14,8 +14,12 @@ set -x
 ## layouts. Cannot be called `easyorca` due to technical reasons.
 ## https://gitlab.gnome.org/GNOME/orca/-/issues/189
 ##
-## Simple wrapper that runs `orca --replace & disown` followed by
-## `dsudo easyorca-root`.
+## Simple wrapper that runs the following commands:
+##
+## - `amixer set Master 50%`
+## - `orca --replace & disown`
+## - `dsudo easyorca-root`.
+##
 ## Works only as long as the default password has not been changed because it
 ## is using `dsudo`.
 ##
@@ -25,6 +29,8 @@ set -x
 ## After default password was changed, users would have to use
 ## `sudo easyorca-root` instead.
 #### meta end
+
+amixer set Master 50%
 
 orca --replace & disown
 
