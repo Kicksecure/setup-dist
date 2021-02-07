@@ -32,6 +32,12 @@ maybe_start_systemcheck() {
    systemcheck_bin_command_v_exit_code="0"
    systemcheck_bin_path="$(command -v "$systemcheck_bin" 2>/dev/null)" || { systemcheck_bin_command_v_exit_code="$?" ; true; };
 
+   if ! tty --quiet ; then
+      echo "INFO: Skipping starting $systemcheck_bin, because started non-interactive."
+      echo "INFO: Runnning $systemcheck_bin recommended!"
+      return 0
+   fi
+
    if [ ! "$systemcheck_bin_command_v_exit_code" = "0" ]; then
       echo "INFO: Skipping starting $systemcheck_bin, because $systemcheck_bin is unavailable."
       return 0
