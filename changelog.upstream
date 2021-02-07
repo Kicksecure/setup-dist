@@ -1,3 +1,51 @@
+commit dc7bc5f11df2e432c8dae7a3a17c236e12698bc7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 08:42:59 2021 -0500
+
+    comments
+
+commit f57b1bd909d8b557fed95aa533946365ed9b59ab
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 08:41:05 2021 -0500
+
+    usr/bin/easyo -> usr/bin/easo
+
+commit 3f82a46c6b304ef71ece7ed3ec7273168c479402
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 08:36:04 2021 -0500
+
+    usr/bin/eorca -> usr/bin/easyo
+
+commit 6db91f8b1a8013c829ca15d6a1b4c968e70d302d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 08:33:11 2021 -0500
+
+    do not start systemcheck at the end if running non-interactive
+
+commit a1814a3a3c60325c475276b4ef2b7bf93d71cc07
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 08:27:33 2021 -0500
+
+    refactoring
+
+commit f3bb0aedc01c1f0f0b9785b8dcb54a22a635d121
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 08:26:53 2021 -0500
+
+    update
+
+commit 57e0eeae845f7763d2d75a296ad019ee9eea5b08
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 08:26:10 2021 -0500
+
+    refactoring
+
+commit b9c1469bfb6b4208da7319d9a94fa56310d62544
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 05:49:37 2021 -0500
+
+    bumped changelog version
+
 commit 8383a12db3f5a0c073b11f1233011ed451e031f3
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Feb 7 05:49:37 2021 -0500
