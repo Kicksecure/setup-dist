@@ -1,3 +1,27 @@
+commit 3f77cc671d00220b378e1fdd6fd0785f2e9f2f8a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 11:35:03 2021 -0500
+
+    comment
+
+commit 07aff69c498cf30e1870b8f2985d13dbdc99671f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 11:33:05 2021 -0500
+
+    easyorca-root: Kill Setup Wizard Dist GUI.
+
+commit 91e29a3a6a7ab67e9b40154005aabbc96c837178
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 11:17:41 2021 -0500
+
+    easyorca (easo): `amixer set Master 50%`
+
+commit cb6d42a8ae7cf7537d32ea28b791f0194019bac4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 10:41:24 2021 -0500
+
+    bumped changelog version
+
 commit 983d64cbaec1343418ee47a78641392659ab4b1f
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Feb 7 10:41:13 2021 -0500
