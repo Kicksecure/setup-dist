@@ -9,9 +9,10 @@ set -x
 #### project Whonix and Kicksecure
 #### category usability
 #### description
-## `eorca` stands for `easyorca`.
+## `easo` stands for `easyorca`.
 ## A short name to avoid y vs z on English vs German and other keyboard
-## layouts.
+## layouts. Cannot be called `easyorca` due to technical reasons.
+## https://gitlab.gnome.org/GNOME/orca/-/issues/189
 ##
 ## Simple wrapper that runs `orca --replace & disown` followed by
 ## `dsudo easyorca-root`.

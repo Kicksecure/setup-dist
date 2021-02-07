@@ -7,8 +7,8 @@
 #### project Whonix and Kicksecure
 #### category usability
 #### description
-## Helper script. Supposed to be run by `easyorca`. Not supposed to be run
-## directly.
+## Helper script. Supposed to be run by `easo` (easyorca). Not supposed to be
+## run directly.
 ##
 ## * Disable autostart of setup-wizard-dist GUI.
 ## * Enable orca autostart.
@@ -17,7 +17,7 @@
 ## * Enable Tor public network using `setup-dist`(`-noninteractive`).
 ## * Does not start `orca` because this script is supposed to run as root while
 ## `orca` should run as user, not root. Starting `orca` is expected to be done
-## `easyorca` or the user.
+## `easo` or the user.
 #### meta end
 
 set -x
