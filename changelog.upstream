@@ -1,3 +1,47 @@
+commit 8383a12db3f5a0c073b11f1233011ed451e031f3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 05:49:37 2021 -0500
+
+    readme
+
+commit f73117a951ea7294ae9e7cdcac822d30074f101e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 05:30:18 2021 -0500
+
+    waiting for 5 seconds to make sure orca has started
+
+commit 01923f9e7d99efae03fb70bd7e9c38d50fc209c9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 05:29:10 2021 -0500
+
+    comment
+
+commit bb21a64f24f00aff7543a6b5f577e8142a183e3b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 04:39:16 2021 -0500
+
+    comment
+
+commit b9e8f57f4abf5017fcdf6b29e98bf5c237e4769f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 04:38:02 2021 -0500
+
+    renamed:    easyorca -> eorca
+    
+    To avoid y vs z on English vs German and other keyboard layouts.
+
+commit 12db477b608479b768a1f616171064bdb740dbc5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 04:35:09 2021 -0500
+
+    fix
+
+commit 90c101c409deffaeafa18bbb8890fd7145167e65
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Feb 6 05:05:13 2021 -0500
+
+    bumped changelog version
+
 commit 81b189b257f069a912db8a737e3251c7211f662c
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Feb 6 05:04:47 2021 -0500

@@ -1,3 +1,9 @@
+setup-dist (3:5.7-1) unstable; urgency=medium
+
+  * New upstream version (local package).
+
+ -- Patrick Schleizer <adrelanos@riseup.net>  Sun, 07 Feb 2021 10:49:37 +0000
+
 setup-dist (3:5.6-1) unstable; urgency=medium
 
   * New upstream version (local package).
