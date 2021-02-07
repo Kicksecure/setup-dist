@@ -9,7 +9,8 @@ set -x
 #### project Whonix and Kicksecure
 #### category usability
 #### description
-## Simple wrapper that runs `dsudo easyorca-root` followed by `orca --replace`.
+## Simple wrapper that runs `orca --replace & disown` followed by
+## `dsudo easyorca-root`.
 ## Works only as long as the default password has not been changed because it
 ## is using `dsudo`.
 ##
@@ -20,6 +21,6 @@ set -x
 ## `sudo easyorca-root` instead.
 #### meta end
 
-dsudo easyorca-root
-
 orca --replace & disown
+
+dsudo easyorca-root
