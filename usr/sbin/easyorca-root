@@ -46,4 +46,9 @@ systemctl status --no-pager orca-kill-at-shutdown.service
 setup-dist-noninteractive 1
 
 ## Terminate Setup Wizard Dist GUI.
+## Using sigkill instead of sigterm.
+## Sigterm would be nicer. But sigkill is safer.
+## Otherwise if above command went wrong, this would
+## lead to poweroff because that is what setup-wizard(-dist) does when it gets
+## closed without legal agreements having accepted.
 pkill -f -kill setup-wizard-dist
