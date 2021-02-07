@@ -27,7 +27,7 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 fi
 
-maybe_start_anon_check() {
+maybe_start_systemcheck() {
    anon_check_bin="systemcheck"
    anon_check_bin_command_v_exit_code="0"
    anon_check_bin_path="$(command -v "$anon_check_bin" 2>/dev/null)" || { anon_check_bin_command_v_exit_code="$?" ; true; };
@@ -60,6 +60,6 @@ touch "/var/cache/setup-dist/status-files/setup-dist.done"
 
 exit_code="0"
 
-maybe_start_anon_check
+maybe_start_systemcheck
 
 exit "$exit_code"
