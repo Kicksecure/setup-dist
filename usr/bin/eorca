@@ -9,6 +9,10 @@ set -x
 #### project Whonix and Kicksecure
 #### category usability
 #### description
+## `eorca` stands for `easyorca`.
+## A short name to avoid y vs z on English vs German and other keyboard
+## layouts.
+##
 ## Simple wrapper that runs `orca --replace & disown` followed by
 ## `dsudo easyorca-root`.
 ## Works only as long as the default password has not been changed because it
