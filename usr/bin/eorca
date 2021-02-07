@@ -27,4 +27,8 @@ set -x
 
 orca --replace & disown
 
+true "INFO: waiting for 5 seconds to make sure orca has started."
+
+sleep 5
+
 dsudo easyorca-root
