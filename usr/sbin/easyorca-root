@@ -12,6 +12,7 @@
 ##
 ## * Disable autostart of setup-wizard-dist GUI.
 ## * Enable orca autostart.
+## * Enable orca-kill-at-shutdown.service systemd unit.
 ## * Accept setup-wizard-dist legal notices using `setup-dist`(`-noninteractive`).
 ## * Enable Tor public network using `setup-dist`(`-noninteractive`).
 ## * Does not start `orca` because this script is supposed to run as root while
