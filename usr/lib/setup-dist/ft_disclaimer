@@ -5,19 +5,36 @@
 
 source "/usr/lib/setup-dist/shared"
 
-TITLE="Important Information About Whonix Part 1/2 | Wichtige Informationen zu Whonix Teil 1/2 (setup-dist)"
+TITLE="Important Information About This Operating System (OS) Part 1/2 (setup-dist)"
 
-MSG='
+MSG="
 Please do NOT continue unless you understand everything!
 
-This is not the usual blah blah blah but fact. Whonix is a research project. Whonix is free of charge. Whonix is a derivative of Debian GNU/Linux. Whonix is produced independently of, with no guarantee from, The Tor Project. Whonix is created by volunteers in their spare time. Whonix was created by self-taught hobbyists in their spare time, without the backing of any particular formal certification or training. Although Whonix attempts to be as usable as possible, there are many ways in which it fails. Whonix is in English. Do not use Whonix without excellent knowledge of the English language. Misunderstandings have consequences. Whonix is based on other software, including GNU/Linux, Debian, and virtualization. Do not rely on Whonix without working knowledge of these technologies.
+This is not the usual blah blah blah but fact. This OS is a research project. This OS is free of charge. This OS is a derivative of Debian GNU/Linux. This OS is produced independently of, with no guarantee from, The Tor Project. This OS is created by volunteers in their spare time. This OS was created by self-taught hobbyists in their spare time, without the backing of any particular formal certification or training. Although This OS attempts to be as usable as possible, there are many ways in which it fails. This OS is in English. Do not use This OS without excellent knowledge of the English language. Misunderstandings have consequences. This OS is based on other software, including GNU/Linux, Debian, and virtualization. Do not rely on This OS without working knowledge of these technologies."
 
-The documentation available on Whonix.org is a crash course in anonymity, privacy, and security on the Internet. Whonix is a technological means to anonymity, but staying anonymous is not just a technological problem: No tool is enough to keep you safe. Anonymity is a complex problem without an easy solution, and security is only as strong as its weakest link, often the user. The more you know, the safer you can be.
+if test -f /usr/share/kicksecure/marker ; then
+    MSG+="
 
-Whonix is a compilation of software packages, each under its own copyright and license. The exact license terms for each program are described in the individual files in /usr/share/doc/*/copyright.
+The documentation available on Kicksecure.com is a crash course in security on the Internet. Kicksecure is a technological means to security, but staying secure is not just a technological problem: No tool is enough to keep you safe. Security is a complex problem without an easy solution, and security is only as strong as its weakest link, often the user. The more you know, the safer you can be."
+else
+    MSG+="
 
-The compilation is made available the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version with additional terms applicable per GNU GPL version 3 section 7. The license can be refereed to as GPL-3+-with-additional-terms-1 and can be found in /usr/share/whonix/WHONIX_BINARY_LICENSE_AGREEMENT or online here: https://www.whonix.org/wiki/Whonix:Copyrights
-'
+The documentation available on Whonix.org is a crash course in anonymity, privacy, and security on the Internet. Whonix is a technological means to anonymity, but staying anonymous is not just a technological problem: No tool is enough to keep you safe. Anonymity is a complex problem without an easy solution, and security is only as strong as its weakest link, often the user. The more you know, the safer you can be."
+fi
+
+MSG+="
+
+This OS is a compilation of software packages, each under its own copyright and license. The exact license terms for each program are described in the individual files in /usr/share/doc/*/copyright."
+
+MSG+="
+
+The compilation is made available the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version with additional terms applicable per GNU GPL version 3 section 7. The license can be refereed to as GPL-3+-with-additional-terms-1 and can be found in"
+
+if test -f /usr/share/kicksecure/marker ; then
+    MSG+=" /usr/share/kicksecure/KICKSECURE_BINARY_LICENSE_AGREEMENT or online here: https://www.kicksecure.com/wiki/Kicksecure:Copyrights"
+else
+    MSG+=" /usr/share/whonix/WHONIX_BINARY_LICENSE_AGREEMENT or online here: https://www.whonix.org/wiki/Whonix:Copyrights"
+fi
 
 dialog_wrapper --title "$TITLE" --defaultno --yes-label "Understood / Verstanden" --no-label "Not understood / Nicht verstanden" --yesno "$MSG" 640 480
 
@@ -31,7 +48,7 @@ if [ "$ret" = "1" ]; then
    done
 fi
 
-TITLE="Important Information About Whonix Part 2/2 | Wichtige Informationen zu Whonix Teil 2/2 (setup-dist)"
+TITLE="Important Information About This Operating System Part 2/2 (setup-dist)"
 
 MSG="
 Please do NOT continue unless you understand everything!
