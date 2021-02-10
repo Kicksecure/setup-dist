@@ -1,3 +1,15 @@
+commit bdbd650dc1dd0862ee1e6773e9794d65f859901e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Feb 9 15:19:31 2021 -0500
+
+    Kicksecure
+
+commit d844c0d5d9d6b8bb752ac7e0a32ef65e0f3e4864
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Feb 7 11:35:12 2021 -0500
+
+    bumped changelog version
+
 commit 3f77cc671d00220b378e1fdd6fd0785f2e9f2f8a
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Feb 7 11:35:03 2021 -0500
