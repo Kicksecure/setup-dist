@@ -14,6 +14,7 @@ Standards-Version: 4.3.0
 Package: setup-dist
 Architecture: all
 Depends: helper-scripts, dialog, sudo, menu, ${misc:Depends}
+Provides: whonixsetup
 Replaces: whonixsetup
 Conflicts: whonixsetup
 Description: First Time Connection Setup
