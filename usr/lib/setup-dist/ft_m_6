@@ -39,7 +39,7 @@ ReachableDirAddresses ADDR[/MASK][:PORT]...
 ReachableORAddresses ADDR[/MASK][:PORT]...
 
 FAQ:
-https://trac.torproject.org/projects/tor/wiki/doc/TorFAQ#MyInternetconnectionrequiresanHTTPorSOCKSproxy.
+https://gitlab.torproject.org/legacy/trac/-/wikis/doc/TorFAQ#MyInternetconnectionrequiresanHTTPorSOCKSproxy.
 
 Tor Manual:
 https://www.torproject.org/docs/tor-manual.html.en
