@@ -22,7 +22,7 @@ error_handler() {
 
 trap "error_handler" ERR
 
-source "/usr/lib/setup-dist/shared"
+source "/usr/libexec/setup-dist/shared"
 
 MENU_TITLE="setup-dist - Connection Wizard"
 

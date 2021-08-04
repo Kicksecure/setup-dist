@@ -8,7 +8,7 @@
 
 set -o pipefail
 
-export PATH="$PATH:/usr/lib/setup-dist/"
+export PATH="$PATH:/usr/libexec/setup-dist/"
 
 error_handler() {
    local MSG="\
@@ -53,7 +53,7 @@ run_disclaimer_maybe() {
 }
 
 setup_dist_repository_dist() {
-   ## /usr/lib/setup-dist/setup-dist_cli_start_maybe will not start systemcheck, if done
+   ## /usr/libexec/setup-dist/setup-dist_cli_start_maybe will not start systemcheck, if done
    ## file exists. So we won't needlessly always start the repository-dist tool.
 
    if [ -f "/var/cache/setup-dist/status-files/repository-dist.done" ]; then
@@ -99,7 +99,7 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 fi
 
-source "/usr/lib/setup-dist/shared"
+source "/usr/libexec/setup-dist/shared"
 
 ## sanity tests
 ## >/dev/null hides stdout, but not stderr,

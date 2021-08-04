@@ -21,7 +21,7 @@ error_handler() {
 
 trap "error_handler" ERR
 
-source "/usr/lib/setup-dist/shared"
+source "/usr/libexec/setup-dist/shared"
 
 tor_action_exit_code_check() {
    if [ ! "$exit_code" = "0" ]; then

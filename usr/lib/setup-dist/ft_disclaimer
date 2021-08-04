@@ -3,7 +3,7 @@
 ## Copyright (C) 2012 - 2021 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
-source "/usr/lib/setup-dist/shared"
+source "/usr/libexec/setup-dist/shared"
 
 TITLE="Important Information About This Operating System (OS) Part 1/2 (setup-dist)"
 

@@ -3,7 +3,7 @@
 ## Copyright (C) 2012 - 2021 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
-source "/usr/lib/setup-dist/shared"
+source "/usr/libexec/setup-dist/shared"
 
 MSG="
 You can always enter setup-dist again, by starting: sudo setup-dist
