@@ -53,7 +53,7 @@ run_disclaimer_maybe() {
 }
 
 setup_dist_repository_dist() {
-   ## /usr/lib/setup-dist_cli_start_maybe will not start systemcheck, if done
+   ## /usr/lib/setup-dist/setup-dist_cli_start_maybe will not start systemcheck, if done
    ## file exists. So we won't needlessly always start the repository-dist tool.
 
    if [ -f "/var/cache/setup-dist/status-files/repository-dist.done" ]; then
