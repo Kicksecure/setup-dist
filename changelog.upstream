@@ -1,3 +1,63 @@
+commit 0758904364f7bb7c3b377057809d7fe4c3b1d815
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 4 12:41:57 2021 -0400
+
+    move usr/lib/setup-dist to usr/libexec/setup-dist as per lintian FHS
+
+commit deddfc3a00d23c33ad7f34952317d95f9946a21a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 4 12:41:33 2021 -0400
+
+    move usr/lib/setup-dist to usr/libexec/setup-dist as per lintian FHS
+
+commit eeb34f87f81050c29c54799be20c1041e8607d04
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 4 12:37:50 2021 -0400
+
+    change path
+
+commit c1fd372b6bf9b81aca09d4cae5c6991e15dde851
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 3 12:48:57 2021 -0400
+
+    move /usr/lib/helper-scripts and /usr/lib/curl-scripts to /usr/libexec/helper-scripts as per lintian FHS
+
+commit 334d6cf0b85cd2770a83db806b668c1daa25e90b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 3 11:51:31 2021 -0400
+
+    update lintian tag name
+
+commit d4d08341d9f4770fdbdee8b77c1eb64745bf548b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 3 11:47:35 2021 -0400
+
+    re-generate man pages (generated using "genmkfile manpages")
+
+commit 49a79c68aca6e9ec1eb877532fc38d7ae2d5166b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 3 11:43:55 2021 -0400
+
+    man page
+
+commit 354f0b99860a6b42736e1084e798c9e87f09cb42
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 3 05:48:26 2021 -0400
+
+    bullseye
+
+commit b1170d8faf66be04585f67e0d40c4a1f19c47793
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Aug 1 16:24:42 2021 -0400
+
+    readme
+
+commit f46a6ed3da6df6aa2f3034cd3ad4446ce418916a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 5 08:38:52 2021 -0400
+
+    bumped changelog version
+
 commit 64c718296c65bbfc89e2c6690b4e83a2e895cef7
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed May 5 08:27:23 2021 -0400

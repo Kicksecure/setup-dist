@@ -1,3 +1,9 @@
+setup-dist (3:6.7-1) unstable; urgency=medium
+
+  * New upstream version (local package).
+
+ -- Patrick Schleizer <adrelanos@whonix.org>  Thu, 05 Aug 2021 21:04:57 +0000
+
 setup-dist (3:6.6-1) unstable; urgency=medium
 
   * New upstream version (local package).
