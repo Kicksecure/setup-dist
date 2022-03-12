@@ -112,6 +112,12 @@ in use."
       exit 0
    fi
 
+   if [ -f "/usr/share/qubes/marker-vm" ]; then
+      true "[${green}INFO${reset}] [setup-dist] skip file \
+/usr/share/qubes/marker-vm exists. Exiting."
+      exit 0
+   fi
+
    if [ -e "/usr/share/anon-gw-base-files/gateway" ]; then
       ## Checking if Tor has been enabled.
       ## And if Tor has not been enabled, auto start setup-dist (cli).
