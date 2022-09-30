@@ -6,9 +6,9 @@ Section: misc
 Priority: optional
 Maintainer: Patrick Schleizer <adrelanos@whonix.org>
 Build-Depends: debhelper (>= 13), debhelper-compat (= 13)
-Homepage: https://github.com/Whonix/setup-dist
-Vcs-Browser: https://github.com/Whonix/setup-dist
-Vcs-Git: https://github.com/Whonix/setup-dist.git
+Homepage: https://github.com/Kicksecure/setup-dist
+Vcs-Browser: https://github.com/Kicksecure/setup-dist
+Vcs-Git: https://github.com/Kicksecure/setup-dist.git
 Standards-Version: 4.5.1
 Rules-Requires-Root: no
 
@@ -19,11 +19,11 @@ Provides: whonixsetup
 Replaces: whonixsetup
 Conflicts: whonixsetup
 Description: First Time Connection Setup
- When Whonix starts for the first time, it won't automatically connect to the
- public Tor network. This is useful for users who want to hide Tor from their
- ISP. setup-dist is automatically started, which educates about different
+ When the derivative starts for the first time, it won't automatically connect
+ to the public Tor network. This is useful for users who want to hide Tor from
+ their ISP. setup-dist is automatically started, which educates about different
  methods to connect (public Tor network, bridges, etc.).
  .
- Also automatically starts the Whonix Repository Tool (if installed), so the
- user can decide whether to use Whonix's Repository and if yes, choose which
- one.
+ Also automatically starts the Derivative Repository Tool (if installed), so
+ the user can decide whether to use Derivative Repository and if yes, choose
+ which one.
