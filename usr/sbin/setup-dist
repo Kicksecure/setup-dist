@@ -74,14 +74,14 @@ setup_dist_repository_dist() {
       return 0
    fi
    if [ -x "$(command -v repository-dist)" ]; then
-      echo "Consider running the Whonix Repository Tool!"
+      echo "Consider running the Derivative Repository Tool!"
       echo "Otherwise you will not be receiving upgrades from the Whonix team!"
       echo "For example:"
       echo "repository-dist --enable --repository stable"
       mkdir --parents "/var/cache/setup-dist/status-files"
       touch "/var/cache/setup-dist/status-files/repository-dist.done"
    else
-      echo "Not starting Whonix Repository Tool, because not installed. Skipping."
+      echo "Not starting Derivative Repository Tool, because not installed. Skipping."
    fi
 
 }
