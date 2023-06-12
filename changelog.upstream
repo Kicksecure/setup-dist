@@ -1,3 +1,15 @@
+commit b28aeeabbe7f59c147bd755d1e455f7f92812130
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jun 12 14:52:01 2023 +0000
+
+    update copyright year
+
+commit 1c646e6829bf62fbf1e26e066fb49414e5032b32
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 30 06:26:03 2022 -0400
+
+    bumped changelog version
+
 commit b293f8fee403f3005b758adb916ea641a9b733b9
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Sep 30 05:18:58 2022 -0400
