@@ -10,7 +10,17 @@ TITLE="Important Information About This Operating System (OS) Part 1/2 (setup-di
 MSG="
 Please do NOT continue unless you understand everything!
 
-This is not the usual blah blah blah but fact. This OS is a research project. This OS is free of charge. This OS is a derivative of Debian GNU/Linux. This OS is produced independently of, with no guarantee from, The Tor Project. This OS is created by volunteers in their spare time. This OS was created by self-taught hobbyists in their spare time, without the backing of any particular formal certification or training. Although This OS attempts to be as usable as possible, there are many ways in which it fails. This OS is in English. Do not use This OS without excellent knowledge of the English language. Misunderstandings have consequences. This OS is based on other software, including GNU/Linux, Debian, and virtualization. Do not rely on This OS without working knowledge of these technologies."
+This is not the usual blah blah blah but fact. This OS is a research project. \
+This OS is free of charge. This OS is a derivative of Debian GNU/Linux. This \
+OS is produced independently of, with no guarantee from, The Tor Project. \
+This OS is created by volunteers in their spare time. This OS was created by \
+self-taught hobbyists in their spare time, without the backing of any \
+particular formal certification or training. Although This OS attempts to be \
+as usable as possible, there are many ways in which it fails. This OS is in \
+English. Do not use This OS without excellent knowledge of the English \
+language. Misunderstandings have consequences. This OS is based on other \
+software, including GNU/Linux, Debian, and virtualization. Do not rely on \
+This OS without working knowledge of these technologies."
 
 if test -f /usr/share/kicksecure/marker ; then
     MSG+="
