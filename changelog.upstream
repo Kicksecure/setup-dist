@@ -1,3 +1,37 @@
+commit ffc655c6ca50a6920fc2cddde0b59ca0934f968a
+Merge: daa71b7 5bce0e8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Aug 28 10:57:05 2023 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit 5bce0e8da80a32a04dccba9e1065387ff3b572f3
+Merge: daa71b7 1c7ecc2
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Aug 28 10:52:30 2023 -0400
+
+    Merge pull request #1 from nyxnor/master
+    
+    support being sourced by zsh
+
+commit 1c7ecc2d6f9c7000b5095c2e4eef00ade8da523e
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Mon Aug 28 02:59:30 2023 +0000
+
+    Use distinctive zsh extension
+
+commit 34177a29b92852c75ddc4e9cef04e7a125808732
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Mon Aug 28 02:55:20 2023 +0000
+
+    Add setup to zsh profile dir
+
+commit daa71b76f7037d2df50fa6c94af9e8ba1596dd57
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jul 17 11:49:00 2023 -0400
+
+    bumped changelog version
+
 commit 96e71e2aa76646bc9f87df9415bb2f2cec872178
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Jul 17 11:19:10 2023 -0400
