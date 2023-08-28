@@ -1,0 +1,1 @@
+../profile.d/30_setup.sh
