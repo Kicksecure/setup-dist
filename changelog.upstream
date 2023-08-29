@@ -1,3 +1,21 @@
+commit 86ee57eed4689ae670eb803ae2e45106d02d8886
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 29 08:12:58 2023 -0400
+
+    add symlinks from /etc/profile.d to /etc/zprofile.d
+
+commit 401736086115156780b06f17b2bec90bf6419fe8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 29 07:36:51 2023 -0400
+
+    remove symlink
+
+commit 40fdbfc726a26d1df704549b3cf3f8c1d8d83f96
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Aug 28 11:01:58 2023 -0400
+
+    bumped changelog version
+
 commit ffc655c6ca50a6920fc2cddde0b59ca0934f968a
 Merge: daa71b7 5bce0e8
 Author: Patrick Schleizer <adrelanos@whonix.org>
