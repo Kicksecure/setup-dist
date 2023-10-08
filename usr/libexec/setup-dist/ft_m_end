@@ -51,20 +51,16 @@ maybe_start_systemcheck() {
       return 0
    fi
    echo "INFO: Starting $systemcheck_bin..."
-   if [ "$SUDO_USER" = "" ]; then
-      sudo --non-interactive --set-home -u user "$systemcheck_bin" || { exit_code="$?" ; true; };
-   else
-      sudo --non-interactive --set-home -u "$SUDO_USER" "$systemcheck_bin" || { exit_code="$?" ; true; };
-   fi
+
+    exit_code="0"
+   "$systemcheck_bin" || { exit_code="$?" ; true; };
+
    echo "INFO: End of $systemcheck_bin. You can always start $systemcheck_bin again with:
     $systemcheck_bin"
 }
 
 ## This is required, otherwise systemcheck would abort.
-mkdir --parents "/var/cache/setup-dist/status-files"
-touch "/var/cache/setup-dist/status-files/setup-dist.done"
-
-exit_code="0"
+sudo --non-interactive /usr/libexec/setup-dist/setup-dist-done
 
 maybe_start_systemcheck
 

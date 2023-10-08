@@ -1,0 +1,9 @@
+#!/bin/bash
+
+## Copyright (C) 2023 - 2023 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+set -e
+
+mkdir --parents "/var/cache/setup-dist/status-files"
+touch "/var/cache/setup-dist/status-files/setup-dist.done"
