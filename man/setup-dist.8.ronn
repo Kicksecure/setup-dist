@@ -23,10 +23,6 @@ situations, helps to enable Tor in Tor config.
 
 Useful to custom builds and derivative distributions.
 
-`/usr/share/setup-dist/status-files/repository-dist.skip`
-
-Prevents start of Derivative Distribution Repository Tool by setup-dist.
-
 `/usr/share/setup-dist/status-files/disclaimer.skip`
 
 Prevents showing Derivative Distribution's disclaimer.

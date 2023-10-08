@@ -19,11 +19,9 @@ Provides: whonixsetup
 Replaces: whonixsetup
 Conflicts: whonixsetup
 Description: First Time Connection Setup
+ Disclaimer.
+ .
  When the derivative starts for the first time, it won't automatically connect
  to the public Tor network. This is useful for users who want to hide Tor from
  their ISP. setup-dist is automatically started, which educates about different
  methods to connect (public Tor network, bridges, etc.).
- .
- Also automatically starts the Derivative Repository Tool (if installed), so
- the user can decide whether to use Derivative Repository and if yes, choose
- which one.

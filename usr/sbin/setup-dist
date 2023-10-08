@@ -75,7 +75,7 @@ setup_dist_repository_dist() {
    fi
    if [ -x "$(command -v repository-dist)" ]; then
       echo "Consider running the Derivative Repository Tool!"
-      echo "Otherwise you will not be receiving upgrades from the Whonix team!"
+      echo "Otherwise you will not be receiving upgrades from the derivative team!"
       echo "For example:"
       echo "repository-dist --enable --repository stable"
       mkdir --parents "/var/cache/setup-dist/status-files"
@@ -148,7 +148,7 @@ Press Enter to run systemcheck and exit.
 
 elif [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
 
-   ## Start Whonix Connection Wizard.
+   ## Start Anon Connection Wizard.
    while true; do
       exit_code="0"
       ft_main "$@" || { exit_code="$?" ; true; };
