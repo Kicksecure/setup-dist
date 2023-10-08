@@ -21,12 +21,6 @@ error_handler() {
 
 trap "error_handler" ERR
 
-## root check
-if [ "$(id -u)" != "0" ]; then
-    echo "$0 ERROR: This must be run as root (sudo)!"
-    exit 1
-fi
-
 maybe_start_systemcheck() {
    systemcheck_bin="systemcheck"
    systemcheck_bin_command_v_exit_code="0"
