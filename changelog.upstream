@@ -1,3 +1,15 @@
+commit 2a228727e436a8a205ec7fccc873ae0f8d7724d1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 21 12:25:09 2023 -0400
+
+    fix,  does not support files ending with
+
+commit b247913963b8a72b2e51263600d345542544ca33
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 12 12:51:51 2023 -0400
+
+    bumped changelog version
+
 commit af3e46721f08a743f47c129881523ba06e9784b1
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Oct 12 12:07:32 2023 -0400
