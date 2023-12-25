@@ -83,12 +83,12 @@ fi
 ## 3. restart Tor using systemd
 
 /usr/libexec/helper-scripts/repair-torrc
-error_msg="$(python3 -c 'from tor_control_panel import tor_status; tor_status.set_enabled()' 2>&1)" || { exit_code="$?" ; true; };
+error_msg="$(python3 -c 'from anon_connection_wizard import tor_status; tor_status.set_enabled()' 2>&1)" || { exit_code="$?" ; true; };
 
 if [ "$exit_code" != "0" ]; then
     TITLE="setup-dist - Error!"
     MSG="
-python3 -c 'from tor_control_panel import tor_status; tor_status.set_enabled()'
+python3 -c 'from anon_connection_wizard import tor_status; tor_status.set_enabled()'
 returned exit code $exit_code, which means failed to enable Tor.
 
 Error messages are as follows:
