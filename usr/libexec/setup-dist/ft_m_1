@@ -95,7 +95,7 @@ Error messages are as follows:
 $error_msg
 
 If some dependencies are missing (for example, cannot import name 'tor_status'):
-    sudo apt-get install tor-control-panel
+    sudo apt-get install anon-connection-wizard
 
 If there is something wrong with your Tor config, you can open /usr/local/etc/torrc.d/50_user.conf in the terminal:
     sudo nano /usr/local/etc/torrc.d/50_user.conf
