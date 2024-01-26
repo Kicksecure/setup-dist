@@ -40,6 +40,9 @@ run_disclaimer_maybe() {
       return 0
    fi
 
+   ## Disable disclaimer.
+   return 0
+
    exit_code="0"
    ft_disclaimer || { exit_code="$?" ; true; };
 
