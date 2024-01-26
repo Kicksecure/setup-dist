@@ -1,3 +1,15 @@
+commit 2e53d9ad8f377582cfaeec8acef0c5fa4a7dffe0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Jan 26 03:17:58 2024 -0500
+
+    disable disclaimer
+
+commit fa209af18faf5014c90a127a002d08aef98fc143
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Jan 18 14:11:14 2024 +0000
+
+    bumped changelog version
+
 commit bf30cc0ce601d70ed08c50fe8682395337f949a7
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Jan 18 08:55:04 2024 -0500
