@@ -45,7 +45,7 @@ maybe_start_systemcheck() {
       echo "INFO: Skipping starting $systemcheck_bin, because $systemcheck_bin_path is not executable."
       return 0
    fi
-   echo "INFO: Starting $systemcheck_bin..."
+   echo "INFO: Executing: $systemcheck_bin $gui_option_maybe"
 
    exit_code="0"
    if [ "$(id -u)" = "0" ]; then
