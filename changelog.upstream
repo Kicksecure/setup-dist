@@ -1,3 +1,15 @@
+commit 48a0f2369b449e63136665fe002d5308458c9d6f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Jul 28 17:30:24 2024 -0400
+
+    fix starting systemcheck from setup-wizard-dist
+
+commit 6750a1a4e787e8c1e1206f68cd5d68ab87ade1c8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Jan 26 11:58:41 2024 +0000
+
+    bumped changelog version
+
 commit 2e53d9ad8f377582cfaeec8acef0c5fa4a7dffe0
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Jan 26 03:17:58 2024 -0500
