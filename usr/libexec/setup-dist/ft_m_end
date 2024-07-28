@@ -49,10 +49,10 @@ maybe_start_systemcheck() {
    exit_code="0"
    if [ "$(id -u)" = "0" ]; then
       ## Running as root. Drop to user.
-      sudo -u "$SUDO_USER" "$systemcheck_bin" "$gui_option_maybe" || { exit_code="$?" ; true; };
+      sudo -u "$SUDO_USER" "$systemcheck_bin" $gui_option_maybe || { exit_code="$?" ; true; };
    else
       ## Running as user already.
-                           "$systemcheck_bin" "$gui_option_maybe "|| { exit_code="$?" ; true; };
+                           "$systemcheck_bin" $gui_option_maybe || { exit_code="$?" ; true; };
    fi
 
    echo "INFO: End of $systemcheck_bin. You can always start $systemcheck_bin again with:
