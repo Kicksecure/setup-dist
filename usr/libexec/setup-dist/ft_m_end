@@ -31,21 +31,21 @@ maybe_start_systemcheck() {
       gui_option_maybe="--gui --cli"
    else
       if ! tty --quiet ; then
-         echo "INFO: Skipping starting $systemcheck_bin, because started non-interactive."
-         echo "INFO: Runnning $systemcheck_bin recommended!"
+         echo "$0: INFO: Skipping starting $systemcheck_bin, because started non-interactive."
+         echo "$0: INFO: Runnning $systemcheck_bin recommended!"
          return 0
       fi
    fi
 
    if [ ! "$systemcheck_bin_command_v_exit_code" = "0" ]; then
-      echo "INFO: Skipping starting $systemcheck_bin, because $systemcheck_bin is unavailable."
+      echo "$0: INFO: Skipping starting $systemcheck_bin, because $systemcheck_bin is unavailable."
       return 0
    fi
    if [ ! -x "$systemcheck_bin_path" ]; then
-      echo "INFO: Skipping starting $systemcheck_bin, because $systemcheck_bin_path is not executable."
+      echo "$0: INFO: Skipping starting $systemcheck_bin, because $systemcheck_bin_path is not executable."
       return 0
    fi
-   echo "INFO: Executing: $systemcheck_bin $gui_option_maybe"
+   echo "$0: INFO: Executing: $systemcheck_bin $gui_option_maybe"
 
    exit_code="0"
    if [ "$(id -u)" = "0" ]; then
@@ -56,7 +56,7 @@ maybe_start_systemcheck() {
                            "$systemcheck_bin" $gui_option_maybe || { exit_code="$?" ; true; };
    fi
 
-   echo "INFO: End of $systemcheck_bin. You can always start $systemcheck_bin again with:
+   echo "$0: INFO: End of $systemcheck_bin. You can always start $systemcheck_bin again with:
     $systemcheck_bin"
 }
 
