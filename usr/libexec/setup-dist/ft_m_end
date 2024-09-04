@@ -60,7 +60,6 @@ maybe_start_systemcheck() {
     $systemcheck_bin"
 }
 
-## This is required, otherwise systemcheck would abort.
 sudo --non-interactive /usr/libexec/setup-dist/setup-dist-done
 
 maybe_start_systemcheck
