@@ -1,3 +1,17 @@
+commit e60975335c478a6ad48127a788f77c6f6fcb0bd3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Sep 4 09:41:24 2024 -0400
+
+    code simplification
+    
+    https://forums.whonix.org/t/connect-to-public-tor-network-by-default-avoid-anon-connection-wizard-acw-popup-at-first-boot/17848
+
+commit ff5865a7289800fb61c8bbc3805e8a1d8b12998d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Sep 4 13:38:51 2024 +0000
+
+    bumped changelog version
+
 commit d1b7ce67cd714480551a2b4334c8bb96d96cc505
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Sep 4 08:14:56 2024 -0400
