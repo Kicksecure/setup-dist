@@ -118,41 +118,6 @@ in use."
       exit 0
    fi
 
-   if [ -e "/usr/share/anon-gw-base-files/gateway" ]; then
-      ## Checking if Tor has been enabled.
-      ## And if Tor has not been enabled, auto start setup-dist (cli).
-      ## This function only gets called, if we are not booting into a graphical desktop environment.
-      ## Eventually auto starting whonix-setup-wizard (gui) in a graphical desktop environment is
-      ## implemented through /etc/xdg/autostart/whonix-setup-wizard.desktop.
-
-      source /usr/libexec/helper-scripts/tor_enabled_check
-
-      ## disable trap /usr/libexec/helper-scripts/tor_enabled_check may have enabled
-      trap "error_handler_setup" ERR
-
-      ## Check if Tor is enabled.
-      ## returns: TOR_ENABLED
-      check_tor_enabled_do
-
-      ## disable trap of check_tor_enabled_do
-      trap "error_handler_setup" ERR
-
-      if [ "$TOR_ENABLED" = "0" ]; then
-         ## Look and feel.
-         sleep 5 &
-         wait "$!" || true
-
-         echo "[${green}INFO${reset}] [setup-dist] Tor has not been enabled yet. Starting setup-dist..."
-
-         ## Sleep just for the look and feel, so the following message comes after, so the previous
-         ## message can be read.
-         sleep 5 &
-         wait "$!" || true
-
-         start_setup_dist_cli_and_exit
-      fi
-   fi
-
    ## Now, the script is either:
    ## - Running on Whonix-Gateway, where Tor has been previously already
    ##   enabled (custom builds or derivatives).
