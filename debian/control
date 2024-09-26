@@ -14,7 +14,7 @@ Rules-Requires-Root: no
 
 Package: setup-dist
 Architecture: all
-Depends: helper-scripts, dialog, sudo, menu, ${misc:Depends}
+Depends: helper-scripts, dialog, sudo, menu, python3, ${misc:Depends}
 Provides: whonixsetup
 Replaces: whonixsetup
 Conflicts: whonixsetup
