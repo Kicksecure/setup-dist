@@ -1,3 +1,15 @@
+commit d1631352cc9ceca3876ec2e737bbbebf29a633a3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Sep 26 09:35:28 2024 -0400
+
+    add missing dependency
+
+commit 0425dfafe1921c9fbd95f12241b5ee4a513b44c4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Sep 26 12:08:45 2024 +0000
+
+    bumped changelog version
+
 commit 3c48e4252b57fed6e5ffcb9b306c7bd23bf4aeb3
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Sep 26 08:02:20 2024 -0400
