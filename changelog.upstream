@@ -1,3 +1,33 @@
+commit 3c48e4252b57fed6e5ffcb9b306c7bd23bf4aeb3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Sep 26 08:02:20 2024 -0400
+
+    output
+
+commit 79eb04236b00d0d5394770e51b5f73d0ea665c80
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Sep 26 08:00:13 2024 -0400
+
+    refactoring
+
+commit 587907b0ff7670eff3716f52b4b297e0baf10e86
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Sep 26 07:58:55 2024 -0400
+
+    show error message legal notice instead of poweroff if disclaimer is rejected
+
+commit c053a199b22dfdeac9217a55962f64a720e43b4d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Sep 26 07:56:32 2024 -0400
+
+    run setup-dist as non-root (user)
+
+commit 420cc12627237acd722fe70891f5cce2ff342c04
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Sep 4 13:49:36 2024 +0000
+
+    bumped changelog version
+
 commit e60975335c478a6ad48127a788f77c6f6fcb0bd3
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Sep 4 09:41:24 2024 -0400
