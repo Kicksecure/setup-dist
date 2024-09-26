@@ -6,7 +6,7 @@
 source "/usr/libexec/setup-dist/shared"
 
 MSG="
-You can always enter setup-dist again, by starting: sudo setup-dist
+You can always enter setup-dist again, by starting: setup-dist
 "
 
 TITLE="setup-dist - Cancel."

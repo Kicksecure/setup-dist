@@ -33,7 +33,7 @@ Press enter to close this message, then cancel the connection wizard by using Ca
 
 You can open /usr/local/etc/torrc.d/50_user.conf in the terminal:
 
-    sudo nano /usr/local/etc/torrc.d/50_user.conf
+    sudoedit /usr/local/etc/torrc.d/50_user.conf
 
 Or, if you are using a graphical Whonix-Gateway:
 

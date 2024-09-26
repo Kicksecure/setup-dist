@@ -21,7 +21,7 @@ Configure Whonix to Use a Bridge
 Press Enter to close this message, then select Exit. You must manually find and add the bridges to /usr/local/etc/torrc.d/50_user.conf.
 
 You can open /usr/local/etc/torrc.d/50_user.conf in the terminal:
-    sudo nano /usr/local/etc/torrc.d/50_user.conf
+    sudoedit /usr/local/etc/torrc.d/50_user.conf
 
 Or, if you are using a graphical Whonix-Gateway:
     Start Menu -> System -> Tor User Config

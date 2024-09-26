@@ -79,12 +79,6 @@ colors() {
 } 2>/dev/null ||:
 }
 
-start_setup_dist_cli_and_exit() {
-   ## This has a sudoers exception in /etc/sudoers.d/setup-dist.
-   sudo --non-interactive setup-dist
-   exit 0
-}
-
 maybe_start_setup() {
    if [ -e "/run/rads/start_x.status" ]; then
       true "[${green}INFO${reset}] [setup-dist] Not starting setup-dist in \
@@ -148,7 +142,7 @@ in use."
    sleep 5 &
    wait "$!" || true
 
-   start_setup_dist_cli_and_exit
+   setup-dist
 }
 
 colors

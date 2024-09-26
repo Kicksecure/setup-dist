@@ -13,7 +13,7 @@ Tunnel Tor through proxy
 
 On Whonix-Gateway:
 
-   sudo nano /usr/local/etc/torrc.d/50_user.conf
+   sudoedit /usr/local/etc/torrc.d/50_user.conf
 
 Or, if you are using a graphical Whonix-Gateway.
 

@@ -1,9 +1,5 @@
 ## Copyright (C) 2012 - 2023 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
-## setup-dist edits Tor config, therefore needs root.
-## Feel free to disable it.
-%sudo ALL=NOPASSWD: /usr/sbin/setup-dist
-
 ## Internally used by setup-dist.
 %sudo ALL=NOPASSWD: /usr/libexec/setup-dist/setup-dist-done

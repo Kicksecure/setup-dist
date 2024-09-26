@@ -1,0 +1,8 @@
+#!/usr/bin/python3 -u
+
+## Copyright (C) 2024 - 2024 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+from anon_connection_wizard import tor_status
+
+tor_status.set_enabled()

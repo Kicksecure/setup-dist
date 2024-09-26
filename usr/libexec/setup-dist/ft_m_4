@@ -13,7 +13,7 @@ You must manually edit /usr/local/etc/torrc.d/50_user.conf for Tor to navigate t
 Press Enter to close this message, then select Exit.
 
 You can open /usr/local/etc/torrc.d/50_user.conf in the terminal:
-    sudo nano /usr/local/etc/torrc.d/50_user.conf
+    sudoedit /usr/local/etc/torrc.d/50_user.conf
 
 Or on the desktop:
     Start Menu -> System -> Tor User Config

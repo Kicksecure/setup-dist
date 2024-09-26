@@ -23,8 +23,8 @@ trap "error_handler" ERR
 source "/usr/libexec/setup-dist/shared"
 
 ## root check
-if [ "$(id -u)" != "0" ]; then
-    echo "ERROR: This must be run as root (sudo)!"
+if [ "$(id -u)" = "0" ]; then
+    echo "ERROR: This must NOT be run as root (sudo)!"
     exit 1
 fi
 
@@ -67,8 +67,7 @@ fi
 ## 2. set final value of DisableNetwork in the file to 1
 ## 3. stop Tor using systemd
 
-/usr/libexec/helper-scripts/repair-torrc
-python3 -c 'from tor_control_panel import tor_status; tor_status.set_disabled()' >/dev/null 2>&1  || { exit_code="$?" ; true; };
+/usr/libexec/setup-dist/setup-dist-disable-tor >/dev/null 2>&1  || { exit_code="$?" ; true; };
 
 if [ "$exit_code" = "0" ]; then
    true "INFO: Ok, exit 1, so setup-dist will end."

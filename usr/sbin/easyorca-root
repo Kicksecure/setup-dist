@@ -22,10 +22,10 @@
 
 set -x
 
-if [ "$(id -u)" != "0" ]; then
-    echo "ERROR: This must be run as root (sudo)!"
+if [ "$(id -u)" = "0" ]; then
+    echo "ERROR: This must NOT be run as root (sudo)!"
     echo "INFO: You can start $0 by entering..."
-    echo "      sudo $0"
+    echo "      $0"
     exit 1
 fi
 

@@ -30,7 +30,8 @@ set -x
 ## `sudo easyorca-root` instead.
 #### meta end
 
-amixer set Master 50%
+## TODO: amixer is no longer installed by default. Is this still required with PipeWire?
+#amixer set Master 50%
 
 orca --replace & disown
 

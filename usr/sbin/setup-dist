@@ -47,7 +47,7 @@ run_disclaimer_maybe() {
    ft_disclaimer || { exit_code="$?" ; true; };
 
    if [ ! "$exit_code" = "0" ]; then
-      echo "You can always enter setup-dist again, by starting: sudo setup-dist"
+      echo "You can always enter setup-dist again, by starting: setup-dist"
       exit 0
    fi
 
@@ -91,14 +91,14 @@ setup_dist_repository_dist() {
 
 setup_dist_end_success() {
    setup_dist_repository_dist
-   echo "You can always enter setup-dist again, by starting: sudo setup-dist"
+   echo "You can always enter setup-dist again, by starting: setup-dist"
    exit 0
 }
 
-if [ "$(id -u)" != "0" ]; then
-    echo "ERROR: This must be run as root (sudo)!"
+if [ "$(id -u)" = "0" ]; then
+    echo "ERROR: This must NOT be run as root (sudo)!"
     echo "INFO: You can start $SCRIPTNAME by entering..."
-    echo "      sudo $SCRIPTNAME"
+    echo "      $SCRIPTNAME"
     exit 1
 fi
 

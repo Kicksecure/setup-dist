@@ -34,7 +34,7 @@ Maybe your Whonix-Gateway has only one network card attached? Most likely there
 is something wrong with your Tor config.
 
 You can open /usr/local/etc/torrc.d/50_user.conf in the terminal:
-    sudo nano /usr/local/etc/torrc.d/50_user.conf
+    sudoedit nano /usr/local/etc/torrc.d/50_user.conf
 
 Or, if you are using a graphical Whonix-Gateway:
     Start Menu -> Applications -> Tor Config File
@@ -52,8 +52,8 @@ might help with troubleshooting.
 }
 
 ## root check
-if [ "$(id -u)" != "0" ]; then
-    echo "ERROR: This must be run as root (sudo)!"
+if [ "$(id -u)" = "0" ]; then
+    echo "ERROR: This must NOT be run as root (sudo)!"
     exit 1
 fi
 
@@ -82,13 +82,12 @@ fi
 ## 2. set final value of DisableNetwork in the file to 0
 ## 3. restart Tor using systemd
 
-/usr/libexec/helper-scripts/repair-torrc
-error_msg="$(python3 -c 'from anon_connection_wizard import tor_status; tor_status.set_enabled()' 2>&1)" || { exit_code="$?" ; true; };
+error_msg="$(/usr/libexec/setup-dist/setup-dist-enable-tor 2>&1)" || { exit_code="$?" ; true; };
 
 if [ "$exit_code" != "0" ]; then
     TITLE="setup-dist - Error!"
     MSG="
-python3 -c 'from anon_connection_wizard import tor_status; tor_status.set_enabled()'
+/usr/libexec/setup-dist/setup-dist-enable-tor
 returned exit code $exit_code, which means failed to enable Tor.
 
 Error messages are as follows:
@@ -98,7 +97,7 @@ If some dependencies are missing (for example, cannot import name 'tor_status'):
     sudo apt-get install anon-connection-wizard
 
 If there is something wrong with your Tor config, you can open /usr/local/etc/torrc.d/50_user.conf in the terminal:
-    sudo nano /usr/local/etc/torrc.d/50_user.conf
+    sudoedit /usr/local/etc/torrc.d/50_user.conf
 
 Or, if you are using a graphical Whonix-Gateway:
     Start Menu -> System -> Tor User Config
