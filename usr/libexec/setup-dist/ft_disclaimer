@@ -5,6 +5,11 @@
 
 source "/usr/libexec/setup-dist/shared"
 
+rejected_legal() {
+   echo "Because the agreements have been declined, you are prohibited from using this software." >&2
+   exit 1
+}
+
 TITLE="Important Information About This Operating System (OS) Part 1/2 (setup-dist)"
 
 MSG="
@@ -51,8 +56,7 @@ dialog_wrapper --title "$TITLE" --defaultno --yes-label "Understood / Verstanden
 ret="$?"
 
 if [ "$ret" = "1" ]; then
-   echo "Because the agreements have been declined, you are prohibited from using this software." >&2
-   exit 1
+   rejected_legal
 fi
 
 TITLE="Important Information About This Operating System Part 2/2 (setup-dist)"
@@ -107,6 +111,5 @@ dialog_wrapper --title "$TITLE" --defaultno --yes-label "Understood / Verstanden
 ret="$?"
 
 if [ "$ret" = "1" ]; then
-   echo "Because the agreements have been declined, you are prohibited from using this software." >&2
-   exit 1
+   rejected_legal
 fi
