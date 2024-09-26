@@ -51,11 +51,8 @@ dialog_wrapper --title "$TITLE" --defaultno --yes-label "Understood / Verstanden
 ret="$?"
 
 if [ "$ret" = "1" ]; then
-   /sbin/poweroff
-   ## Endless loop.
-   while true; do
-      sleep 1
-   done
+   echo "Because the agreements have been declined, you are prohibited from using this software." >&2
+   exit 1
 fi
 
 TITLE="Important Information About This Operating System Part 2/2 (setup-dist)"
@@ -110,9 +107,6 @@ dialog_wrapper --title "$TITLE" --defaultno --yes-label "Understood / Verstanden
 ret="$?"
 
 if [ "$ret" = "1" ]; then
-   /sbin/poweroff
-   ## Endless loop.
-   while true; do
-      sleep 1
-   done
+   echo "Because the agreements have been declined, you are prohibited from using this software." >&2
+   exit 1
 fi
