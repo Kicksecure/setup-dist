@@ -54,7 +54,8 @@ maybe_start_systemcheck() {
     $systemcheck_bin"
 }
 
-sudo --non-interactive /usr/libexec/setup-dist/setup-dist-done
+#sudo --non-interactive /usr/libexec/setup-dist/setup-dist-done
+leaprun setup-dist-done
 
 maybe_start_systemcheck
 

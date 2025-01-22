@@ -2,3 +2,4 @@
 ## See the file COPYING for copying conditions.
 
 rm_conffile /etc/sudoers.d/whonixsetup
+rm_conffile /etc/sudoers.d/setup-dist
