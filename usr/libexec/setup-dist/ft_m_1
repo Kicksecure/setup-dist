@@ -82,12 +82,12 @@ fi
 ## 2. set final value of DisableNetwork in the file to 0
 ## 3. restart Tor using systemd
 
-error_msg="$(/usr/libexec/setup-dist/setup-dist-enable-tor 2>&1)" || { exit_code="$?" ; true; };
+error_msg="$(privleap setup-dist-enable-tor 2>&1)" || { exit_code="$?" ; true; };
 
 if [ "$exit_code" != "0" ]; then
     TITLE="setup-dist - Error!"
     MSG="
-/usr/libexec/setup-dist/setup-dist-enable-tor
+privleap setup-dist-enable-tor
 returned exit code $exit_code, which means failed to enable Tor.
 
 Error messages are as follows:
