@@ -67,7 +67,7 @@ fi
 ## 2. set final value of DisableNetwork in the file to 1
 ## 3. stop Tor using systemd
 
-privleap setup-dist-disable-tor >/dev/null 2>&1  || { exit_code="$?" ; true; };
+leaprun setup-dist-disable-tor >/dev/null 2>&1  || { exit_code="$?" ; true; };
 
 if [ "$exit_code" = "0" ]; then
    true "INFO: Ok, exit 1, so setup-dist will end."
