@@ -1,3 +1,15 @@
+commit cb681aea6a1a83cd57ff3851d00c5f82d7b1c8d1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Feb 6 15:38:06 2025 -0500
+
+    port setup-dist enable/disable Tor to privleap
+
+commit 0ffb1377fe9113ac2a81d5b0a795b28da124b1c9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Feb 6 16:22:18 2025 +0000
+
+    bumped changelog version
+
 commit 92764ac196a4303521bf33b3489a5ac4509f1f73
 Merge: f85fa61 dd3b837
 Author: Patrick Schleizer <adrelanos@whonix.org>
