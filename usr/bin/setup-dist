@@ -89,6 +89,12 @@ setup_dist_repository_dist() {
 
 }
 
+check_passwords() {
+   if grep -q -- 'Absent' < <(leaprun get-password-status-list); then
+      printf '%b\n' "[${yellow}WARNING${nocolor}] Some user accounts on this system are passwordless. Run 'systemcheck' for more information."
+   fi
+}
+
 setup_dist_end_success() {
    setup_dist_repository_dist
    echo "You can always enter setup-dist again, by starting: setup-dist"
@@ -103,6 +109,7 @@ if [ "$(id -u)" = "0" ]; then
 fi
 
 source "/usr/libexec/setup-dist/shared"
+source "/usr/libexec/helper-scripts/get_colors.sh"
 
 ## sanity tests
 ## >/dev/null hides stdout, but not stderr,
@@ -172,4 +179,5 @@ elif [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
 
 fi
 
+check_passwords
 setup_dist_end_success
