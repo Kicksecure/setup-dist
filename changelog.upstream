@@ -1,3 +1,28 @@
+commit fb356c8c04caa906e519dd68ef30ff1e8f4515c1
+Merge: d1e4f3f 0a60aad
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Mar 15 06:41:17 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/autologin'
+
+commit 0a60aad3b564b116715f00b5a1ec5ad3d5847c4c
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Mar 11 01:12:06 2025 -0500
+
+    use grep end-of-options
+
+commit 9b679bd128823a7c1efe8252d58c966dbaa2d433
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Thu Mar 6 21:36:44 2025 -0600
+
+    Add warning about passwordless users
+
+commit d1e4f3fadb9cb01c9eba58d584184646b9bac95c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Feb 21 09:56:25 2025 +0000
+
+    bumped changelog version
+
 commit 0d1ceb8319326614ee734c8a084795cc30555356
 Merge: 2575509 0e2bed3
 Author: Patrick Schleizer <adrelanos@whonix.org>
