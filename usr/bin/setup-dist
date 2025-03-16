@@ -91,7 +91,7 @@ setup_dist_repository_dist() {
 
 check_passwords() {
    if grep -q -- 'Absent' < <(leaprun get-password-status-list); then
-      printf '%b\n' "[${yellow}WARNING${nocolor}] Some user accounts on this system are passwordless. Run 'systemcheck' for more information."
+      printf '%b\n' "[${yellow}NOTICE${nocolor}] Some user accounts on this system are passwordless. Run 'systemcheck' for more information."
    fi
 }
 
