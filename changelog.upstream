@@ -1,3 +1,27 @@
+commit 3344b67c57be1509c5550cd503f7fcc4b4308589
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Mar 16 07:24:44 2025 -0400
+
+    use `grep` with `--ignore-case` on output of `leaprun get-password-status-list`
+
+commit 5f1cb5804657f93350e57fafb483e9d5376e9dd3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Mar 16 07:23:07 2025 -0400
+
+    improved error handling
+
+commit 49870b91a71bb77615443728493f3c66520d62a8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Mar 16 07:20:10 2025 -0400
+
+    output
+
+commit 6217ae67da4fcd76d5456f5a5662f4e215261ad4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Mar 15 10:52:23 2025 +0000
+
+    bumped changelog version
+
 commit fb356c8c04caa906e519dd68ef30ff1e8f4515c1
 Merge: d1e4f3f 0a60aad
 Author: Patrick Schleizer <adrelanos@whonix.org>
