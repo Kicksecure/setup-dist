@@ -80,15 +80,15 @@ colors() {
 }
 
 maybe_start_setup() {
-   if [ -e "/run/rads/start_x.status" ]; then
+   if [ -e "/run/rads/start_dm.status" ]; then
       true "[${green}INFO${reset}] [setup-dist] Not starting setup-dist in \
 terminal, because rads reports, that X is going to be started. (Autostarting \
 setup-dist in X is handled by: \
 /etc/xdg/autostart/setup-wizard-dist.desktop )"
       exit 0
-   elif [ -e "/run/rads/no_start_x.status" ]; then
+   elif [ -e "/run/rads/no_start_dm.status" ]; then
       true "[${green}INFO${reset}] [setup-dist] rads appears to be \
-installed. /run/rads/no_start_x.status exists."
+installed. /run/rads/no_start_dm.status exists."
    else
       true "[${green}INFO${reset}] [setup-dist] rads appears not to be \
 in use."
