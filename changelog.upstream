@@ -1,3 +1,27 @@
+commit 0b3682772996f01318fdb93a4ca7ab65a4312082
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 26 05:17:03 2025 -0400
+
+    re-generate man pages (generated using "genmkfile manpages")
+
+commit ad633b99dc6ff91c88277b127232d5f1e733c7be
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 20 06:57:29 2025 -0400
+
+    bumped Standards-Version
+
+commit 2eb1c36b8ba9bf877c4372f8c2f853183722aeb6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 20 06:25:36 2025 -0400
+
+    readme
+
+commit d8570a2d5955d286f90de53b2337e62f009c9f5d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 11 19:16:08 2025 +0000
+
+    bumped changelog version
+
 commit a722a40238b70fb0562d56510a4b4b8b200a860d
 Merge: fa9c7e1 53a32f0
 Author: Patrick Schleizer <adrelanos@whonix.org>
