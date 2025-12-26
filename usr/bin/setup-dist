@@ -55,40 +55,6 @@ run_disclaimer_maybe() {
    touch "/var/cache/setup-dist/status-files/disclaimer.done"
 }
 
-setup_dist_repository_dist() {
-   ## /usr/libexec/setup-dist/setup-dist_cli_start_maybe will not start systemcheck, if done
-   ## file exists. So we won't needlessly always start the repository-dist tool.
-
-   if [ -f "/var/cache/setup-dist/status-files/repository-dist.done" ]; then
-      return 0
-   fi
-   if [ -f "/usr/share/setup-dist/status-files/repository-dist.skip" ]; then
-      return 0
-   fi
-
-   if [ -f "/var/cache/whonix-setup-wizard/status-files/whonix_repository.done" ]; then
-      return 0
-   fi
-   if [ -f "/usr/share/whonix-setup-wizard/status-files/whonix_repository.skip" ]; then
-      return 0
-   fi
-   ## Legacy up to Whonix 9.x.
-   if [ -f "/var/lib/whonix/do_once/whonixsetup.done" ]; then
-      return 0
-   fi
-   if [ -x "$(command -v repository-dist)" ]; then
-      echo "Consider running the Derivative Repository Tool!"
-      echo "Otherwise you will not be receiving upgrades from the derivative team!"
-      echo "For example:"
-      echo "repository-dist --enable --repository stable"
-      mkdir --parents "/var/cache/setup-dist/status-files"
-      touch "/var/cache/setup-dist/status-files/repository-dist.done"
-   else
-      echo "Not starting Derivative Repository Tool, because not installed. Skipping."
-   fi
-
-}
-
 check_passwords() {
    local output
    output="$(leaprun get-password-status-list)"
@@ -97,10 +63,15 @@ check_passwords() {
    fi
 }
 
-setup_dist_end_success() {
-   setup_dist_repository_dist
-   echo "You can always enter setup-dist again, by starting: setup-dist"
-   exit 0
+start_systemcheck() {
+   TITLE="setup-dist - Success!"
+   MSG="
+Press Enter to run systemcheck and exit.
+"
+   dialog_wrapper --title "$TITLE" --msgbox "$MSG" 640 480
+   ## Start systemcheck.
+   exit_code="0"
+   ft_m_end || { exit_code="$?" ; true; };
 }
 
 if [ "$(id -u)" = "0" ]; then
@@ -113,73 +84,15 @@ fi
 source "/usr/libexec/setup-dist/shared"
 source "/usr/libexec/helper-scripts/get_colors.sh"
 
-## sanity tests
-## >/dev/null hides stdout, but not stderr,
-## i.e. there will be no results from command -v,
-## except if there was an error.
-command -v ft_disclaimer >/dev/null
-command -v ft_main >/dev/null
-command -v ft_m_0 >/dev/null
-command -v ft_m_1 >/dev/null
-command -v ft_m_2 >/dev/null
-command -v ft_m_3 >/dev/null
-command -v ft_m_4 >/dev/null
-command -v ft_m_5 >/dev/null
-command -v ft_m_6 >/dev/null
-command -v ft_m_7 >/dev/null
-command -v ft_m_8 >/dev/null
-command -v ft_m_end >/dev/null
-
 command -v dialog >/dev/null
 command -v dialog_wrapper >/dev/null
 command -v systemctl >/dev/null
 
-if [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
-   if [ ! -f "/etc/tor/torrc" ]; then
-      error "/etc/tor/torrc does not exist. Please report this bug!"
-      exit 1
-   fi
-fi
-
 run_disclaimer_maybe
-
-## Start systemcheck on Whonix-Workstation here.
-## (On Whonix-Gateway ft_m_1 will start it.)
-if [ -f "/usr/share/anon-ws-base-files/workstation" ]; then
-   TITLE="setup-dist - Success!"
-
-   MSG="
-Press Enter to run systemcheck and exit.
-"
-
-   dialog_wrapper --title "$TITLE" --msgbox "$MSG" 640 480
-
-   ## Start systemcheck.
-   exit_code="0"
-   ft_m_end || { exit_code="$?" ; true; };
-
-elif [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
-
-   ## Start Anon Connection Wizard.
-   while true; do
-      exit_code="0"
-      ft_main "$@" || { exit_code="$?" ; true; };
-
-      ## if the cancel button gets pressed, exit_code will be 0
-
-      exit_code_ft_m_x="0"
-      "ft_m_$exit_code" || { exit_code_ft_m_x="$?" ; true; };
-
-      if [ ! "$exit_code_ft_m_x" = "0" ]; then
-         break
-      fi
-      if ! tty --quiet ; then
-         ## Break loop in case running non-interactive (without stdin).
-         break
-      fi
-   done
-
-fi
-
 check_passwords
-setup_dist_end_success
+
+if [ -f "/usr/share/anon-ws-base-files/workstation" ]; then
+   start_systemcheck
+elif [ -f "/usr/share/anon-gw-base-files/gateway" ]; then
+   start_systemcheck
+fi

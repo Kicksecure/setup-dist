@@ -6,7 +6,9 @@
 source "/usr/libexec/setup-dist/shared"
 
 rejected_legal() {
-   dialog_wrapper --title "setup-dist - ERROR!" --msgbox 'Because the agreements have been declined, you are prohibited from using this software.' 640 480
+   MSG="
+Because the agreements have been declined, you are prohibited from using this software."
+   dialog_wrapper --title "setup-dist - ERROR!" --msgbox "$MSG" 640 480
    exit 1
 }
 
