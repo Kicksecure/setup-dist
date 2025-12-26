@@ -86,7 +86,6 @@ source "/usr/libexec/helper-scripts/get_colors.sh"
 
 command -v dialog >/dev/null
 command -v dialog_wrapper >/dev/null
-command -v systemctl >/dev/null
 
 run_disclaimer_maybe
 check_passwords
