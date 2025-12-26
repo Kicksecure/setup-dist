@@ -1,3 +1,23 @@
+commit a2d6eea0726f7cd00ba92b9ecdfe826fde2d1560
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Dec 26 07:32:21 2025 -0500
+
+    cleanup
+
+commit c69d056895a3b280a08d9d6e9b0e7e9b3d9d2b47
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Dec 26 07:30:29 2025 -0500
+
+    remove Tor enable/disable TUI (terminal user interface) feature
+    
+    https://forums.whonix.org/t/whonix-18-cli-setup-dist-fails-due-to-missing-anon-connection-wizard/22607
+
+commit ef8c787cdeef298d1ef71d20831e9742f38bfa29
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 19 16:19:35 2025 +0000
+
+    bumped changelog version
+
 commit 0e8ba55c5173a6d2feb97fe72b5eaf828fc4d08e
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Sep 18 10:08:14 2025 -0400
