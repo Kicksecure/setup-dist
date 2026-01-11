@@ -32,7 +32,7 @@ maybe_start_systemcheck() {
    else
       if ! tty --quiet ; then
          echo "$0: INFO: Skipping starting $systemcheck_bin, because started non-interactive."
-         echo "$0: INFO: Runnning $systemcheck_bin recommended!"
+         echo "$0: INFO: Running $systemcheck_bin recommended!"
          return 0
       fi
    fi
